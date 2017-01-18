@@ -1,0 +1,807 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="前端," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="MARKSZのBlog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="起源会研究起setTimeout()这个方法，还是来源于一次开发要求。这次开发的需求是要求让一些动作/动画依次延时执行，简单来说，比如让页面滚动到底部停留2秒滚回顶部，然后停留2秒点击某个按钮触发某个选项的弹出层，然后停留两秒，进入下一个页面。看起来不就是多设几个setTimeout不就行了？">
+<meta property="og:type" content="article">
+<meta property="og:title" content="setTimeout()引发的一些思考 | 循环延时和作用域、闭包">
+<meta property="og:url" content="/something-about-settimeout/index.html">
+<meta property="og:site_name" content="MARKSZのBlog">
+<meta property="og:description" content="起源会研究起setTimeout()这个方法，还是来源于一次开发要求。这次开发的需求是要求让一些动作/动画依次延时执行，简单来说，比如让页面滚动到底部停留2秒滚回顶部，然后停留2秒点击某个按钮触发某个选项的弹出层，然后停留两秒，进入下一个页面。看起来不就是多设几个setTimeout不就行了？">
+<meta property="og:updated_time" content="2016-03-27T08:22:18.154Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="setTimeout()引发的一些思考 | 循环延时和作用域、闭包">
+<meta name="twitter:description" content="起源会研究起setTimeout()这个方法，还是来源于一次开发要求。这次开发的需求是要求让一些动作/动画依次延时执行，简单来说，比如让页面滚动到底部停留2秒滚回顶部，然后停留2秒点击某个按钮触发某个选项的弹出层，然后停留两秒，进入下一个页面。看起来不就是多设几个setTimeout不就行了？">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '6215405113033360000',
+      author: '皮蛋'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="/something-about-settimeout/"/>
+
+
+
+
+
+  <title> setTimeout()引发的一些思考 | 循环延时和作用域、闭包 | MARKSZのBlog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?19a7ebdbb87f2403773c7ab0cae16d21";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">MARKSZのBlog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle">Do what you love,Love what you do</p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="/something-about-settimeout/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Molunerfinn">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://o6rgm5iqh.bkt.clouddn.com/21.jpg?imageslim">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="MARKSZのBlog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="MARKSZのBlog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                setTimeout()引发的一些思考 | 循环延时和作用域、闭包
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Дата создания записи" itemprop="dateCreated datePublished" datetime="2016-03-27T22:37:00+08:00">
+                2016-03-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web/" itemprop="url" rel="index">
+                    <span itemprop="name">Web</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web/开发/" itemprop="url" rel="index">
+                    <span itemprop="name">开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/something-about-settimeout/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="something-about-settimeout/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="起源">起源</h2><p>会研究起setTimeout()这个方法，还是来源于一次开发要求。这次开发的需求是要求让一些动作/动画依次延时执行，简单来说，比如让页面滚动到底部停留2秒滚回顶部，然后停留2秒点击某个按钮触发某个选项的弹出层，然后停留两秒，进入下一个页面。<br>看起来不就是多设几个setTimeout不就行了？  </p>
+<a id="more"></a>
+<p>诶，这也是我一开始觉得简单的原因，我觉得不过是延时嘛，然后延时之后执行一下动作/动画就好了。</p>
+<p>关键点来了。需求中有一点比较重要：给多个页面写一套通用的方案，用于展示页面。先滚动到页面底部，后滚动到目的地点，点击按钮-&gt;，然后跳转下一个页面。由于事先不知道每个页面需要的按钮数目是多少，就必须得定义一个JSON数组存放动作。然后前端用for循环来读取这个动作列表，进而执行动画。</p>
+<h2 id="问题">问题</h2><p>我们假设一下这个动作的JSON数组列表是<code>performance:[...]</code>，每个页面的<code>performance</code>的长度不一样。一开始我简单写了个循环。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; performance.length; i++)&#123;</span><br><span class="line">  <span class="keyword">var</span> target = performance[i].target,</span><br><span class="line">      action = performance[i].action;</span><br><span class="line">  setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    $(target).trigger(action)</span><br><span class="line">  &#125;,<span class="number">1000</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>你猜猜这会发生什么？反正绝对不是我们字面上所想要表达出来的意思。<br>实际上，假如总共有n个动作需要执行的话，那么上面那串代码只会执行最后一个动作。也许你会觉得很奇怪，为什么不应该是在每个循环体内延时1秒执行动作然后再进行下一个动作呢？  </p>
+<h2 id="分析">分析</h2><p>要解决这个问题，首先我们必须明确几个概念：</p>
+<ul>
+<li>JavaScript是单线程的</li>
+<li>浏览器不是单线程的</li>
+<li>同步和异步的区别</li>
+</ul>
+<p>首先，JS是单线程的。它需要执行的任务是需要排队执行的。也就是，如果所有的任务都是以同步的情况下书写的，在主线程里，就会出现在某个任务耗时很长的情况下，它的下一个任务就迟迟无法执行。然而异步的概念是，将某些耗时的任务暂时先挂起-&gt;<code>任务队列</code>，主线程得以快速执行任务。直到<br>主线程空了以后，就会去任务队列里找第一个事件来执行。浏览器不是单线程的，这点很好理解。你用浏览器肯定会打开多个窗口，如果只有单线程的话，那就无法做到多窗口同时浏览啦；浏览器除了有执行js代码的一条线程，还有渲染网页效果的线程等。OK，简单明确一下这几个概念之后，我们就开始回到上面那个问题中去。  </p>
+<p>上面那个问题中，<code>setTimeout(function(),*)</code>里面的那个function实际上是异步回调的函数了。这么理解比较容易，由于setTimeout()这个方法会让function()里的代码延时*s执行，那么实际上它就被挂起到<code>任务队列</code>中了。for循环体内setTimeout内的function将会在1s后执行。为了方便，我们将n设成10。而让i从0跑到10，花费1s都不需要，所以等setTimeout()的时间到时之后，for循环中的i已经跑到9了。而setTimeout的function这才被执行。也就是：</p>
+<ul>
+<li>for先循环10次-&gt;直到setTimeout的时间结束</li>
+<li>setTimeout内的function执行</li>
+</ul>
+<p>既然这样，为什么只执行了最后一个动作n次呢？  </p>
+<h3 id="作用域和闭包在此的简单描述">作用域和闭包在此的简单描述</h3><p>这里我们需要了解一下作用域和闭包。为什么只执行了最后一次动作，是因为function里<code>performance[i].target</code>的这个i并没有保留每次循环时候的i而是留下了循环到最后一次的i。之所以没有把i留在function内部，是因为我们没有将每个i作为一个参数传入留在function内部。因此<code>console.log(i)</code>实际上是引用着外部作用域的i-&gt;而i因为循环地迅速，早已自加到了9。所以只能执行起最后一个动作了。为了让i能够留在function内部存下来，我们需要构造一个闭包。  </p>
+<p>仔细看看下面的代码跟上面的代码的区别：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; performance.length; i++)&#123;</span><br><span class="line">  (<span class="function"><span class="keyword">function</span>(<span class="params">i</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> target = performance[i].target,</span><br><span class="line">        action = performance[i].action;</span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      $(target).trigger(action)</span><br><span class="line">    &#125;,<span class="number">1000</span>);</span><br><span class="line">  &#125;)(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在这里，我们引入了一个匿名函数，这个函数需要一个参数传入，也就是i。通过传入的这个参数，我们将i成功传入function内部作用域保存了起来。然而这样做还是有个问题：那就是，所有的动作都在同一个时刻触发了。也就是延迟1s之后同时触发了所有的动作。这又是为什么？</p>
+<h2 id="解决">解决</h2><p>分析中有个地方不知道有没有说清楚，那就是：</p>
+<ul>
+<li>for先循环10次-&gt;直到setTimeout的时间结束</li>
+<li>setTimeout内的function执行</li>
+</ul>
+<p>这块地方的东西实际上是这样的。直到setTimeout结束实际上是指第一个setTimeout结束后，开始触发内部function。然而所有的setTimeout都是在1s后触发，那就会出现同时触发的情况。为了解决这个问题，我们需要手动进行延时计算。其实也很简单，由于这里我们是希望每个动作都是在上一个动作延时1秒后发生。那么就可以这样：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; performance.length; i++)&#123;</span><br><span class="line">  (<span class="function"><span class="keyword">function</span>(<span class="params">i</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> target = performance[i].target,</span><br><span class="line">        action = performance[i].action;</span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      $(target).trigger(action)</span><br><span class="line">    &#125;,<span class="number">1000</span>*i);</span><br><span class="line">  &#125;)(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样的话就能解决动作\动画延时循环的问题了。</p>
+<p>实际上，还可以采用promise的方法，下一次我会将promise带入这个话题，在循环中进行更精确的延时操作。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端/" rel="tag"># 前端</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/nodejs-1/" rel="next" title="Nodejs学习日志（一）——cheerio爬虫">
+                <i class="fa fa-chevron-left"></i> Nodejs学习日志（一）——cheerio爬虫
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/nodejs-2/" rel="prev" title="Nodejs学习日志（二）——Express+jade+stylus+mongodb搭建简单应用（上）">
+                Nodejs学习日志（二）——Express+jade+stylus+mongodb搭建简单应用（上） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="something-about-settimeout/"
+           data-title="setTimeout()引发的一些思考 | 循环延时和作用域、闭包" data-url="/something-about-settimeout/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://o6rgm5iqh.bkt.clouddn.com/21.jpg?imageslim"
+               alt="Molunerfinn" />
+          <p class="site-author-name" itemprop="name">Molunerfinn</p>
+          <p class="site-description motion-element" itemprop="description">For MElody</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">43</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Molunerfinn" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#起源"><span class="nav-number">1.</span> <span class="nav-text">起源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-number">2.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分析"><span class="nav-number">3.</span> <span class="nav-text">分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#作用域和闭包在此的简单描述"><span class="nav-number">3.1.</span> <span class="nav-text">作用域和闭包在此的简单描述</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决"><span class="nav-number">4.</span> <span class="nav-text">解决</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Molunerfinn</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+      <span id="busuanzi_container_site_pv"> | &nbsp;&nbsp;Total-<span id="busuanzi_value_site_pv"></span>-views &nbsp;|</span>
+      <span>&nbsp; <a id="ICP" href="http://www.miitbeian.gov.cn/">闽ICP备15023038号</a><span>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"molunerfinn"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

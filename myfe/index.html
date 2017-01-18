@@ -1,0 +1,788 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="前端," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="MARKSZのBlog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="第一次接触前端是在2014年的7月。我的理解是第一次真正敲击了HTML,CSS代码。我的第一个页面是一个个人博客页面。那个时候的代码东拼西凑，由于对HTML标签都不太熟悉，每写一句话都可谓是“胆战心惊”。那个时候的CSS也只会最简单的一些color，width，height等等，最多再来些margin。而且也只会内联样式。这个时候对于布局也只是一知半解。后来的将近10个月的时间对前端就没再有过多的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="我对前端的一些体会和理解">
+<meta property="og:url" content="/myfe/index.html">
+<meta property="og:site_name" content="MARKSZのBlog">
+<meta property="og:description" content="第一次接触前端是在2014年的7月。我的理解是第一次真正敲击了HTML,CSS代码。我的第一个页面是一个个人博客页面。那个时候的代码东拼西凑，由于对HTML标签都不太熟悉，每写一句话都可谓是“胆战心惊”。那个时候的CSS也只会最简单的一些color，width，height等等，最多再来些margin。而且也只会内联样式。这个时候对于布局也只是一知半解。后来的将近10个月的时间对前端就没再有过多的">
+<meta property="og:updated_time" content="2016-02-09T09:49:37.359Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="我对前端的一些体会和理解">
+<meta name="twitter:description" content="第一次接触前端是在2014年的7月。我的理解是第一次真正敲击了HTML,CSS代码。我的第一个页面是一个个人博客页面。那个时候的代码东拼西凑，由于对HTML标签都不太熟悉，每写一句话都可谓是“胆战心惊”。那个时候的CSS也只会最简单的一些color，width，height等等，最多再来些margin。而且也只会内联样式。这个时候对于布局也只是一知半解。后来的将近10个月的时间对前端就没再有过多的">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '6215405113033360000',
+      author: '皮蛋'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="/myfe/"/>
+
+
+
+
+
+  <title> 我对前端的一些体会和理解 | MARKSZのBlog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?19a7ebdbb87f2403773c7ab0cae16d21";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">MARKSZのBlog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle">Do what you love,Love what you do</p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="/myfe/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Molunerfinn">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://o6rgm5iqh.bkt.clouddn.com/21.jpg?imageslim">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="MARKSZのBlog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="MARKSZのBlog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                我对前端的一些体会和理解
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Дата создания записи" itemprop="dateCreated datePublished" datetime="2015-08-08T08:39:52+08:00">
+                2015-08-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web/" itemprop="url" rel="index">
+                    <span itemprop="name">Web</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web/日志/" itemprop="url" rel="index">
+                    <span itemprop="name">日志</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/myfe/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="myfe/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>第一次接触前端是在2014年的7月。我的理解是第一次真正敲击了HTML,CSS代码。我的第一个页面是一个个人博客页面。那个时候的代码东拼西凑，由于对HTML标签都不太熟悉，每写一句话都可谓是“胆战心惊”。那个时候的CSS也只会最简单的一些color，width，height等等，最多再来些margin。而且也只会内联样式。这个时候对于布局也只是一知半解。后来的将近10个月的时间对前端就没再有过多的接触。</p>
+<p>直到今年5月下旬的时候，由于个人原因，决定了以后要做的东西是前端。所以重新拾起了前端的东西。万事开头难。虽然前端的学习曲线对于初学者来说前期是个甜蜜期，但是对于我来说将近10个月没再进行前端学习的人,前期也是有它的难度的。<br><a id="more"></a></p>
+<h3 id="从CSS3开始–前端入门的开始">从CSS3开始–前端入门的开始</h3><p>不过很庆幸当时最初写前端的时候接触到了SublimeText这个写代码的好东西。当时对于市面上各种前端的开发工具并没有了解，而仅仅是觉得SublimeText给我的感觉是干净简洁而舒服的就一直用到了现在。事实证明这也确实是图形化界面下进行前端开发的最好的工具（或许没有之一？哈哈。）</p>
+<p>了解基本的HTML标签后，就可以开始进行前端开发了。基本结构一旦能够能懂是什么意思，接下去就是排版+效果了。而我认为的我的最早的前端开发，是对自己博客的导航栏的优化。当时看了别人博客的导航栏，有些效果觉得确实很棒，就想学过来。但我当时毕竟还不会JavaScript，所以就没有办法进行JS的效果开发。有些效果需要借助JS的，我就无能为力。不过好在有CSS3这个好东西。最早做的一个菜单导航栏下拉3D悬停的效果就是通过CSS3做的。当时毕竟还是能够看得懂一些CSS，所以当时进行模仿的时候还没有太多的难度。遇到不懂的属性自然就百度了。而当时难度比较大的就是对于CSS选择器语句的基础不牢，并不能很好的区分后代，同级，伪类等的区别。当时也并不知道这个东西要怎么描述，只能对着一知半解的代码一点一点地努力去理解它的意思。</p>
+<p>CSS3多了的东西其实相较于CSS2/1并不算特别多，新加的标准里面多的的东西实际上主要跟动画，变化有关系。而也正因为这样，以前需要用JS才可以做到的效果现在用CSS3就能实现，而且相对来说更简单就能实现。CSS3相比JS更加友好的语句我觉得是前端入门的最好的东西。毕竟做的效果能够第一时间呈现在浏览器里。而很多时候，前端的学习，尤其是CSS的学习，是从模仿，从摘抄别人做的效果开始，从他们的效果开始学习CSS。</p>
+<h3 id="尝试接触JavaScript–以及第一次用上框架">尝试接触JavaScript–以及第一次用上框架</h3><p>我们经常能听见的编程语言界名词里，Java和JavaScipt(下简称JS)必然是耳熟能详。只不过这两个东西真的基本上是没有关系的。JS诞生的初衷是为了前端。也的确JS能够为前端的效果带来质的改变。而此前JS也仅仅只局限在前端的开发。而最近几年诞生了一个JS的黑科技，叫做NodeJS，这个东西能够在后台运行。从此JS成为了前段后台通杀的语言，也大大扩展了这个语言的魅力。</p>
+<p>JS能做的东西很多，从华丽的前端特效，到实用的网页脚本。不过JS的入门并不能算是简单的。虽然跟其他编程语言一样有自己的变量，函数，逻辑语句。不过鉴于原生JS的复杂的表达式很多人一开始是望而却步。我也一样。自从开始进行前端的学习与开发后，我一直在挖掘CSS3的能力。曾经企图让所有的效果都只通过CSS3来实现。后来发现这是异想天开。CSS3固然是炫酷的，但是它也有自己的局限。CSS3简单的说只对自己的元素能够产生变化，并不能关联到其他元素。也就是这是个“自私的”东西。JS就不一样了，它能做到操控所有的元素，它能让元素捆绑，能够做到很多CSS3做不到的东西。</p>
+<p>JS的入门，还是要从W3CSchool入手。在看完大部分的JS教程之后，我只能做到对JS有个大概的理解，对于它的语句结构有所了解。但是叫我现在就用JS去做我想做的效果，做我想做的功能，恐怕是不行的。这个时候就出现了一个著名的JS的库叫做JQuery(以下简称JQ)，这个东西大大降低了JS的开发难度，算是一个JS的框架。JQ由于自己封装了能多功能，所以很多功能在引入了JQ以后就能够直接调用。直观并且方便。第一次用上JQ这个框架是做学校的IPTV前端开发的时候，由于有的效果我知道只能用JS来做的时候，当时花了1天的时间对JS和JQ进行了半系统的学习，在能够看懂代码之后开始进行模仿的。最后成功地运用了JQ解决了问题。固然是一件好事，不过我的JS代码写的并不聪明。在我看来有过多冗余的代码。这是我对JQ的选择器的使用不够熟练的原因。其实很多时候一个功能其实看起来很简单，但是真正要实现出来的时候，总会出现各种各样的问题。不过这也是前端的一个有意思而其他人看来累烦杂的工程。而自从用上了JS来写东西之后，我就发现前端开发已经离不开JS了。</p>
+<h3 id="尝试接触前端框架–从Bootstrap开始">尝试接触前端框架–从Bootstrap开始</h3><p>Bootstrap这个著名的前端框架想必这几年开始是每个前端开发人员的必经之路了。其实去年7月的时候就知道了这个框架，但是由于一直看不懂怎么使用(对，就是真的一开始看不懂这东西要怎么用)所以我是一直是想用都用不了。IPTV的PC版的页面我并没有用框架而是纯粹的用自己的HTML+CSS3+JQ的代码构建起来的。由于只要管PC的页面布局，所以只需解决低版本浏览器兼容的问题就可以了。但是移动端的(手机、平板、MAC)开发却要做到能够适应各个屏幕的大小来显示适合各个屏幕大小的网页。这个东西我只能求助于Bootstrap了，它是响应式的，是能够符合我的需求的。而我不得不再次看起Bootstrap的那个先前对于我来说看不懂的教程了。不过由于学长跟我说过Bootstrap简单而好用，对于我IPTV的PC端是纯手写的方式他表示很惊讶，说是不用框架他都不知道怎么实现的。这下感觉Bootstrap应该是很简单的吧。</p>
+<p>入门Bootstrap的时候确实会被教程带的乱七八糟，不知道什么是LESS，什么是SASS，什么是编译什么是非编译，不知道什么是压缩什么是非压缩的时候确实很难受，因为开头你就不知道应该下哪个源码来引用Bootstrap。不过好在看不懂官方教程的时候第三方教程能够在第一时间先让你搞懂怎么用。在了解了怎么引用，基本结构后，再回头来看官方教程，觉得写得真特么好= =。。响应式的开发在引用了Bootstrap之后瞬间就很舒服。不需要考虑太多的排布的东西，因为在引用的时候已经都做到了。而我们需要做的就是运用Bootstrap在排布的同时做到视觉上也能过关。良好的Bootstrap衍生的CSS类库就是很不错的选择。原生的Bootstrap有些CSS不算满意的时候可以自己修改也可以引用其他的衍生类库，对于开发来说只有为用户体验做到最好才是最好。</p>
+<h3 id="前端正式入门–以及未来很长的路">前端正式入门–以及未来很长的路</h3><p>做完两个完整独立的页面后，我的前端之路也算是正式入门了。从真正决定开始做前端开发到现在不过2个多月，而前端的甜蜜期已经算是度过了。接下去就是前端的瓶颈期了。还有很多东西并没有真正开始接触。CSS的预编译(LESS/SASS),NodeJS开发，HTML5，JQ的MobileUI，JSON处理以及后端的Python，PHP等等。前端的学习犹如溪流入河，河水入海。前期的东西少而甜蜜，后期的东西多而苦涩。不过真正熬过这段瓶颈，相信自己的前端独立开发的水平也能达到预期要求。</p>
+<p>我一直觉得我做的东西跟自己的兴趣关系特别大。之前自学视频、PS等制作纯粹就是自己觉得好玩、喜欢，现在放到前端来也是如此。而且我发现了两种不同领域之间有所共同的东西，那就是对画面的要求，对美感的要求是共同的。之所以喜欢前端也是因为前端是展现给大家看的东西。这个跟视频和图片是一样的。都是展示出来的东西，自然要做到让自己满意的同时也要让大家(大部分人)满意。而大家满意的同时会让你觉得自己做的东西很有成就感。这种成就感也是一直促使我不断学习的动力和压力。</p>
+<p>前不久看到的一句话觉得实在是太符合自己当下的心境以及未来的路，我也希望自己的坚持不会让自己失望，也许会留下遗憾，不过至少我没有违背自己的初衷。</p>
+<p>：做你所爱的事，爱你所做的事。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端/" rel="tag"># 前端</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/wpdaily0808/" rel="next" title="网站更新日志-7">
+                <i class="fa fa-chevron-left"></i> 网站更新日志-7
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/fethefirst/" rel="prev" title="前端-从最简单的两栏布局开始">
+                前端-从最简单的两栏布局开始 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="myfe/"
+           data-title="我对前端的一些体会和理解" data-url="/myfe/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://o6rgm5iqh.bkt.clouddn.com/21.jpg?imageslim"
+               alt="Molunerfinn" />
+          <p class="site-author-name" itemprop="name">Molunerfinn</p>
+          <p class="site-description motion-element" itemprop="description">For MElody</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">43</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Molunerfinn" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#从CSS3开始–前端入门的开始"><span class="nav-number">1.</span> <span class="nav-text">从CSS3开始–前端入门的开始</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#尝试接触JavaScript–以及第一次用上框架"><span class="nav-number">2.</span> <span class="nav-text">尝试接触JavaScript–以及第一次用上框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#尝试接触前端框架–从Bootstrap开始"><span class="nav-number">3.</span> <span class="nav-text">尝试接触前端框架–从Bootstrap开始</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前端正式入门–以及未来很长的路"><span class="nav-number">4.</span> <span class="nav-text">前端正式入门–以及未来很长的路</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Molunerfinn</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+      <span id="busuanzi_container_site_pv"> | &nbsp;&nbsp;Total-<span id="busuanzi_value_site_pv"></span>-views &nbsp;|</span>
+      <span>&nbsp; <a id="ICP" href="http://www.miitbeian.gov.cn/">闽ICP备15023038号</a><span>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"molunerfinn"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

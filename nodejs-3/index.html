@@ -1,0 +1,825 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Nodejs,前端," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="MARKSZのBlog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="前段时间，把之前用Nodejs做的爬虫程序（参看之前的cheerio爬虫)，整合了一下。采用Nodejs市面上最普遍最常见的Express框架，简易地做了一个北邮人论坛每日十大的记录，暂且叫为论坛日报。在应用框架的过程中，我发现绝大部分的教程，还仅是在教你用Express写个简单的Hello World，然后就没有然后了。或者就是写多人博客，但是在一些关键的地方如数据的录入，读取等地方却没有详尽的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nodejs学习日志（三）——Express+jade+stylus+mongodb搭建简单应用（下）">
+<meta property="og:url" content="/nodejs-3/index.html">
+<meta property="og:site_name" content="MARKSZのBlog">
+<meta property="og:description" content="前段时间，把之前用Nodejs做的爬虫程序（参看之前的cheerio爬虫)，整合了一下。采用Nodejs市面上最普遍最常见的Express框架，简易地做了一个北邮人论坛每日十大的记录，暂且叫为论坛日报。在应用框架的过程中，我发现绝大部分的教程，还仅是在教你用Express写个简单的Hello World，然后就没有然后了。或者就是写多人博客，但是在一些关键的地方如数据的录入，读取等地方却没有详尽的">
+<meta property="og:updated_time" content="2016-04-10T07:53:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Nodejs学习日志（三）——Express+jade+stylus+mongodb搭建简单应用（下）">
+<meta name="twitter:description" content="前段时间，把之前用Nodejs做的爬虫程序（参看之前的cheerio爬虫)，整合了一下。采用Nodejs市面上最普遍最常见的Express框架，简易地做了一个北邮人论坛每日十大的记录，暂且叫为论坛日报。在应用框架的过程中，我发现绝大部分的教程，还仅是在教你用Express写个简单的Hello World，然后就没有然后了。或者就是写多人博客，但是在一些关键的地方如数据的录入，读取等地方却没有详尽的">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '6215405113033360000',
+      author: '皮蛋'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="/nodejs-3/"/>
+
+
+
+
+
+  <title> Nodejs学习日志（三）——Express+jade+stylus+mongodb搭建简单应用（下） | MARKSZのBlog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?19a7ebdbb87f2403773c7ab0cae16d21";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">MARKSZのBlog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle">Do what you love,Love what you do</p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="/nodejs-3/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Molunerfinn">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://o6rgm5iqh.bkt.clouddn.com/21.jpg?imageslim">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="MARKSZのBlog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="MARKSZのBlog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Nodejs学习日志（三）——Express+jade+stylus+mongodb搭建简单应用（下）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Дата создания записи" itemprop="dateCreated datePublished" datetime="2016-04-10T15:52:00+08:00">
+                2016-04-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web/" itemprop="url" rel="index">
+                    <span itemprop="name">Web</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web/开发/" itemprop="url" rel="index">
+                    <span itemprop="name">开发</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web/开发/Nodejs/" itemprop="url" rel="index">
+                    <span itemprop="name">Nodejs</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/nodejs-3/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="nodejs-3/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>前段时间，把之前用Nodejs做的爬虫程序（参看之前的<a href="http://molunerfinn.com/nodejs-1/" target="_blank" rel="external">cheerio爬虫</a>)，整合了一下。采用Nodejs市面上最普遍最常见的Express框架，简易地做了一个北邮人论坛每日十大的记录，暂且叫为<a href="http://topten.piegg.cn" target="_blank" rel="external">论坛日报</a>。在应用框架的过程中，我发现绝大部分的教程，还仅是在教你用Express写个简单的<code>Hello World</code>，然后就没有然后了。或者就是写多人博客，但是在一些关键的地方如数据的录入，读取等地方却没有详尽的描述。导致我在这个项目一开始真的是寸步难行。有数据但是不知道怎么写进数据库，怎么读出来-&gt;渲染到前端。  </p>
+<p>这篇文章算是我自己做项目的切身体会，能够了解到Express基本使用、路由基本使用、数据写入读出、模板引擎渲染等等。希望能够帮上想要用Nodejs、Express做些简单应用的小伙伴们吧。  </p>
+<p>上一篇<a href="http://molunerfinn.com/nodejs-2/" target="_blank" rel="external">文章</a>已经讲到了将mongodb开启以及我们输出了第一个页面了，从后台向前台render了数据并渲染。这次我们讲讲如何从mongodb里取数据、写数据并输出前端。</p>
+<a id="more"></a>
+<h3 id="mongodb的简单使用">mongodb的简单使用</h3><p>在之前安装的mongodb的bin的目录下，打开命令行。如果是Windows输入<code>mongo</code>回车，如果是linux输入<code>./mongo</code>，就能进入mongodb的命令行界面。（前提是你开启了mongodb的服务）。</p>
+<p>一般来说会有提示<code>connecting to: test</code>。<code>mongodb</code>默认是没有设置用户名和密码，这需要你手动设置。本文就不对这方面进行赘述。<br>我们新建一个库。输入<code>use test</code>，就会切换到叫做<code>test</code>的数据库中。这个数据库在我们没有写入数据的时候，仅仅是被创建但是并未真正生成，如果没有写入数据，我们退出mongodb的话这个数据库就会自动销毁。接着我们写入第一个数据，让它真正创建。尤其开心的是，mongodb的数据存储采用的是<code>json</code>的格式，也就是很方便的能够进行构建和解析。</p>
+<p>输入<code>db.nodetest.insert({&quot;name&quot;:&quot;Jack&quot;,&quot;age&quot;:&quot;16&quot;,&quot;sex&quot;:&quot;man&quot;})</code>。这句话的意思是，在<code>test</code>这个数据库中，创建一个叫做<code>nodetest</code>的数据库表或者叫集合（<code>collection</code>)并插入一个数据。  </p>
+<p>要查看我们插入的这个数据，只需要输入<code>db.nodetest.find()</code>就能够输出结果了。</p>
+<p>这就是最简单的mongodb的操作。</p>
+<h3 id="express与mongodb的对接">express与mongodb的对接</h3><p>要将express与mongodb对接，需要在<code>app.js</code>这个文件里加入依赖。依赖包我们在上一篇文章里已经安装了。这次是写到<code>app.js</code>里。<br>你可以看到开头有这么几句代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"><span class="keyword">var</span> favicon = <span class="built_in">require</span>(<span class="string">'serve-favicon'</span>);</span><br><span class="line"><span class="keyword">var</span> logger = <span class="built_in">require</span>(<span class="string">'morgan'</span>);</span><br><span class="line"><span class="keyword">var</span> cookieParser = <span class="built_in">require</span>(<span class="string">'cookie-parser'</span>);</span><br><span class="line"><span class="keyword">var</span> bodyParser = <span class="built_in">require</span>(<span class="string">'body-parser'</span>);</span><br></pre></td></tr></table></figure>
+<p>我们在这段代码后面加上几句，使它变成这样：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"><span class="keyword">var</span> favicon = <span class="built_in">require</span>(<span class="string">'serve-favicon'</span>);</span><br><span class="line"><span class="keyword">var</span> logger = <span class="built_in">require</span>(<span class="string">'morgan'</span>);</span><br><span class="line"><span class="keyword">var</span> cookieParser = <span class="built_in">require</span>(<span class="string">'cookie-parser'</span>);</span><br><span class="line"><span class="keyword">var</span> bodyParser = <span class="built_in">require</span>(<span class="string">'body-parser'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> mongo = <span class="built_in">require</span>(<span class="string">'mongodb'</span>);</span><br><span class="line"><span class="keyword">var</span> monk = <span class="built_in">require</span>(<span class="string">'monk'</span>);</span><br><span class="line"><span class="keyword">var</span> db = monk(<span class="string">'localhost:27017/test'</span>);</span><br></pre></td></tr></table></figure></p>
+<p>这样就能够引入依赖了。但是我们还需要将<code>db</code>引入我们的路由中。</p>
+<p>你能够看到两句代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">app.use(<span class="string">'/'</span>,routes);</span><br><span class="line">app.use(<span class="string">'/users'</span>, users);</span><br></pre></td></tr></table></figure>
+<p>我们在这两句话的上方加上一段代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">app.use(<span class="function"><span class="keyword">function</span>(<span class="params">req,res,next</span>)</span>&#123;</span><br><span class="line">  req.db = db;</span><br><span class="line">  next();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><strong>注意：如果没有把这句话放到<code>app.use(&#39;/&#39;,routes);</code>上方，那么数据库将无法工作！</strong></p>
+<p>到此，整个<code>app.js</code>应该长这样：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"><span class="keyword">var</span> favicon = <span class="built_in">require</span>(<span class="string">'serve-favicon'</span>);</span><br><span class="line"><span class="keyword">var</span> logger = <span class="built_in">require</span>(<span class="string">'morgan'</span>);</span><br><span class="line"><span class="keyword">var</span> cookieParser = <span class="built_in">require</span>(<span class="string">'cookie-parser'</span>);</span><br><span class="line"><span class="keyword">var</span> bodyParser = <span class="built_in">require</span>(<span class="string">'body-parser'</span>);</span><br><span class="line"><span class="keyword">var</span> mongo = <span class="built_in">require</span>(<span class="string">'mongodb'</span>);</span><br><span class="line"><span class="keyword">var</span> monk = <span class="built_in">require</span>(<span class="string">'monk'</span>);</span><br><span class="line"><span class="keyword">var</span> db = monk(<span class="string">'localhost:27017/test'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> routes = <span class="built_in">require</span>(<span class="string">'./routes/index'</span>);</span><br><span class="line"><span class="keyword">var</span> users = <span class="built_in">require</span>(<span class="string">'./routes/users'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> app = express();</span><br><span class="line"></span><br><span class="line"><span class="comment">// view engine setup</span></span><br><span class="line">app.set(<span class="string">'views'</span>, path.join(__dirname, <span class="string">'views'</span>));</span><br><span class="line">app.set(<span class="string">'view engine'</span>, <span class="string">'jade'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// uncomment after placing your favicon in /public</span></span><br><span class="line"><span class="comment">//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));</span></span><br><span class="line">app.use(logger(<span class="string">'dev'</span>));</span><br><span class="line">app.use(bodyParser.json());</span><br><span class="line">app.use(bodyParser.urlencoded(&#123; extended: <span class="literal">false</span> &#125;));</span><br><span class="line">app.use(cookieParser());</span><br><span class="line">app.use(express.static(path.join(__dirname, <span class="string">'public'</span>)));</span><br><span class="line"></span><br><span class="line">app.use(<span class="function"><span class="keyword">function</span>(<span class="params">req,res,next</span>)</span>&#123;</span><br><span class="line">  req.db = db;</span><br><span class="line">  next();</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.use(<span class="string">'/'</span>, routes);</span><br><span class="line">app.use(<span class="string">'/users'</span>, users);</span><br><span class="line"></span><br><span class="line"><span class="comment">// catch 404 and forward to error handler</span></span><br><span class="line">app.use(<span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> err = <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Not Found'</span>);</span><br><span class="line">  err.status = <span class="number">404</span>;</span><br><span class="line">  next(err);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// error handlers</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// development error handler</span></span><br><span class="line"><span class="comment">// will print stacktrace</span></span><br><span class="line"><span class="keyword">if</span> (app.get(<span class="string">'env'</span>) === <span class="string">'development'</span>) &#123;</span><br><span class="line">  app.use(<span class="function"><span class="keyword">function</span>(<span class="params">err, req, res, next</span>) </span>&#123;</span><br><span class="line">    res.status(err.status || <span class="number">500</span>);</span><br><span class="line">    res.render(<span class="string">'error'</span>, &#123;</span><br><span class="line">      message: err.message,</span><br><span class="line">      error: err</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// production error handler</span></span><br><span class="line"><span class="comment">// no stacktraces leaked to user</span></span><br><span class="line">app.use(<span class="function"><span class="keyword">function</span>(<span class="params">err, req, res, next</span>) </span>&#123;</span><br><span class="line">  res.status(err.status || <span class="number">500</span>);</span><br><span class="line">  res.render(<span class="string">'error'</span>, &#123;</span><br><span class="line">    message: err.message,</span><br><span class="line">    error: &#123;&#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = app;</span><br></pre></td></tr></table></figure>
+<h3 id="从mongodb中读取数据并渲染到前端">从mongodb中读取数据并渲染到前端</h3><p>在<code>routes</code>文件夹下找到<code>index.js</code></p>
+<p><code>module.exports = router</code>这句话的上方写入如下信息：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">router.get(<span class="string">'/users'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> db = req.db;</span><br><span class="line">  <span class="keyword">var</span> user = db.get(<span class="string">'nodetest'</span>);</span><br><span class="line">  user.find(&#123;&#125;,&#123;&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">e,docs</span>)</span>&#123;</span><br><span class="line">    res.render(<span class="string">'users'</span>, &#123;</span><br><span class="line">      <span class="string">"users"</span> : docs</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>解释一下，我们之前创建了一个叫做<code>nodetest</code>的数据表，我们通过<code>db.get()</code>方式将其取出。但是这样的话不能直接用，必须通过调用<code>.find()</code>方法中的回调函数里的第二个参数<code>docs</code>——这个参数才是真正取出来的<code>json</code>数据，才是我们要用到输出到前端的数据。</p>
+<p>然后我们到<code>view</code>文件夹下创建一个叫做<code>users.jade</code>的文件。注意，这里的<code>users</code>就是对应着路由文件里的<code>.get(&#39;/users&#39;, *** )</code>。</p>
+<p>然后我们往jade文件里输入东西：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">extends layout</span><br><span class="line"></span><br><span class="line">block content</span><br><span class="line">  h1.</span><br><span class="line">    User List</span><br><span class="line">  ul</span><br><span class="line">    each user, i in users</span><br><span class="line">      li</span><br><span class="line">        span= user.name</span><br><span class="line">        span= user.age</span><br><span class="line">        span= user.sex</span><br></pre></td></tr></table></figure>
+<p>这里我们用到了一个很关键的东西，注意这句话：<br><code>each user, i in users</code>，这里的<code>user</code>是自己定义的数组元素名，i是这个元素在<code>users</code>这个表中的位置。而<code>user</code>可以随便自己改，但是<code>users</code>却是对应着我们之前在路由文件中render的数据名：<code>&quot;users&quot; : docs</code>，这个是不能随便改的，要改的话需要路由文件也更改，jade里面也更改才可以。</p>
+<p>而<code>user.name</code>很明显就是取出了我们之前存在里面的数据。在这里应该是取出为<code>Jack</code>。</p>
+<p>至此我们已经从<code>mongodb</code>中读出了数据。下一节是讲述如何从express往mongodb中写入数据。</p>
+<h3 id="将数据写入mongodb中并渲染到前端">将数据写入mongodb中并渲染到前端</h3><p>这里我们创建一个叫做<code>adduser.jade</code>的前端页面来输入数据并提交到后台。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">extends layout</span><br><span class="line"></span><br><span class="line">block content</span><br><span class="line">  h1= title</span><br><span class="line">  form(name=<span class="string">"adduser"</span>,method=<span class="string">"post"</span>,action=<span class="string">"/adduser"</span>)</span><br><span class="line">    input(type=<span class="string">"text"</span>, placeholder=<span class="string">"username"</span>, name=<span class="string">"username"</span>)</span><br><span class="line">    input(type=<span class="string">"text"</span>, placeholder=<span class="string">"userage"</span>, name=<span class="string">"userage"</span>)</span><br><span class="line">    input(type=<span class="string">"text"</span>, placeholder=<span class="string">"usersex"</span>, name=<span class="string">"usersex"</span>)</span><br><span class="line">    button(type=<span class="string">"submit"</span>) submit</span><br></pre></td></tr></table></figure>
+<p>仅有这个jade是不够的，因为express不知道它的提交会提交到哪。所以需要在router里写指定的方法并返回数据。</p>
+<p>继续在<code>index.js</code>里写入如下的东西：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">router.post(<span class="string">'/adduser'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> db = req.db;</span><br><span class="line">  <span class="keyword">var</span> userName = req.body.username;</span><br><span class="line">  <span class="keyword">var</span> userAge = req.body.userage;</span><br><span class="line">  <span class="keyword">var</span> userSex = req.body.usersex;</span><br><span class="line">  <span class="keyword">var</span> user = db.get(<span class="string">'nodetest'</span>);</span><br><span class="line">  user.insert(&#123;</span><br><span class="line">    <span class="string">"name"</span> : userName,</span><br><span class="line">    <span class="string">"age"</span> : userAge,</span><br><span class="line">    <span class="string">"sex"</span> : userSex</span><br><span class="line">  &#125;, <span class="function"><span class="keyword">function</span> (<span class="params">err, doc</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (err) &#123;</span><br><span class="line">        res.send(<span class="string">"Error"</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">else</span> &#123;</span><br><span class="line">        res.redirect(<span class="string">"users"</span>); <span class="comment">// 重定向到 /users</span></span><br><span class="line">      &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>通过这个post的请求，我们将获取从adduser这个页面发送的提交信息。然后再将它组装后<code>insert</code>到mongodb中。成功后再重定向（跳转）到<code>users</code>这个页面，然后你就能看到刚刚输入的信息出现在<code>users</code>这个页面了。</p>
+<p>整个前后都由js由自己掌控，是不是非常酷？</p>
+<h3 id="结语">结语</h3><p>作为一个前端开发人员，在nodejs诞生前，如果只会js你是无法在后端进行操作的。要做后台的处理，就必须依赖后端的语言例如php，python等等。如今，nodejs已经大面积渗透到前端的世界中，哪怕你只会用js也能前后都靠前端工程师来构建。本文就是采用了最简单的方式阐述了express最简单的前后交互。希望能给想用nodejs做开发的前端er一些启发~这毕竟也是作为我的nodejs学习日志，如果不出意外，每周都将更新新的干货。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Nodejs/" rel="tag"># Nodejs</a>
+          
+            <a href="/tags/前端/" rel="tag"># 前端</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/nodejs-2/" rel="next" title="Nodejs学习日志（二）——Express+jade+stylus+mongodb搭建简单应用（上）">
+                <i class="fa fa-chevron-left"></i> Nodejs学习日志（二）——Express+jade+stylus+mongodb搭建简单应用（上）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/something&nothing/" rel="prev" title="一些杂碎的笔记整理 | JS、Linux、Sublime相关">
+                一些杂碎的笔记整理 | JS、Linux、Sublime相关 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="nodejs-3/"
+           data-title="Nodejs学习日志（三）——Express+jade+stylus+mongodb搭建简单应用（下）" data-url="/nodejs-3/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://o6rgm5iqh.bkt.clouddn.com/21.jpg?imageslim"
+               alt="Molunerfinn" />
+          <p class="site-author-name" itemprop="name">Molunerfinn</p>
+          <p class="site-description motion-element" itemprop="description">For MElody</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">43</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Molunerfinn" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#mongodb的简单使用"><span class="nav-number">1.</span> <span class="nav-text">mongodb的简单使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#express与mongodb的对接"><span class="nav-number">2.</span> <span class="nav-text">express与mongodb的对接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#从mongodb中读取数据并渲染到前端"><span class="nav-number">3.</span> <span class="nav-text">从mongodb中读取数据并渲染到前端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将数据写入mongodb中并渲染到前端"><span class="nav-number">4.</span> <span class="nav-text">将数据写入mongodb中并渲染到前端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结语"><span class="nav-number">5.</span> <span class="nav-text">结语</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Molunerfinn</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+      <span id="busuanzi_container_site_pv"> | &nbsp;&nbsp;Total-<span id="busuanzi_value_site_pv"></span>-views &nbsp;|</span>
+      <span>&nbsp; <a id="ICP" href="http://www.miitbeian.gov.cn/">闽ICP备15023038号</a><span>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"molunerfinn"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

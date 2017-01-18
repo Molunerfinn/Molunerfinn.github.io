@@ -1,0 +1,814 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Nodejs,前端," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="MARKSZのBlog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="最近一直没有能够找到一段相对空余的时间来写东西。实际上这段时间也没有闲着，不过记着笔记始终没有发成博客也确实是我越发地懒了。话不多说，本次的杂碎笔记整理包括的内容是JS、Linux相关的一些琐碎的点。纯粹是笔记的整理，感觉并不是很好的一篇学习教程。我尽量写得通俗易懂点。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一些杂碎的笔记整理 | JS、Linux、Sublime相关">
+<meta property="og:url" content="/something&nothing/index.html">
+<meta property="og:site_name" content="MARKSZのBlog">
+<meta property="og:description" content="最近一直没有能够找到一段相对空余的时间来写东西。实际上这段时间也没有闲着，不过记着笔记始终没有发成博客也确实是我越发地懒了。话不多说，本次的杂碎笔记整理包括的内容是JS、Linux相关的一些琐碎的点。纯粹是笔记的整理，感觉并不是很好的一篇学习教程。我尽量写得通俗易懂点。">
+<meta property="og:updated_time" content="2016-05-29T08:58:37.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="一些杂碎的笔记整理 | JS、Linux、Sublime相关">
+<meta name="twitter:description" content="最近一直没有能够找到一段相对空余的时间来写东西。实际上这段时间也没有闲着，不过记着笔记始终没有发成博客也确实是我越发地懒了。话不多说，本次的杂碎笔记整理包括的内容是JS、Linux相关的一些琐碎的点。纯粹是笔记的整理，感觉并不是很好的一篇学习教程。我尽量写得通俗易懂点。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '6215405113033360000',
+      author: '皮蛋'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="/something&nothing/"/>
+
+
+
+
+
+  <title> 一些杂碎的笔记整理 | JS、Linux、Sublime相关 | MARKSZのBlog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?19a7ebdbb87f2403773c7ab0cae16d21";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">MARKSZのBlog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle">Do what you love,Love what you do</p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="/something&nothing/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Molunerfinn">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://o6rgm5iqh.bkt.clouddn.com/21.jpg?imageslim">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="MARKSZのBlog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="MARKSZのBlog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                一些杂碎的笔记整理 | JS、Linux、Sublime相关
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Дата создания записи" itemprop="dateCreated datePublished" datetime="2016-05-29T15:30:00+08:00">
+                2016-05-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web/" itemprop="url" rel="index">
+                    <span itemprop="name">Web</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web/开发/" itemprop="url" rel="index">
+                    <span itemprop="name">开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/something&nothing/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="something&nothing/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>最近一直没有能够找到一段相对空余的时间来写东西。实际上这段时间也没有闲着，不过记着笔记始终没有发成博客也确实是我越发地懒了。<br>话不多说，本次的杂碎笔记整理包括的内容是JS、Linux相关的一些琐碎的点。纯粹是笔记的整理，感觉并不是很好的一篇学习教程。我尽量写得通俗易懂点。  </p>
+<a id="more"></a>
+<h2 id="JS相关">JS相关</h2><p>首先是个老生常谈但是却又是个很有效的办法：</p>
+<h3 id="从JS异步回调函数中取值的解决办法">从JS异步回调函数中取值的解决办法</h3><h4 id="问题描述">问题描述</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">load_val</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  $.get(<span class="string">"url"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 如何把这里取到的data通过load_val函数返回出去？</span></span><br><span class="line">   &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果通过一个全局变量来获取，自然也不是不可以。不过这里就涉及到一点：用全局变量获取后，该怎么使用呢？<br>为什么会有这问题，还是上面这个例子，我们稍微改造一下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = <span class="string">""</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">load_val</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  $.get(<span class="string">"url"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">    obj = data; <span class="comment">// 此处将data赋予全局变量</span></span><br><span class="line">   &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">load_val();</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">use_val</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  obj += <span class="number">1</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(obj);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">use_val();</span><br></pre></td></tr></table></figure>
+<p>上面这个例子很好理解，我们想通过<code>obj</code>这个全局变量获取ajax异步过来的<code>data</code>数据，然后在<code>use_val</code>这个函数中使用<code>obj</code>这个变量。看似没问题，实际上问题很严重：<br>在<code>use_val()</code>中的<code>obj</code>真的是<code>data</code>的值么？不是的。而是<code>&quot;&quot;</code>。为什么，因为就这段代码而言，<code>obj = data</code>是在<code>use_val()</code>执行完才在异步回调函数内实现的。在此之前，<code>obj</code>一直是<code>&quot;&quot;</code>。于是又有人说，那我写个延时函数，等待<code>obj = data</code>后再执行呗。那样就太不优雅了。那么该如何解决呢？</p>
+<h4 id="问题解决">问题解决</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">load_val</span>(<span class="params">callback</span>)</span>&#123;<span class="comment">//定义一个回调函数</span></span><br><span class="line">  $.get(<span class="string">'url'</span> , <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">    callback(data); <span class="comment">//将返回结果当作参数返回</span></span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">load_val(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">  obj = data; <span class="comment">//这里可以得到值</span></span><br><span class="line">  use_val();</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">use_val</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  obj += <span class="number">1</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(obj);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>也就是在所需要调用的回调函数外加一个函数，这个函数包含一个参数，该参数是个函数，然而这个函数有着依赖于回调函数给出的值的参数。所以经过这两层，就能将原本回调函数里的值给取出来。</p>
+<p>关于js的异步编程，可以参考阮一峰老师的：<a href="http://www.ruanyifeng.com/blog/2012/12/asynchronous%EF%BC%BFjavascript.html" target="_blank" rel="external">Javascript异步编程的4种方法</a>。</p>
+<h3 id="JS中的鼠标滚轮值的获取">JS中的鼠标滚轮值的获取</h3><p>在大多数浏览器（IE6, IE7, IE8, Opera 10+, Safari 5+, Chrome）中，都提供了鼠标滚轮事件叫做：<code>mousewheel</code>。然而Firefox3.5+不支持这个事件。今天我们先说说非Firefox的情况。</p>
+<p>在不考虑火狐浏览器的情况下：</p>
+<p>mousewheel事件中，event.wheelDelta的返回值，如果是正值说明是滚轮向上滚动，反之则说明是向下滚动。尤其需要注意，返回值均为120的倍数。即鼠标滚轮真正滚动幅度=返回值/120。</p>
+<p>经过测试，用较新的jquery的情况下，要获取wheelDelta的值需要用以下的办法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(object).on(<span class="string">"mousewheel"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> delta =  e.originalEvent.wheelDelta;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>其中那个<code>object</code>是你要指定的滚动的元素对象。<br>同时，为了防止浏览器默认滚动条滚动，还必须做到阻止默认事件。简单来说就是：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$(object).on(<span class="string">"mousewheel"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> delta =  e.originalEvent.wheelDelta;</span><br><span class="line">  event.preventDefault();</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="Linux相关">Linux相关</h2><h3 id="Oh-My-Zsh">Oh-My-Zsh</h3><p>Linux默认的shell环境是bash。bash环境实际上已经挺不错的了。但是其实你还可以有更好的一个选择：zsh并与之配对的Oh-My-Zsh。首先zsh也是个shell环境，与bash不一样的地方在于zsh的默认配置比较复杂，因此在很长一段时间内它因为配置复杂的原因让它一直没能够受到大家的青睐。而自从<a href="http://ohmyz.sh/" target="_blank" rel="external">Oh-My-Zsh</a>诞生以来，真是能够惊叹：原来我的终端也能如此的棒。<br>Oh-My-Zsh是一个开源项目，它重新改变了zsh默认配置复杂的概念，它简化了zsh配置的难度，并且加入很多实用的插件，漂亮的主题，让单调的终端的变得更加富有活力。</p>
+<p>安装的方法很简单，官网已经给出了，一行代码就能安装完毕。</p>
+<p>Oh-My-Zsh的配置文件是在<code>~/.zshrc</code>中。我们需要更改的主题、配置的插件也都在里面可以修改。</p>
+<p>其中<code>ZSH_THEME</code>是主题文件的修改地方，<code>plugins=()</code>是启用插件的地方。</p>
+<p>我说说我使用的插件：</p>
+<h4 id="z">z</h4><p>这个插件比起市面上经常提起的<code>autojump</code>我觉得更方便——因为是Oh-My-Zsh自带的，不需要安装只需要在<code>plugins()</code>里添加一个字<code>z</code>就行了。而且效果是一样的。自从用了这个插件，我觉得我已经离不开Oh-My-Zsh了。这个插件有什么用呢？它是一个快速跳转目录的插件。具体来说，它能够记录下你曾经进过的任何目录，比如我在开启了z之后：<br><code>cd /usr/local/bin</code>，然后下一次我需要进入<code>/usr/local/bin</code>的话，我只需要<code>z bin</code>然后回车就行了。那如果有同名的文件夹呢？没关系，在按回车之前按下tab就能自动补全路径让你看到进入的是哪个bin文件夹。它能够记录下你进入文件夹的次数由此来排序出优先级。如果你想看优先级，只需要按一下<code>z</code>回车就行，就能看到你之前进入过的文件夹并且按照进入次数排好序了。</p>
+<h4 id="gitfast">gitfast</h4><p>Oh-My-Zsh默认开启了<code>git</code>插件，它有些很好的简写比如<code>gco</code>代表了<code>git chekout</code>，然而这还不够，<code>gitfast</code>是另外必须开启的。否则你在切换分支的时候，按tab补全的时候会变得特别特别慢。加上这个<code>gitfast</code>插件就能解决git在补全的时候卡顿严重的问题。</p>
+<p>另外我使用的主题是<a href="http://blog.ysmood.org/my-ys-terminal-theme/" target="_blank" rel="external">ys</a>。更多的主题可以参考<a href="https://github.com/robbyrussell/oh-my-zsh/wiki/Themes" target="_blank" rel="external">这里</a>。</p>
+<h3 id="Linux_Screen命令下_vim中文乱码的解决办法">Linux Screen命令下 vim中文乱码的解决办法</h3><p>此处首先是终端软件的编码已经是UTF-8，然后正常情况下VIM的中文显示正常，而Screen下才显示不正常的时候采用的办法。</p>
+<h4 id="screen配置文件设置">screen配置文件设置</h4><p>解决办法：在 ~/.screenrc 里加入如下设置: </p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">defutf8 <span class="function_start"><span class="keyword">on</span></span> </span><br><span class="line">defencoding utf8 </span><br><span class="line">encoding UTF-<span class="number">8</span> UTF-<span class="number">8</span></span><br></pre></td></tr></table></figure>
+<h4 id="进入screen的命令需要一点更改：">进入screen的命令需要一点更改：</h4><p>screen -r 重新进去screen的时候，又会产生乱码。<br>解决办法：<br>在进入screen的时候加上 -U 参数， screen -U -r xxx<br>则能正确显示。</p>
+<h3 id="Sublime相关">Sublime相关</h3><h4 id="sublimecodeintel插件自动补全的问题">sublimecodeintel插件自动补全的问题</h4><p>按<code>;</code>键会出现自动补全的提示，如何取消呢？</p>
+<p>在WIN下可以这么实现：</p>
+<p>sublime的’key bindings - user’里加入：<br><code>{ &quot;keys&quot;: [&quot;;&quot;], &quot;command&quot;: &quot;run_macro_file&quot;, &quot;args&quot;: {&quot;file&quot;: &quot;Packages/User/unAutoSemiColon.sublime-macro&quot;} }</code><br>然后打开sublime的<code>preferences-&gt;browser packages</code>,然后进入User文件夹，新建一个文件叫做<code>unAutoSemiColon.sublime-macro</code>，然后输入如下内容：<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[&#123;</span><br><span class="line">"<span class="attribute">args</span>":<span class="value">&#123;</span><br><span class="line">"<span class="attribute">characters</span>": <span class="value"><span class="string">";"</span></span><br><span class="line"></span>&#125;</span>,</span><br><span class="line">"<span class="attribute">command</span>": <span class="value"><span class="string">"insert"</span></span><br><span class="line"></span>&#125;]</span><br></pre></td></tr></table></figure></p>
+<p>然后保存退出。重启sublime。就行了。实际上这里是借助了sublime的宏指令实现的一种办法。</p>
+<p>MAC平台下的解决办法可以看这里：<a href="https://github.com/SublimeCodeIntel/SublimeCodeIntel/issues/461" target="_blank" rel="external">https://github.com/SublimeCodeIntel/SublimeCodeIntel/issues/461</a></p>
+<h4 id="绑定快捷键快速开启chrome">绑定快捷键快速开启chrome</h4><p>WIN下是这样：</p>
+<p>在<code>Preferences</code>-&gt;<code>Key Bindings</code>-&gt;<code>User</code>下，复制以下代码能够按<code>F1</code>打开Chrome。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123; <span class="string">"keys"</span>: [<span class="string">"f1"</span>], <span class="string">"command"</span>: <span class="string">"side_bar_files_open_with"</span>,</span><br><span class="line">        <span class="string">"args"</span>: &#123;</span><br><span class="line">            <span class="string">"paths"</span>: [],</span><br><span class="line">            <span class="string">"application"</span>: <span class="string">"C:/Program Files (x86)/Google/Chrome/Application/chrome.exe"</span>, <span class="comment">// 这里的chrome路径需要自己确认。</span></span><br><span class="line">            <span class="string">"extensions"</span>:<span class="string">".*"</span></span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>MAC下也基本一样。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Nodejs/" rel="tag"># Nodejs</a>
+          
+            <a href="/tags/前端/" rel="tag"># 前端</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/nodejs-3/" rel="next" title="Nodejs学习日志（三）——Express+jade+stylus+mongodb搭建简单应用（下）">
+                <i class="fa fa-chevron-left"></i> Nodejs学习日志（三）——Express+jade+stylus+mongodb搭建简单应用（下）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/vuejs-1/" rel="prev" title="移动端web开发初探之Vuejs的简单实战">
+                移动端web开发初探之Vuejs的简单实战 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="something&nothing/"
+           data-title="一些杂碎的笔记整理 | JS、Linux、Sublime相关" data-url="/something&nothing/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://o6rgm5iqh.bkt.clouddn.com/21.jpg?imageslim"
+               alt="Molunerfinn" />
+          <p class="site-author-name" itemprop="name">Molunerfinn</p>
+          <p class="site-description motion-element" itemprop="description">For MElody</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">43</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Molunerfinn" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#JS相关"><span class="nav-number">1.</span> <span class="nav-text">JS相关</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#从JS异步回调函数中取值的解决办法"><span class="nav-number">1.1.</span> <span class="nav-text">从JS异步回调函数中取值的解决办法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#问题描述"><span class="nav-number">1.1.1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#问题解决"><span class="nav-number">1.1.2.</span> <span class="nav-text">问题解决</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JS中的鼠标滚轮值的获取"><span class="nav-number">1.2.</span> <span class="nav-text">JS中的鼠标滚轮值的获取</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux相关"><span class="nav-number">2.</span> <span class="nav-text">Linux相关</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Oh-My-Zsh"><span class="nav-number">2.1.</span> <span class="nav-text">Oh-My-Zsh</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#z"><span class="nav-number">2.1.1.</span> <span class="nav-text">z</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#gitfast"><span class="nav-number">2.1.2.</span> <span class="nav-text">gitfast</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux_Screen命令下_vim中文乱码的解决办法"><span class="nav-number">2.2.</span> <span class="nav-text">Linux Screen命令下 vim中文乱码的解决办法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#screen配置文件设置"><span class="nav-number">2.2.1.</span> <span class="nav-text">screen配置文件设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#进入screen的命令需要一点更改："><span class="nav-number">2.2.2.</span> <span class="nav-text">进入screen的命令需要一点更改：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sublime相关"><span class="nav-number">2.3.</span> <span class="nav-text">Sublime相关</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#sublimecodeintel插件自动补全的问题"><span class="nav-number">2.3.1.</span> <span class="nav-text">sublimecodeintel插件自动补全的问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#绑定快捷键快速开启chrome"><span class="nav-number">2.3.2.</span> <span class="nav-text">绑定快捷键快速开启chrome</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Molunerfinn</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+      <span id="busuanzi_container_site_pv"> | &nbsp;&nbsp;Total-<span id="busuanzi_value_site_pv"></span>-views &nbsp;|</span>
+      <span>&nbsp; <a id="ICP" href="http://www.miitbeian.gov.cn/">闽ICP备15023038号</a><span>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"molunerfinn"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

@@ -1,0 +1,812 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="前端," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="MARKSZのBlog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="写在前头：最近要写点东西，准确来说是用前端技术写桌面应用。之前曾经对Electron有所了解，最近在查阅资料的时候又发现了一个“新的东西”，叫做nwjs——前身是node-webkit。作为一个还未入坑的人来说，到底选择哪个东西作为我们开发的工具会更好呢？我看了这个作者写的两篇文章，发现应该能给另外想要从事同样开发的或者有兴趣的人一些启发。文章不错，而且没发现有中文译版，所以我给出自己的翻译。只是">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Electron vs nwjs[译]">
+<meta property="og:url" content="/Electron-vs-nwjs/index.html">
+<meta property="og:site_name" content="MARKSZのBlog">
+<meta property="og:description" content="写在前头：最近要写点东西，准确来说是用前端技术写桌面应用。之前曾经对Electron有所了解，最近在查阅资料的时候又发现了一个“新的东西”，叫做nwjs——前身是node-webkit。作为一个还未入坑的人来说，到底选择哪个东西作为我们开发的工具会更好呢？我看了这个作者写的两篇文章，发现应该能给另外想要从事同样开发的或者有兴趣的人一些启发。文章不错，而且没发现有中文译版，所以我给出自己的翻译。只是">
+<meta property="og:updated_time" content="2016-02-16T12:31:35.683Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Electron vs nwjs[译]">
+<meta name="twitter:description" content="写在前头：最近要写点东西，准确来说是用前端技术写桌面应用。之前曾经对Electron有所了解，最近在查阅资料的时候又发现了一个“新的东西”，叫做nwjs——前身是node-webkit。作为一个还未入坑的人来说，到底选择哪个东西作为我们开发的工具会更好呢？我看了这个作者写的两篇文章，发现应该能给另外想要从事同样开发的或者有兴趣的人一些启发。文章不错，而且没发现有中文译版，所以我给出自己的翻译。只是">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '6215405113033360000',
+      author: '皮蛋'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="/Electron-vs-nwjs/"/>
+
+
+
+
+
+  <title> Electron vs nwjs[译] | MARKSZのBlog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?19a7ebdbb87f2403773c7ab0cae16d21";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">MARKSZのBlog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle">Do what you love,Love what you do</p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="/Electron-vs-nwjs/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Molunerfinn">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://o6rgm5iqh.bkt.clouddn.com/21.jpg?imageslim">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="MARKSZのBlog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="MARKSZのBlog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Electron vs nwjs[译]
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Дата создания записи" itemprop="dateCreated datePublished" datetime="2016-02-09T17:20:00+08:00">
+                2016-02-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web/" itemprop="url" rel="index">
+                    <span itemprop="name">Web</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web/日志/" itemprop="url" rel="index">
+                    <span itemprop="name">日志</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web/日志/翻译/" itemprop="url" rel="index">
+                    <span itemprop="name">翻译</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/Electron-vs-nwjs/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="Electron-vs-nwjs/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>写在前头：最近要写点东西，准确来说是用前端技术写桌面应用。之前曾经对Electron有所了解，最近在查阅资料的时候又发现了一个“新的东西”，叫做nwjs——前身是node-webkit。作为一个还未入坑的人来说，到底选择哪个东西作为我们开发的工具会更好呢？我看了这个作者写的两篇文章，发现应该能给另外想要从事同样开发的或者有兴趣的人一些启发。文章不错，而且没发现有中文译版，所以我给出自己的翻译。只是兴趣之作，有错误之处还请指出。<br>以下是译文：<br><a id="more"></a></p>
+<hr>
+<p>我最近一直在对<a href="https://github.com/atom/electron" target="_blank" rel="external">Electron</a>和<a href="https://github.com/nwjs/nw.js" target="_blank" rel="external">nwjs</a>进行深入研究，它们是能将web应用部署到PC电脑上成为可安装文件的一类办法。它们的背后都采用了相似的技术——Node.js和Chromium（Chrome浏览器的引擎），而我自己也已经发现了一些细微的区别，这些区别也影响了我的开发工作（超出了纯粹的技术差异）。</p>
+<p><em>更新</em>：我写了一篇文章作为这篇文章的<a href="http://www.akawebdesign.com/2015/11/02/electron-vs-nwjs-part-2/" target="_blank" rel="external">跟进</a>。  </p>
+<blockquote>
+<p>译者注：跟进的文章的翻译在<a href="http://molunerfinn.com/Electron-vs-nwjs-part2/" target="_blank" rel="external">这里</a></p>
+</blockquote>
+<h3 id="公平比较">公平比较</h3><p>出于公平公开的考虑，我将这两个工具的准确版本公布如下：  </p>
+<ul>
+<li>Electron v0.25.2</li>
+<li>nwjs v0.12.0</li>
+</ul>
+<p>在写这篇文章的时候，它们都是最新的版本。 </p>
+<blockquote>
+<p>译者注：原文发表于2015年5月6号  </p>
+</blockquote>
+<p>Electron官方有篇很好的文章阐述了<a href="https://github.com/atom/electron/blob/master/docs/development/atom-shell-vs-node-webkit.md" target="_blank" rel="external">他们所认为的electron和nwjs的差异</a>——要确保你读过它。至于我，那些技术性的差异并不是真正影响我对于这两个工具所持看法的原因，不过（对于你们来说）还是绝对值得关注的。  </p>
+<h3 id="构建输出">构建输出</h3><p>Electron和nwjs都是十分容易上手的，我曾经各自用它们在几分钟之内就成功运行了应用。<br>然而我注意到了我构建出来的“产品”它们在文件的体积上有着巨大的差异。二者的工程在多平台下转译成二进制文件都有不少不错的说明文档——对于我的应用（18M的压缩过的静态网页内容），从electron里输出的构建文件大小（在OSX下总共117MB，没有asar压缩）明显小于从nwjs里输的构建文件的大小——在OSX下220MB（没有V8引擎的快照版本）。<br>我并没有对于这些工具进行科学的研究，并且很有可能是我自己并没有使一些东西最优化……但是18MB的压缩过的静态网页文件（我的应用）确实被打包成了一个更大的体积（100/200MB）的文件。<br>此外，我采用electron制作的应用貌似启动地更快——这可能只是把从Node背景下启动（electron)和Web背景下启动(nwjs)的二者比较的结果罢了。</p>
+<h3 id="构建过程">构建过程</h3><p>另一方面，用nwjs来创建跨平台的应用貌似更加容易。<br>我使用grunt为我本地应用进行构建，并且nwjs有着成堆的grunt插件让构建过程平稳而简单。（尽管我实际上并没有尝试为Windows系统构建可执行文件）<br>Electron有些grunt插件——但是它们并不频繁更新，并且使用上来说也有着不少困惑。特别地，<a href="https://github.com/paulcbetts/grunt-build-atom-shell" target="_blank" rel="external">grunt-build-atom-shell</a>是一个超级奇怪的插件，你必须告诉它electron使用什么tag/commit以及tag/commit所依赖的Node的定制版本。因为我清楚地知道它们。(所以为什么还要告诉它令我很困惑)  </p>
+<h3 id="保护源码">保护源码</h3><p>利用nwjs你可以将源文件打包成一个利用某种形式的V8快照版本的可执行文件。我并没有真正深入它是什么或者它是怎么实现的，但是说明里明确地告诉我说你将会因此而造成30%的性能损失。真疼！<br>对于electron，你可以将你的应用打包成一个ASAR文件。这个操作真的是非常，非常简单——因为有个非常棒的grunt插件为你做了这些事！不过让我并不怎么开心的是，我已经能想象到一个ASAR文件将会相对地容易被破解——不过也已经比什么都不做的强。  </p>
+<h3 id="所以胜者是……">所以胜者是……</h3><p>在这篇文章结束之际，我个人更倾向electron。我喜欢它有一部分原因还来自于Github官方赞助了它——并且<strong>Visual Studio Code</strong>也基于它发布了release版本，所以这是相当赞的支持。<br>定制的二进制文件对我来说将会有点麻烦，但是剩下的构建过程都挺好。当然，最后的更小体积的可执行文件也是加分项啊！  </p>
+<h3 id="你的看法是？">你的看法是？</h3><p>有没有谁用了这些工具？你们的看法是什么呢？<br>请随意提供你们的一些观点——我喜欢了解一下是否有其他的注意事项我应该要考虑到的，亦或是我没有做到最好的地方。  </p>
+<p>请分享这篇文章！</p>
+<hr>
+<blockquote>
+<p>原文地址：<a href="http://www.akawebdesign.com/2015/05/06/electron-vs-nwjs/" target="_blank" rel="external">http://www.akawebdesign.com/2015/05/06/electron-vs-nwjs/</a></p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端/" rel="tag"># 前端</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/WEEK93/" rel="next" title="一周一部好电影【WEEK93】头脑特工队">
+                <i class="fa fa-chevron-left"></i> 一周一部好电影【WEEK93】头脑特工队
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/Electron-vs-nwjs-part2/" rel="prev" title="Electron vs nwjs (part 2)[译]">
+                Electron vs nwjs (part 2)[译] <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="Electron-vs-nwjs/"
+           data-title="Electron vs nwjs[译]" data-url="/Electron-vs-nwjs/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://o6rgm5iqh.bkt.clouddn.com/21.jpg?imageslim"
+               alt="Molunerfinn" />
+          <p class="site-author-name" itemprop="name">Molunerfinn</p>
+          <p class="site-description motion-element" itemprop="description">For MElody</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">43</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Molunerfinn" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#公平比较"><span class="nav-number">1.</span> <span class="nav-text">公平比较</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构建输出"><span class="nav-number">2.</span> <span class="nav-text">构建输出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构建过程"><span class="nav-number">3.</span> <span class="nav-text">构建过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#保护源码"><span class="nav-number">4.</span> <span class="nav-text">保护源码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#所以胜者是……"><span class="nav-number">5.</span> <span class="nav-text">所以胜者是……</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#你的看法是？"><span class="nav-number">6.</span> <span class="nav-text">你的看法是？</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Molunerfinn</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+      <span id="busuanzi_container_site_pv"> | &nbsp;&nbsp;Total-<span id="busuanzi_value_site_pv"></span>-views &nbsp;|</span>
+      <span>&nbsp; <a id="ICP" href="http://www.miitbeian.gov.cn/">闽ICP备15023038号</a><span>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"molunerfinn"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
