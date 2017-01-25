@@ -4,9 +4,9 @@
   <subtitle>Do what you love,Love what you do</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="/"/>
+  <link href="https://molunerfinn.com/"/>
   <updated>2017-01-19T14:29:16.605Z</updated>
-  <id>/</id>
+  <id>https://molunerfinn.com/</id>
   
   <author>
     <name>Molunerfinn</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>一周一部好电影IV【WEEK147】攻壳机动队</title>
-    <link href="/PerfectMoviePerWeek4/"/>
-    <id>/PerfectMoviePerWeek4/</id>
+    <link href="https://molunerfinn.com/PerfectMoviePerWeek4/"/>
+    <id>https://molunerfinn.com/PerfectMoviePerWeek4/</id>
     <published>2017-01-19T11:57:00.000Z</published>
     <updated>2017-01-19T14:29:16.605Z</updated>
     
@@ -92,25 +92,25 @@
     
     </summary>
     
-      <category term="日志" scheme="/categories/%E6%97%A5%E5%BF%97/"/>
+      <category term="日志" scheme="https://molunerfinn.com/categories/%E6%97%A5%E5%BF%97/"/>
     
-      <category term="周电" scheme="/categories/%E6%97%A5%E5%BF%97/%E5%91%A8%E7%94%B5/"/>
+      <category term="周电" scheme="https://molunerfinn.com/categories/%E6%97%A5%E5%BF%97/%E5%91%A8%E7%94%B5/"/>
     
     
-      <category term="电影" scheme="/tags/%E7%94%B5%E5%BD%B1/"/>
+      <category term="电影" scheme="https://molunerfinn.com/tags/%E7%94%B5%E5%BD%B1/"/>
     
   </entry>
   
   <entry>
     <title>全栈开发实战：用Vue2+Koa1开发完整的前后端项目</title>
-    <link href="/Vue+Koa/"/>
-    <id>/Vue+Koa/</id>
+    <link href="https://molunerfinn.com/Vue+Koa/"/>
+    <id>https://molunerfinn.com/Vue+Koa/</id>
     <published>2017-01-17T07:06:00.000Z</published>
     <updated>2017-01-17T07:20:38.518Z</updated>
     
     <content type="html">&lt;h2 id=&quot;简介&quot;&gt;简介&lt;/h2&gt;&lt;p&gt;本文从一名新手的角度（默认对Vue有了解，对Koa或者Express有了解）出发，从0开始构建一个数据通过Koa提供API的形式获取，页面通过Vue渲染的完整的前端项目。可以了解到Vue构建单页面的一些知识以及前端路由的使用、Koa如何提供API接口，如何进行访问过滤（路由）、验证（JSON-WEB-TOKEN）以及Sequelize操作MySQL数据库的一些知识和技巧，希望能够作为一篇入门全栈开发的文章吧。&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h2 id=&quot;写在前面&quot;&gt;写在前面&lt;/h2&gt;&lt;p&gt;我曾经写过一篇&lt;a href=&quot;https://molunerfinn.com/nodejs-2/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;文章&lt;/a&gt;，是用express和mongodb入门Nodejs的前后端开发，这篇文章里简单的做了一个小demo，能够让你读写mongodb数据库，并且从数据库里将数据读取出来显示到页面上。算是一个简单的读写小demo吧，也算是服务端渲染的一次初尝试。并且我还写过用nodejs写简单小爬虫的&lt;a href=&quot;https://molunerfinn.com/nodejs-1/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;文章&lt;/a&gt;，用爬虫来获取数据写入数据库。通过以上的的方法我用express写了一个小网站，记录并显示北邮人论坛每天的十大的&lt;a href=&quot;http://topten.piegg.cn&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;内容&lt;/a&gt;。挺好玩的对吧，可以把想要做的事用代码来实现。&lt;/p&gt;
+&lt;h2 id=&quot;写在前面&quot;&gt;写在前面&lt;/h2&gt;&lt;p&gt;我曾经写过一篇&lt;a href=&quot;https://molunerfinn.com/nodejs-2/&quot;&gt;文章&lt;/a&gt;，是用express和mongodb入门Nodejs的前后端开发，这篇文章里简单的做了一个小demo，能够让你读写mongodb数据库，并且从数据库里将数据读取出来显示到页面上。算是一个简单的读写小demo吧，也算是服务端渲染的一次初尝试。并且我还写过用nodejs写简单小爬虫的&lt;a href=&quot;https://molunerfinn.com/nodejs-1/&quot;&gt;文章&lt;/a&gt;，用爬虫来获取数据写入数据库。通过以上的的方法我用express写了一个小网站，记录并显示北邮人论坛每天的十大的&lt;a href=&quot;http://topten.piegg.cn&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;内容&lt;/a&gt;。挺好玩的对吧，可以把想要做的事用代码来实现。&lt;/p&gt;
 &lt;p&gt;后来我接触到了Koa，并开始了学习，从express迁移到Koa其实曲线还算是比较平滑的。不过用Koa的方式也还是采用服务端渲染页面的方式。而且我发现目前网络上少有写过用Koa构建的前后端分离的应用、网站文章，我最近做的一个项目里需要用到的方式就是用Vue构建页面，数据的获取全部走后端API的形式，也就是所谓的前后端分离吧。正好在这过程中走了不少的坑，包括数据库的使用上也算是个新手，所以写篇文章记录一下，用同样的思路和方法构建一个简单的Todolist，欢迎讨论，轻拍~&lt;/p&gt;
 &lt;h2 id=&quot;项目架构&quot;&gt;项目架构&lt;/h2&gt;&lt;figure class=&quot;highlight stylus&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;37&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;├── LICENSE&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;├── README&lt;span class=&quot;class&quot;&gt;.md&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;├── &lt;span class=&quot;class&quot;&gt;.env&lt;/span&gt;  &lt;span class=&quot;comment&quot;&gt;// 环境变量配置文件&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;├── app&lt;span class=&quot;class&quot;&gt;.js&lt;/span&gt;  &lt;span class=&quot;comment&quot;&gt;// Koa入口文件&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;├── build &lt;span class=&quot;comment&quot;&gt;// vue-cli 生成，用于webpack监听、构建&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│   ├── build&lt;span class=&quot;class&quot;&gt;.js&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│   ├── check-versions&lt;span class=&quot;class&quot;&gt;.js&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│   ├── dev-client&lt;span class=&quot;class&quot;&gt;.js&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│   ├── dev-server&lt;span class=&quot;class&quot;&gt;.js&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│   ├── utils&lt;span class=&quot;class&quot;&gt;.js&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│   ├── webpack&lt;span class=&quot;class&quot;&gt;.base&lt;/span&gt;&lt;span class=&quot;class&quot;&gt;.conf&lt;/span&gt;&lt;span class=&quot;class&quot;&gt;.js&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│   ├── webpack&lt;span class=&quot;class&quot;&gt;.dev&lt;/span&gt;&lt;span class=&quot;class&quot;&gt;.conf&lt;/span&gt;&lt;span class=&quot;class&quot;&gt;.js&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│   └── webpack&lt;span class=&quot;class&quot;&gt;.prod&lt;/span&gt;&lt;span class=&quot;class&quot;&gt;.conf&lt;/span&gt;&lt;span class=&quot;class&quot;&gt;.js&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;├── config &lt;span class=&quot;comment&quot;&gt;// vue-cli 生成&amp;amp;自己加的一些配置文件&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│   ├── default&lt;span class=&quot;class&quot;&gt;.conf&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│   ├── dev&lt;span class=&quot;class&quot;&gt;.env&lt;/span&gt;&lt;span class=&quot;class&quot;&gt;.js&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│   ├── index&lt;span class=&quot;class&quot;&gt;.js&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│   └── prod&lt;span class=&quot;class&quot;&gt;.env&lt;/span&gt;&lt;span class=&quot;class&quot;&gt;.js&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;├── dist &lt;span class=&quot;comment&quot;&gt;// Vue build 后的文件夹&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│   ├── index&lt;span class=&quot;class&quot;&gt;.html&lt;/span&gt; &lt;span class=&quot;comment&quot;&gt;// 入口文件&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│   └── static &lt;span class=&quot;comment&quot;&gt;// 静态资源&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;├── index&lt;span class=&quot;class&quot;&gt;.html&lt;/span&gt; &lt;span class=&quot;comment&quot;&gt;// vue-cli生成，用于容纳Vue组件的主html文件。单页应用就只有一个html&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;├── package&lt;span class=&quot;class&quot;&gt;.json&lt;/span&gt; &lt;span class=&quot;comment&quot;&gt;// npm的依赖、项目信息文件&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;├── server &lt;span class=&quot;comment&quot;&gt;// Koa后端，用于提供Api&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│   ├── config &lt;span class=&quot;comment&quot;&gt;// 配置文件夹&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│   ├── controllers &lt;span class=&quot;comment&quot;&gt;// controller-控制器&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│   ├── models &lt;span class=&quot;comment&quot;&gt;// model-模型&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│   ├── routes &lt;span class=&quot;comment&quot;&gt;// route-路由&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│   └── schema &lt;span class=&quot;comment&quot;&gt;// schema-数据库表结构&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;├── src &lt;span class=&quot;comment&quot;&gt;// vue-cli 生成&amp;amp;自己添加的utils工具类&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│   ├── App&lt;span class=&quot;class&quot;&gt;.vue&lt;/span&gt; &lt;span class=&quot;comment&quot;&gt;// 主文件&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│   ├── assets &lt;span class=&quot;comment&quot;&gt;// 相关静态资源存放&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│   ├── components &lt;span class=&quot;comment&quot;&gt;// 单文件组件&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│   ├── main&lt;span class=&quot;class&quot;&gt;.js&lt;/span&gt; &lt;span class=&quot;comment&quot;&gt;// 引入Vue等资源、挂载Vue的入口js&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;│   └── utils &lt;span class=&quot;comment&quot;&gt;// 工具文件夹-封装的可复用的方法、功能&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;└── yarn&lt;span class=&quot;class&quot;&gt;.lock&lt;/span&gt; &lt;span class=&quot;comment&quot;&gt;// 用yarn自动生成的lock文件&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;看起来好像很复杂的样子，其实很大一部分文件夹的结构是&lt;code&gt;vue-cli&lt;/code&gt;这个工具帮我们生成的。而我们需要额外添加的主要是Koa的入口文件以及一个&lt;code&gt;server&lt;/code&gt;文件夹用于Koa提供API。这样的话，在获取数据的方面就可以走Koa所提供的API，而Vue只需关心怎么把这些数据渲染到页面上就好了。&lt;/p&gt;
@@ -464,23 +464,23 @@
     
     </summary>
     
-      <category term="Web" scheme="/categories/Web/"/>
+      <category term="Web" scheme="https://molunerfinn.com/categories/Web/"/>
     
-      <category term="开发" scheme="/categories/Web/%E5%BC%80%E5%8F%91/"/>
+      <category term="开发" scheme="https://molunerfinn.com/categories/Web/%E5%BC%80%E5%8F%91/"/>
     
-      <category term="Nodejs" scheme="/categories/Web/%E5%BC%80%E5%8F%91/Nodejs/"/>
+      <category term="Nodejs" scheme="https://molunerfinn.com/categories/Web/%E5%BC%80%E5%8F%91/Nodejs/"/>
     
     
-      <category term="Nodejs" scheme="/tags/Nodejs/"/>
+      <category term="Nodejs" scheme="https://molunerfinn.com/tags/Nodejs/"/>
     
-      <category term="前端" scheme="/tags/%E5%89%8D%E7%AB%AF/"/>
+      <category term="前端" scheme="https://molunerfinn.com/tags/%E5%89%8D%E7%AB%AF/"/>
     
   </entry>
   
   <entry>
     <title>一周一部好电影Ⅲ【WEEK143】浪潮</title>
-    <link href="/PerfectMoviePerWeek3/"/>
-    <id>/PerfectMoviePerWeek3/</id>
+    <link href="https://molunerfinn.com/PerfectMoviePerWeek3/"/>
+    <id>https://molunerfinn.com/PerfectMoviePerWeek3/</id>
     <published>2016-12-20T07:01:00.000Z</published>
     <updated>2017-01-19T14:28:52.694Z</updated>
     
@@ -1182,19 +1182,19 @@
     
     </summary>
     
-      <category term="日志" scheme="/categories/%E6%97%A5%E5%BF%97/"/>
+      <category term="日志" scheme="https://molunerfinn.com/categories/%E6%97%A5%E5%BF%97/"/>
     
-      <category term="周电" scheme="/categories/%E6%97%A5%E5%BF%97/%E5%91%A8%E7%94%B5/"/>
+      <category term="周电" scheme="https://molunerfinn.com/categories/%E6%97%A5%E5%BF%97/%E5%91%A8%E7%94%B5/"/>
     
     
-      <category term="电影" scheme="/tags/%E7%94%B5%E5%BD%B1/"/>
+      <category term="电影" scheme="https://molunerfinn.com/tags/%E7%94%B5%E5%BD%B1/"/>
     
   </entry>
   
   <entry>
     <title>element-ui默认主题二次开发小记</title>
-    <link href="/element-default-theme/"/>
-    <id>/element-default-theme/</id>
+    <link href="https://molunerfinn.com/element-default-theme/"/>
+    <id>https://molunerfinn.com/element-default-theme/</id>
     <published>2016-12-07T07:41:00.000Z</published>
     <updated>2016-12-07T07:45:36.231Z</updated>
     
@@ -1250,19 +1250,19 @@
     
     </summary>
     
-      <category term="Web" scheme="/categories/Web/"/>
+      <category term="Web" scheme="https://molunerfinn.com/categories/Web/"/>
     
-      <category term="开发" scheme="/categories/Web/%E5%BC%80%E5%8F%91/"/>
+      <category term="开发" scheme="https://molunerfinn.com/categories/Web/%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="前端" scheme="/tags/%E5%89%8D%E7%AB%AF/"/>
+      <category term="前端" scheme="https://molunerfinn.com/tags/%E5%89%8D%E7%AB%AF/"/>
     
   </entry>
   
   <entry>
     <title>markline.js——轻量级canvas绘制标记线的库</title>
-    <link href="/marklinejs/"/>
-    <id>/marklinejs/</id>
+    <link href="https://molunerfinn.com/marklinejs/"/>
+    <id>https://molunerfinn.com/marklinejs/</id>
     <published>2016-11-05T15:23:00.000Z</published>
     <updated>2016-11-06T02:01:06.809Z</updated>
     
@@ -1405,19 +1405,19 @@
     
     </summary>
     
-      <category term="Web" scheme="/categories/Web/"/>
+      <category term="Web" scheme="https://molunerfinn.com/categories/Web/"/>
     
-      <category term="开发" scheme="/categories/Web/%E5%BC%80%E5%8F%91/"/>
+      <category term="开发" scheme="https://molunerfinn.com/categories/Web/%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="JS" scheme="/tags/JS/"/>
+      <category term="JS" scheme="https://molunerfinn.com/tags/JS/"/>
     
   </entry>
   
   <entry>
     <title>2016年毕业季-笔记本选购建议</title>
-    <link href="/notebook2016/"/>
-    <id>/notebook2016/</id>
+    <link href="https://molunerfinn.com/notebook2016/"/>
+    <id>https://molunerfinn.com/notebook2016/</id>
     <published>2016-08-02T13:32:52.000Z</published>
     <updated>2016-08-02T13:42:17.129Z</updated>
     
@@ -1548,17 +1548,17 @@
     
     </summary>
     
-      <category term="其他" scheme="/categories/%E5%85%B6%E4%BB%96/"/>
+      <category term="其他" scheme="https://molunerfinn.com/categories/%E5%85%B6%E4%BB%96/"/>
     
-      <category term="极客" scheme="/categories/%E5%85%B6%E4%BB%96/%E6%9E%81%E5%AE%A2/"/>
+      <category term="极客" scheme="https://molunerfinn.com/categories/%E5%85%B6%E4%BB%96/%E6%9E%81%E5%AE%A2/"/>
     
     
   </entry>
   
   <entry>
     <title>OSX下iTerm2实现rz/sz与服务器进行文件上传/下载</title>
-    <link href="/iTerm2-lrzsz/"/>
-    <id>/iTerm2-lrzsz/</id>
+    <link href="https://molunerfinn.com/iTerm2-lrzsz/"/>
+    <id>https://molunerfinn.com/iTerm2-lrzsz/</id>
     <published>2016-07-27T14:15:00.000Z</published>
     <updated>2016-07-27T15:04:12.000Z</updated>
     
@@ -1609,19 +1609,19 @@
     
     </summary>
     
-      <category term="其他" scheme="/categories/%E5%85%B6%E4%BB%96/"/>
+      <category term="其他" scheme="https://molunerfinn.com/categories/%E5%85%B6%E4%BB%96/"/>
     
-      <category term="极客" scheme="/categories/%E5%85%B6%E4%BB%96/%E6%9E%81%E5%AE%A2/"/>
+      <category term="极客" scheme="https://molunerfinn.com/categories/%E5%85%B6%E4%BB%96/%E6%9E%81%E5%AE%A2/"/>
     
     
-      <category term="Mac" scheme="/tags/Mac/"/>
+      <category term="Mac" scheme="https://molunerfinn.com/tags/Mac/"/>
     
   </entry>
   
   <entry>
     <title>移动端web开发初探之Vuejs的简单实战</title>
-    <link href="/vuejs-1/"/>
-    <id>/vuejs-1/</id>
+    <link href="https://molunerfinn.com/vuejs-1/"/>
+    <id>https://molunerfinn.com/vuejs-1/</id>
     <published>2016-06-26T09:06:00.000Z</published>
     <updated>2016-11-09T14:44:23.764Z</updated>
     
@@ -1763,19 +1763,19 @@
     
     </summary>
     
-      <category term="Web" scheme="/categories/Web/"/>
+      <category term="Web" scheme="https://molunerfinn.com/categories/Web/"/>
     
-      <category term="开发" scheme="/categories/Web/%E5%BC%80%E5%8F%91/"/>
+      <category term="开发" scheme="https://molunerfinn.com/categories/Web/%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="前端" scheme="/tags/%E5%89%8D%E7%AB%AF/"/>
+      <category term="前端" scheme="https://molunerfinn.com/tags/%E5%89%8D%E7%AB%AF/"/>
     
   </entry>
   
   <entry>
     <title>一些杂碎的笔记整理 | JS、Linux、Sublime相关</title>
-    <link href="/something&nothing/"/>
-    <id>/something&nothing/</id>
+    <link href="https://molunerfinn.com/something&nothing/"/>
+    <id>https://molunerfinn.com/something&nothing/</id>
     <published>2016-05-29T07:30:00.000Z</published>
     <updated>2016-05-29T08:58:37.000Z</updated>
     
@@ -1825,27 +1825,27 @@
     
     </summary>
     
-      <category term="Web" scheme="/categories/Web/"/>
+      <category term="Web" scheme="https://molunerfinn.com/categories/Web/"/>
     
-      <category term="开发" scheme="/categories/Web/%E5%BC%80%E5%8F%91/"/>
+      <category term="开发" scheme="https://molunerfinn.com/categories/Web/%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="Nodejs" scheme="/tags/Nodejs/"/>
+      <category term="Nodejs" scheme="https://molunerfinn.com/tags/Nodejs/"/>
     
-      <category term="前端" scheme="/tags/%E5%89%8D%E7%AB%AF/"/>
+      <category term="前端" scheme="https://molunerfinn.com/tags/%E5%89%8D%E7%AB%AF/"/>
     
   </entry>
   
   <entry>
     <title>Nodejs学习日志（三）——Express+jade+stylus+mongodb搭建简单应用（下）</title>
-    <link href="/nodejs-3/"/>
-    <id>/nodejs-3/</id>
+    <link href="https://molunerfinn.com/nodejs-3/"/>
+    <id>https://molunerfinn.com/nodejs-3/</id>
     <published>2016-04-10T07:52:00.000Z</published>
     <updated>2016-04-10T07:53:00.000Z</updated>
     
-    <content type="html">&lt;p&gt;前段时间，把之前用Nodejs做的爬虫程序（参看之前的&lt;a href=&quot;http://molunerfinn.com/nodejs-1/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;cheerio爬虫&lt;/a&gt;)，整合了一下。采用Nodejs市面上最普遍最常见的Express框架，简易地做了一个北邮人论坛每日十大的记录，暂且叫为&lt;a href=&quot;http://topten.piegg.cn&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;论坛日报&lt;/a&gt;。在应用框架的过程中，我发现绝大部分的教程，还仅是在教你用Express写个简单的&lt;code&gt;Hello World&lt;/code&gt;，然后就没有然后了。或者就是写多人博客，但是在一些关键的地方如数据的录入，读取等地方却没有详尽的描述。导致我在这个项目一开始真的是寸步难行。有数据但是不知道怎么写进数据库，怎么读出来-&amp;gt;渲染到前端。  &lt;/p&gt;
+    <content type="html">&lt;p&gt;前段时间，把之前用Nodejs做的爬虫程序（参看之前的&lt;a href=&quot;http://molunerfinn.com/nodejs-1/&quot;&gt;cheerio爬虫&lt;/a&gt;)，整合了一下。采用Nodejs市面上最普遍最常见的Express框架，简易地做了一个北邮人论坛每日十大的记录，暂且叫为&lt;a href=&quot;http://topten.piegg.cn&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;论坛日报&lt;/a&gt;。在应用框架的过程中，我发现绝大部分的教程，还仅是在教你用Express写个简单的&lt;code&gt;Hello World&lt;/code&gt;，然后就没有然后了。或者就是写多人博客，但是在一些关键的地方如数据的录入，读取等地方却没有详尽的描述。导致我在这个项目一开始真的是寸步难行。有数据但是不知道怎么写进数据库，怎么读出来-&amp;gt;渲染到前端。  &lt;/p&gt;
 &lt;p&gt;这篇文章算是我自己做项目的切身体会，能够了解到Express基本使用、路由基本使用、数据写入读出、模板引擎渲染等等。希望能够帮上想要用Nodejs、Express做些简单应用的小伙伴们吧。  &lt;/p&gt;
-&lt;p&gt;上一篇&lt;a href=&quot;http://molunerfinn.com/nodejs-2/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;文章&lt;/a&gt;已经讲到了将mongodb开启以及我们输出了第一个页面了，从后台向前台render了数据并渲染。这次我们讲讲如何从mongodb里取数据、写数据并输出前端。&lt;/p&gt;
+&lt;p&gt;上一篇&lt;a href=&quot;http://molunerfinn.com/nodejs-2/&quot;&gt;文章&lt;/a&gt;已经讲到了将mongodb开启以及我们输出了第一个页面了，从后台向前台render了数据并渲染。这次我们讲讲如何从mongodb里取数据、写数据并输出前端。&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;h3 id=&quot;mongodb的简单使用&quot;&gt;mongodb的简单使用&lt;/h3&gt;&lt;p&gt;在之前安装的mongodb的bin的目录下，打开命令行。如果是Windows输入&lt;code&gt;mongo&lt;/code&gt;回车，如果是linux输入&lt;code&gt;./mongo&lt;/code&gt;，就能进入mongodb的命令行界面。（前提是你开启了mongodb的服务）。&lt;/p&gt;
 &lt;p&gt;一般来说会有提示&lt;code&gt;connecting to: test&lt;/code&gt;。&lt;code&gt;mongodb&lt;/code&gt;默认是没有设置用户名和密码，这需要你手动设置。本文就不对这方面进行赘述。&lt;br&gt;我们新建一个库。输入&lt;code&gt;use test&lt;/code&gt;，就会切换到叫做&lt;code&gt;test&lt;/code&gt;的数据库中。这个数据库在我们没有写入数据的时候，仅仅是被创建但是并未真正生成，如果没有写入数据，我们退出mongodb的话这个数据库就会自动销毁。接着我们写入第一个数据，让它真正创建。尤其开心的是，mongodb的数据存储采用的是&lt;code&gt;json&lt;/code&gt;的格式，也就是很方便的能够进行构建和解析。&lt;/p&gt;
@@ -1891,27 +1891,27 @@
     
     </summary>
     
-      <category term="Web" scheme="/categories/Web/"/>
+      <category term="Web" scheme="https://molunerfinn.com/categories/Web/"/>
     
-      <category term="开发" scheme="/categories/Web/%E5%BC%80%E5%8F%91/"/>
+      <category term="开发" scheme="https://molunerfinn.com/categories/Web/%E5%BC%80%E5%8F%91/"/>
     
-      <category term="Nodejs" scheme="/categories/Web/%E5%BC%80%E5%8F%91/Nodejs/"/>
+      <category term="Nodejs" scheme="https://molunerfinn.com/categories/Web/%E5%BC%80%E5%8F%91/Nodejs/"/>
     
     
-      <category term="Nodejs" scheme="/tags/Nodejs/"/>
+      <category term="Nodejs" scheme="https://molunerfinn.com/tags/Nodejs/"/>
     
-      <category term="前端" scheme="/tags/%E5%89%8D%E7%AB%AF/"/>
+      <category term="前端" scheme="https://molunerfinn.com/tags/%E5%89%8D%E7%AB%AF/"/>
     
   </entry>
   
   <entry>
     <title>Nodejs学习日志（二）——Express+jade+stylus+mongodb搭建简单应用（上）</title>
-    <link href="/nodejs-2/"/>
-    <id>/nodejs-2/</id>
+    <link href="https://molunerfinn.com/nodejs-2/"/>
+    <id>https://molunerfinn.com/nodejs-2/</id>
     <published>2016-04-04T09:06:00.000Z</published>
     <updated>2016-04-07T10:28:39.662Z</updated>
     
-    <content type="html">&lt;p&gt;前段时间，把之前用Nodejs做的爬虫程序（参看之前的&lt;a href=&quot;http://molunerfinn.com/nodejs-1/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;cheerio爬虫&lt;/a&gt;)，整合了一下。采用Nodejs市面上最普遍最常见的Express框架，简易地做了一个北邮人论坛每日十大的记录，暂且叫为&lt;a href=&quot;http://topten.piegg.cn&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;论坛日报&lt;/a&gt;。在应用框架的过程中，我发现绝大部分的教程，还仅是在教你用Express写个简单的&lt;code&gt;Hello World&lt;/code&gt;，然后就没有然后了。或者就是写多人博客，但是在一些关键的地方如数据的录入，读取等地方却没有详尽的描述。导致我在这个项目一开始真的是寸步难行。有数据但是不知道怎么写进数据库，怎么读出来-&amp;gt;渲染到前端。  &lt;/p&gt;
+    <content type="html">&lt;p&gt;前段时间，把之前用Nodejs做的爬虫程序（参看之前的&lt;a href=&quot;http://molunerfinn.com/nodejs-1/&quot;&gt;cheerio爬虫&lt;/a&gt;)，整合了一下。采用Nodejs市面上最普遍最常见的Express框架，简易地做了一个北邮人论坛每日十大的记录，暂且叫为&lt;a href=&quot;http://topten.piegg.cn&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;论坛日报&lt;/a&gt;。在应用框架的过程中，我发现绝大部分的教程，还仅是在教你用Express写个简单的&lt;code&gt;Hello World&lt;/code&gt;，然后就没有然后了。或者就是写多人博客，但是在一些关键的地方如数据的录入，读取等地方却没有详尽的描述。导致我在这个项目一开始真的是寸步难行。有数据但是不知道怎么写进数据库，怎么读出来-&amp;gt;渲染到前端。  &lt;/p&gt;
 &lt;p&gt;这篇文章算是我自己做项目的切身体会，能够了解到Express基本使用、路由基本使用、数据写入读出、模板引擎渲染等等。希望能够帮上想要用Nodejs、Express做些简单应用的小伙伴们吧。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&quot;Express的安装和使用&quot;&gt;Express的安装和使用&lt;/h2&gt;&lt;p&gt;要做一个Express应用，首先要先下载、安装Express。在命令行界面下（WIN用CMD，MAC，LINUX就用终端就行），输入&lt;code&gt;npm install -g express-generator&lt;/code&gt;或者如果你装了cnpm也可以用&lt;code&gt;cnpm install -g express-generator&lt;/code&gt;（下同）。之所以不直接安装&lt;code&gt;express&lt;/code&gt;，是因为用&lt;code&gt;express-generator&lt;/code&gt;能够直接生成一个&lt;code&gt;express&lt;/code&gt;应用的骨架。  &lt;/p&gt;
 &lt;p&gt;接着，在想要创建项目的地方，输入：&lt;code&gt;express test1&lt;/code&gt;（注：test1是随便取的项目名字），于是命令行就会出现大致是如下的结果：&lt;/p&gt;
@@ -1956,23 +1956,23 @@
     
     </summary>
     
-      <category term="Web" scheme="/categories/Web/"/>
+      <category term="Web" scheme="https://molunerfinn.com/categories/Web/"/>
     
-      <category term="开发" scheme="/categories/Web/%E5%BC%80%E5%8F%91/"/>
+      <category term="开发" scheme="https://molunerfinn.com/categories/Web/%E5%BC%80%E5%8F%91/"/>
     
-      <category term="Nodejs" scheme="/categories/Web/%E5%BC%80%E5%8F%91/Nodejs/"/>
+      <category term="Nodejs" scheme="https://molunerfinn.com/categories/Web/%E5%BC%80%E5%8F%91/Nodejs/"/>
     
     
-      <category term="Nodejs" scheme="/tags/Nodejs/"/>
+      <category term="Nodejs" scheme="https://molunerfinn.com/tags/Nodejs/"/>
     
-      <category term="前端" scheme="/tags/%E5%89%8D%E7%AB%AF/"/>
+      <category term="前端" scheme="https://molunerfinn.com/tags/%E5%89%8D%E7%AB%AF/"/>
     
   </entry>
   
   <entry>
     <title>setTimeout()引发的一些思考 | 循环延时和作用域、闭包</title>
-    <link href="/something-about-settimeout/"/>
-    <id>/something-about-settimeout/</id>
+    <link href="https://molunerfinn.com/something-about-settimeout/"/>
+    <id>https://molunerfinn.com/something-about-settimeout/</id>
     <published>2016-03-27T14:37:00.000Z</published>
     <updated>2016-03-27T08:22:18.154Z</updated>
     
@@ -2017,19 +2017,19 @@
     
     </summary>
     
-      <category term="Web" scheme="/categories/Web/"/>
+      <category term="Web" scheme="https://molunerfinn.com/categories/Web/"/>
     
-      <category term="开发" scheme="/categories/Web/%E5%BC%80%E5%8F%91/"/>
+      <category term="开发" scheme="https://molunerfinn.com/categories/Web/%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="前端" scheme="/tags/%E5%89%8D%E7%AB%AF/"/>
+      <category term="前端" scheme="https://molunerfinn.com/tags/%E5%89%8D%E7%AB%AF/"/>
     
   </entry>
   
   <entry>
     <title>Nodejs学习日志（一）——cheerio爬虫</title>
-    <link href="/nodejs-1/"/>
-    <id>/nodejs-1/</id>
+    <link href="https://molunerfinn.com/nodejs-1/"/>
+    <id>https://molunerfinn.com/nodejs-1/</id>
     <published>2016-02-23T14:02:00.000Z</published>
     <updated>2017-01-02T07:47:41.507Z</updated>
     
@@ -2140,27 +2140,27 @@
     
     </summary>
     
-      <category term="Web" scheme="/categories/Web/"/>
+      <category term="Web" scheme="https://molunerfinn.com/categories/Web/"/>
     
-      <category term="开发" scheme="/categories/Web/%E5%BC%80%E5%8F%91/"/>
+      <category term="开发" scheme="https://molunerfinn.com/categories/Web/%E5%BC%80%E5%8F%91/"/>
     
-      <category term="Nodejs" scheme="/categories/Web/%E5%BC%80%E5%8F%91/Nodejs/"/>
+      <category term="Nodejs" scheme="https://molunerfinn.com/categories/Web/%E5%BC%80%E5%8F%91/Nodejs/"/>
     
     
-      <category term="Nodejs" scheme="/tags/Nodejs/"/>
+      <category term="Nodejs" scheme="https://molunerfinn.com/tags/Nodejs/"/>
     
-      <category term="前端" scheme="/tags/%E5%89%8D%E7%AB%AF/"/>
+      <category term="前端" scheme="https://molunerfinn.com/tags/%E5%89%8D%E7%AB%AF/"/>
     
   </entry>
   
   <entry>
     <title>Electron vs nwjs (part 2)[译]</title>
-    <link href="/Electron-vs-nwjs-part2/"/>
-    <id>/Electron-vs-nwjs-part2/</id>
+    <link href="https://molunerfinn.com/Electron-vs-nwjs-part2/"/>
+    <id>https://molunerfinn.com/Electron-vs-nwjs-part2/</id>
     <published>2016-02-16T12:30:00.000Z</published>
     <updated>2016-02-16T12:40:21.757Z</updated>
     
-    <content type="html">&lt;p&gt;写在前头：最近要写点东西，准确来说是用前端技术写桌面应用。之前曾经对Electron有所了解，最近在查阅资料的时候又发现了一个“新的东西”，叫做nwjs——前身是node-webkit。作为一个还未入坑的人来说，到底选择哪个东西作为我们开发的工具会更好呢？我看了这个&lt;a href=&quot;http://www.akawebdesign.com/author/arthurakay/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;作者&lt;/a&gt;写的两篇文章，发现应该能给另外想要从事同样开发的或者有兴趣的人一些启发。文章不错，而且没发现有中文译版，所以我给出自己的翻译。只是兴趣之作，有错误之处还请指出。&lt;br&gt;这是两篇文章中的第二篇。第一篇的翻译在&lt;a href=&quot;http://molunerfinn.com/Electron-vs-nwjs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;。&lt;br&gt;以下是译文：&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+    <content type="html">&lt;p&gt;写在前头：最近要写点东西，准确来说是用前端技术写桌面应用。之前曾经对Electron有所了解，最近在查阅资料的时候又发现了一个“新的东西”，叫做nwjs——前身是node-webkit。作为一个还未入坑的人来说，到底选择哪个东西作为我们开发的工具会更好呢？我看了这个&lt;a href=&quot;http://www.akawebdesign.com/author/arthurakay/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;作者&lt;/a&gt;写的两篇文章，发现应该能给另外想要从事同样开发的或者有兴趣的人一些启发。文章不错，而且没发现有中文译版，所以我给出自己的翻译。只是兴趣之作，有错误之处还请指出。&lt;br&gt;这是两篇文章中的第二篇。第一篇的翻译在&lt;a href=&quot;http://molunerfinn.com/Electron-vs-nwjs/&quot;&gt;这里&lt;/a&gt;。&lt;br&gt;以下是译文：&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;几个月前我写过一个叫做&lt;a href=&quot;http://www.akawebdesign.com/2015/05/06/electron-vs-nwjs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Electron vs nwjs&lt;/a&gt;的博客，并得到了不少的阅读量。我花费了5个月的时间，用两种办法构建了相当多的应用（明确一下，是不同的应用）并由此我感觉我对于Electron和nwjs有着相当明确的喜欢或者不喜欢的地方——在我现在用这两种办法来制作的应用中也是如此。&lt;br&gt;注意：下面我所写的纯粹是因为好玩。我只是一个在互联网上制作软件和吐槽的普通人。我的建议和经历，你可以相信或者不相信，一切取决于你。  &lt;/p&gt;
 &lt;h3 id=&quot;开源行为&quot;&gt;开源行为&lt;/h3&gt;&lt;p&gt;在我前面的那篇文章里，Electron仍然是我更喜欢的一个项目。对于Electron我有一点尤其喜欢的是它的发行版的更新速度之快——到11月底已经有10个发行版本了！尽管更新速度快但是本身还是很稳定的，并且bug出现后也能被很快地修复。开发团队在GitHub的issues上也一直是很活跃。  &lt;/p&gt;
@@ -2214,21 +2214,21 @@
     
     </summary>
     
-      <category term="Web" scheme="/categories/Web/"/>
+      <category term="Web" scheme="https://molunerfinn.com/categories/Web/"/>
     
-      <category term="日志" scheme="/categories/Web/%E6%97%A5%E5%BF%97/"/>
+      <category term="日志" scheme="https://molunerfinn.com/categories/Web/%E6%97%A5%E5%BF%97/"/>
     
-      <category term="翻译" scheme="/categories/Web/%E6%97%A5%E5%BF%97/%E7%BF%BB%E8%AF%91/"/>
+      <category term="翻译" scheme="https://molunerfinn.com/categories/Web/%E6%97%A5%E5%BF%97/%E7%BF%BB%E8%AF%91/"/>
     
     
-      <category term="前端" scheme="/tags/%E5%89%8D%E7%AB%AF/"/>
+      <category term="前端" scheme="https://molunerfinn.com/tags/%E5%89%8D%E7%AB%AF/"/>
     
   </entry>
   
   <entry>
     <title>Electron vs nwjs[译]</title>
-    <link href="/Electron-vs-nwjs/"/>
-    <id>/Electron-vs-nwjs/</id>
+    <link href="https://molunerfinn.com/Electron-vs-nwjs/"/>
+    <id>https://molunerfinn.com/Electron-vs-nwjs/</id>
     <published>2016-02-09T09:20:00.000Z</published>
     <updated>2016-02-16T12:31:35.683Z</updated>
     
@@ -2237,7 +2237,7 @@
 &lt;p&gt;我最近一直在对&lt;a href=&quot;https://github.com/atom/electron&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Electron&lt;/a&gt;和&lt;a href=&quot;https://github.com/nwjs/nw.js&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;nwjs&lt;/a&gt;进行深入研究，它们是能将web应用部署到PC电脑上成为可安装文件的一类办法。它们的背后都采用了相似的技术——Node.js和Chromium（Chrome浏览器的引擎），而我自己也已经发现了一些细微的区别，这些区别也影响了我的开发工作（超出了纯粹的技术差异）。&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;更新&lt;/em&gt;：我写了一篇文章作为这篇文章的&lt;a href=&quot;http://www.akawebdesign.com/2015/11/02/electron-vs-nwjs-part-2/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;跟进&lt;/a&gt;。  &lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;译者注：跟进的文章的翻译在&lt;a href=&quot;http://molunerfinn.com/Electron-vs-nwjs-part2/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;译者注：跟进的文章的翻译在&lt;a href=&quot;http://molunerfinn.com/Electron-vs-nwjs-part2/&quot;&gt;这里&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3 id=&quot;公平比较&quot;&gt;公平比较&lt;/h3&gt;&lt;p&gt;出于公平公开的考虑，我将这两个工具的准确版本公布如下：  &lt;/p&gt;
 &lt;ul&gt;
@@ -2267,21 +2267,21 @@
     
     </summary>
     
-      <category term="Web" scheme="/categories/Web/"/>
+      <category term="Web" scheme="https://molunerfinn.com/categories/Web/"/>
     
-      <category term="日志" scheme="/categories/Web/%E6%97%A5%E5%BF%97/"/>
+      <category term="日志" scheme="https://molunerfinn.com/categories/Web/%E6%97%A5%E5%BF%97/"/>
     
-      <category term="翻译" scheme="/categories/Web/%E6%97%A5%E5%BF%97/%E7%BF%BB%E8%AF%91/"/>
+      <category term="翻译" scheme="https://molunerfinn.com/categories/Web/%E6%97%A5%E5%BF%97/%E7%BF%BB%E8%AF%91/"/>
     
     
-      <category term="前端" scheme="/tags/%E5%89%8D%E7%AB%AF/"/>
+      <category term="前端" scheme="https://molunerfinn.com/tags/%E5%89%8D%E7%AB%AF/"/>
     
   </entry>
   
   <entry>
     <title>一周一部好电影【WEEK93】头脑特工队</title>
-    <link href="/WEEK93/"/>
-    <id>/WEEK93/</id>
+    <link href="https://molunerfinn.com/WEEK93/"/>
+    <id>https://molunerfinn.com/WEEK93/</id>
     <published>2015-12-19T16:30:00.000Z</published>
     <updated>2015-12-19T16:37:38.496Z</updated>
     
@@ -2303,19 +2303,19 @@
     
     </summary>
     
-      <category term="周电" scheme="/categories/%E5%91%A8%E7%94%B5/"/>
+      <category term="周电" scheme="https://molunerfinn.com/categories/%E5%91%A8%E7%94%B5/"/>
     
-      <category term="日志" scheme="/categories/%E5%91%A8%E7%94%B5/%E6%97%A5%E5%BF%97/"/>
+      <category term="日志" scheme="https://molunerfinn.com/categories/%E5%91%A8%E7%94%B5/%E6%97%A5%E5%BF%97/"/>
     
     
-      <category term="电影" scheme="/tags/%E7%94%B5%E5%BD%B1/"/>
+      <category term="电影" scheme="https://molunerfinn.com/tags/%E7%94%B5%E5%BD%B1/"/>
     
   </entry>
   
   <entry>
     <title>一周一部好电影【WEEK92】秘密特工</title>
-    <link href="/WEEK92/"/>
-    <id>/WEEK92/</id>
+    <link href="https://molunerfinn.com/WEEK92/"/>
+    <id>https://molunerfinn.com/WEEK92/</id>
     <published>2015-12-14T07:55:46.000Z</published>
     <updated>2015-12-14T08:28:35.982Z</updated>
     
@@ -2337,19 +2337,19 @@
     
     </summary>
     
-      <category term="周电" scheme="/categories/%E5%91%A8%E7%94%B5/"/>
+      <category term="周电" scheme="https://molunerfinn.com/categories/%E5%91%A8%E7%94%B5/"/>
     
-      <category term="日志" scheme="/categories/%E5%91%A8%E7%94%B5/%E6%97%A5%E5%BF%97/"/>
+      <category term="日志" scheme="https://molunerfinn.com/categories/%E5%91%A8%E7%94%B5/%E6%97%A5%E5%BF%97/"/>
     
     
-      <category term="电影" scheme="/tags/%E7%94%B5%E5%BD%B1/"/>
+      <category term="电影" scheme="https://molunerfinn.com/tags/%E7%94%B5%E5%BD%B1/"/>
     
   </entry>
   
   <entry>
     <title>一周一部好电影【WEEK91】老男孩</title>
-    <link href="/WEEK91/"/>
-    <id>/WEEK91/</id>
+    <link href="https://molunerfinn.com/WEEK91/"/>
+    <id>https://molunerfinn.com/WEEK91/</id>
     <published>2015-12-06T10:12:46.000Z</published>
     <updated>2015-12-06T12:08:40.000Z</updated>
     
@@ -2371,19 +2371,19 @@
     
     </summary>
     
-      <category term="周电" scheme="/categories/%E5%91%A8%E7%94%B5/"/>
+      <category term="周电" scheme="https://molunerfinn.com/categories/%E5%91%A8%E7%94%B5/"/>
     
-      <category term="日志" scheme="/categories/%E5%91%A8%E7%94%B5/%E6%97%A5%E5%BF%97/"/>
+      <category term="日志" scheme="https://molunerfinn.com/categories/%E5%91%A8%E7%94%B5/%E6%97%A5%E5%BF%97/"/>
     
     
-      <category term="电影" scheme="/tags/%E7%94%B5%E5%BD%B1/"/>
+      <category term="电影" scheme="https://molunerfinn.com/tags/%E7%94%B5%E5%BD%B1/"/>
     
   </entry>
   
   <entry>
     <title>一周一部好电影【WEEK90】火星救援</title>
-    <link href="/WEEK90/"/>
-    <id>/WEEK90/</id>
+    <link href="https://molunerfinn.com/WEEK90/"/>
+    <id>https://molunerfinn.com/WEEK90/</id>
     <published>2015-11-27T15:42:46.000Z</published>
     <updated>2015-11-27T16:17:33.085Z</updated>
     
@@ -2409,19 +2409,19 @@
     
     </summary>
     
-      <category term="周电" scheme="/categories/%E5%91%A8%E7%94%B5/"/>
+      <category term="周电" scheme="https://molunerfinn.com/categories/%E5%91%A8%E7%94%B5/"/>
     
-      <category term="日志" scheme="/categories/%E5%91%A8%E7%94%B5/%E6%97%A5%E5%BF%97/"/>
+      <category term="日志" scheme="https://molunerfinn.com/categories/%E5%91%A8%E7%94%B5/%E6%97%A5%E5%BF%97/"/>
     
     
-      <category term="电影" scheme="/tags/%E7%94%B5%E5%BD%B1/"/>
+      <category term="电影" scheme="https://molunerfinn.com/tags/%E7%94%B5%E5%BD%B1/"/>
     
   </entry>
   
   <entry>
     <title>一周一部好电影【WEEK89】罪恶之家</title>
-    <link href="/WEEK89/"/>
-    <id>/WEEK89/</id>
+    <link href="https://molunerfinn.com/WEEK89/"/>
+    <id>https://molunerfinn.com/WEEK89/</id>
     <published>2015-11-21T15:36:46.000Z</published>
     <updated>2015-11-21T16:02:44.736Z</updated>
     
@@ -2440,12 +2440,12 @@
     
     </summary>
     
-      <category term="周电" scheme="/categories/%E5%91%A8%E7%94%B5/"/>
+      <category term="周电" scheme="https://molunerfinn.com/categories/%E5%91%A8%E7%94%B5/"/>
     
-      <category term="日志" scheme="/categories/%E5%91%A8%E7%94%B5/%E6%97%A5%E5%BF%97/"/>
+      <category term="日志" scheme="https://molunerfinn.com/categories/%E5%91%A8%E7%94%B5/%E6%97%A5%E5%BF%97/"/>
     
     
-      <category term="电影" scheme="/tags/%E7%94%B5%E5%BD%B1/"/>
+      <category term="电影" scheme="https://molunerfinn.com/tags/%E7%94%B5%E5%BD%B1/"/>
     
   </entry>
   

@@ -89,7 +89,7 @@
 <meta name="description" content="简介本文从一名新手的角度（默认对Vue有了解，对Koa或者Express有了解）出发，从0开始构建一个数据通过Koa提供API的形式获取，页面通过Vue渲染的完整的前端项目。可以了解到Vue构建单页面的一些知识以及前端路由的使用、Koa如何提供API接口，如何进行访问过滤（路由）、验证（JSON-WEB-TOKEN）以及Sequelize操作MySQL数据库的一些知识和技巧，希望能够作为一篇入门全">
 <meta property="og:type" content="article">
 <meta property="og:title" content="全栈开发实战：用Vue2+Koa1开发完整的前后端项目">
-<meta property="og:url" content="/Vue+Koa/index.html">
+<meta property="og:url" content="https://molunerfinn.com/Vue+Koa/index.html">
 <meta property="og:site_name" content="MARKSZのBlog">
 <meta property="og:description" content="简介本文从一名新手的角度（默认对Vue有了解，对Koa或者Express有了解）出发，从0开始构建一个数据通过Koa提供API的形式获取，页面通过Vue渲染的完整的前端项目。可以了解到Vue构建单页面的一些知识以及前端路由的使用、Koa如何提供API接口，如何进行访问过滤（路由）、验证（JSON-WEB-TOKEN）以及Sequelize操作MySQL数据库的一些知识和技巧，希望能够作为一篇入门全">
 <meta property="og:image" content="http://7xog0l.com1.z0.glb.clouddn.com/vue-koa-demo/login.png">
@@ -136,7 +136,7 @@
 
 
 
-  <link rel="canonical" href="/Vue+Koa/"/>
+  <link rel="canonical" href="https://molunerfinn.com/Vue+Koa/"/>
 
 
 
@@ -248,9 +248,39 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'zg5zsQFz7PmxAgE-nHVh','2.0.0');
+</script>
+
+
+
+    </div>
   
 </nav>
 
@@ -275,7 +305,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="/Vue+Koa/">
+  <link itemprop="mainEntityOfPage" href="https://molunerfinn.com/Vue+Koa/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Molunerfinn">
@@ -406,7 +436,7 @@
       
         <h2 id="简介">简介</h2><p>本文从一名新手的角度（默认对Vue有了解，对Koa或者Express有了解）出发，从0开始构建一个数据通过Koa提供API的形式获取，页面通过Vue渲染的完整的前端项目。可以了解到Vue构建单页面的一些知识以及前端路由的使用、Koa如何提供API接口，如何进行访问过滤（路由）、验证（JSON-WEB-TOKEN）以及Sequelize操作MySQL数据库的一些知识和技巧，希望能够作为一篇入门全栈开发的文章吧。</p>
 <a id="more"></a>
-<h2 id="写在前面">写在前面</h2><p>我曾经写过一篇<a href="https://molunerfinn.com/nodejs-2/" target="_blank" rel="external">文章</a>，是用express和mongodb入门Nodejs的前后端开发，这篇文章里简单的做了一个小demo，能够让你读写mongodb数据库，并且从数据库里将数据读取出来显示到页面上。算是一个简单的读写小demo吧，也算是服务端渲染的一次初尝试。并且我还写过用nodejs写简单小爬虫的<a href="https://molunerfinn.com/nodejs-1/" target="_blank" rel="external">文章</a>，用爬虫来获取数据写入数据库。通过以上的的方法我用express写了一个小网站，记录并显示北邮人论坛每天的十大的<a href="http://topten.piegg.cn" target="_blank" rel="external">内容</a>。挺好玩的对吧，可以把想要做的事用代码来实现。</p>
+<h2 id="写在前面">写在前面</h2><p>我曾经写过一篇<a href="https://molunerfinn.com/nodejs-2/">文章</a>，是用express和mongodb入门Nodejs的前后端开发，这篇文章里简单的做了一个小demo，能够让你读写mongodb数据库，并且从数据库里将数据读取出来显示到页面上。算是一个简单的读写小demo吧，也算是服务端渲染的一次初尝试。并且我还写过用nodejs写简单小爬虫的<a href="https://molunerfinn.com/nodejs-1/">文章</a>，用爬虫来获取数据写入数据库。通过以上的的方法我用express写了一个小网站，记录并显示北邮人论坛每天的十大的<a href="http://topten.piegg.cn" target="_blank" rel="external">内容</a>。挺好玩的对吧，可以把想要做的事用代码来实现。</p>
 <p>后来我接触到了Koa，并开始了学习，从express迁移到Koa其实曲线还算是比较平滑的。不过用Koa的方式也还是采用服务端渲染页面的方式。而且我发现目前网络上少有写过用Koa构建的前后端分离的应用、网站文章，我最近做的一个项目里需要用到的方式就是用Vue构建页面，数据的获取全部走后端API的形式，也就是所谓的前后端分离吧。正好在这过程中走了不少的坑，包括数据库的使用上也算是个新手，所以写篇文章记录一下，用同样的思路和方法构建一个简单的Todolist，欢迎讨论，轻拍~</p>
 <h2 id="项目架构">项目架构</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── LICENSE</span><br><span class="line">├── README<span class="class">.md</span></span><br><span class="line">├── <span class="class">.env</span>  <span class="comment">// 环境变量配置文件</span></span><br><span class="line">├── app<span class="class">.js</span>  <span class="comment">// Koa入口文件</span></span><br><span class="line">├── build <span class="comment">// vue-cli 生成，用于webpack监听、构建</span></span><br><span class="line">│   ├── build<span class="class">.js</span></span><br><span class="line">│   ├── check-versions<span class="class">.js</span></span><br><span class="line">│   ├── dev-client<span class="class">.js</span></span><br><span class="line">│   ├── dev-server<span class="class">.js</span></span><br><span class="line">│   ├── utils<span class="class">.js</span></span><br><span class="line">│   ├── webpack<span class="class">.base</span><span class="class">.conf</span><span class="class">.js</span></span><br><span class="line">│   ├── webpack<span class="class">.dev</span><span class="class">.conf</span><span class="class">.js</span></span><br><span class="line">│   └── webpack<span class="class">.prod</span><span class="class">.conf</span><span class="class">.js</span></span><br><span class="line">├── config <span class="comment">// vue-cli 生成&amp;自己加的一些配置文件</span></span><br><span class="line">│   ├── default<span class="class">.conf</span></span><br><span class="line">│   ├── dev<span class="class">.env</span><span class="class">.js</span></span><br><span class="line">│   ├── index<span class="class">.js</span></span><br><span class="line">│   └── prod<span class="class">.env</span><span class="class">.js</span></span><br><span class="line">├── dist <span class="comment">// Vue build 后的文件夹</span></span><br><span class="line">│   ├── index<span class="class">.html</span> <span class="comment">// 入口文件</span></span><br><span class="line">│   └── static <span class="comment">// 静态资源</span></span><br><span class="line">├── index<span class="class">.html</span> <span class="comment">// vue-cli生成，用于容纳Vue组件的主html文件。单页应用就只有一个html</span></span><br><span class="line">├── package<span class="class">.json</span> <span class="comment">// npm的依赖、项目信息文件</span></span><br><span class="line">├── server <span class="comment">// Koa后端，用于提供Api</span></span><br><span class="line">│   ├── config <span class="comment">// 配置文件夹</span></span><br><span class="line">│   ├── controllers <span class="comment">// controller-控制器</span></span><br><span class="line">│   ├── models <span class="comment">// model-模型</span></span><br><span class="line">│   ├── routes <span class="comment">// route-路由</span></span><br><span class="line">│   └── schema <span class="comment">// schema-数据库表结构</span></span><br><span class="line">├── src <span class="comment">// vue-cli 生成&amp;自己添加的utils工具类</span></span><br><span class="line">│   ├── App<span class="class">.vue</span> <span class="comment">// 主文件</span></span><br><span class="line">│   ├── assets <span class="comment">// 相关静态资源存放</span></span><br><span class="line">│   ├── components <span class="comment">// 单文件组件</span></span><br><span class="line">│   ├── main<span class="class">.js</span> <span class="comment">// 引入Vue等资源、挂载Vue的入口js</span></span><br><span class="line">│   └── utils <span class="comment">// 工具文件夹-封装的可复用的方法、功能</span></span><br><span class="line">└── yarn<span class="class">.lock</span> <span class="comment">// 用yarn自动生成的lock文件</span></span><br></pre></td></tr></table></figure>
 <p>看起来好像很复杂的样子，其实很大一部分文件夹的结构是<code>vue-cli</code>这个工具帮我们生成的。而我们需要额外添加的主要是Koa的入口文件以及一个<code>server</code>文件夹用于Koa提供API。这样的话，在获取数据的方面就可以走Koa所提供的API，而Vue只需关心怎么把这些数据渲染到页面上就好了。</p>
@@ -816,7 +846,7 @@
         <div class="ds-share flat" data-thread-key="Vue+Koa/"
      data-title="全栈开发实战：用Vue2+Koa1开发完整的前后端项目"
      data-content=""
-     data-url="/Vue+Koa/">
+     data-url="https://molunerfinn.com/Vue+Koa/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -844,7 +874,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="Vue+Koa/"
-           data-title="全栈开发实战：用Vue2+Koa1开发完整的前后端项目" data-url="/Vue+Koa/">
+           data-title="全栈开发实战：用Vue2+Koa1开发完整的前后端项目" data-url="https://molunerfinn.com/Vue+Koa/">
       </div>
     
   </div>

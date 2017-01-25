@@ -89,7 +89,7 @@
 <meta name="description" content="前段时间，把之前用Nodejs做的爬虫程序（参看之前的cheerio爬虫)，整合了一下。采用Nodejs市面上最普遍最常见的Express框架，简易地做了一个北邮人论坛每日十大的记录，暂且叫为论坛日报。在应用框架的过程中，我发现绝大部分的教程，还仅是在教你用Express写个简单的Hello World，然后就没有然后了。或者就是写多人博客，但是在一些关键的地方如数据的录入，读取等地方却没有详尽的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Nodejs学习日志（二）——Express+jade+stylus+mongodb搭建简单应用（上）">
-<meta property="og:url" content="/nodejs-2/index.html">
+<meta property="og:url" content="https://molunerfinn.com/nodejs-2/index.html">
 <meta property="og:site_name" content="MARKSZのBlog">
 <meta property="og:description" content="前段时间，把之前用Nodejs做的爬虫程序（参看之前的cheerio爬虫)，整合了一下。采用Nodejs市面上最普遍最常见的Express框架，简易地做了一个北邮人论坛每日十大的记录，暂且叫为论坛日报。在应用框架的过程中，我发现绝大部分的教程，还仅是在教你用Express写个简单的Hello World，然后就没有然后了。或者就是写多人博客，但是在一些关键的地方如数据的录入，读取等地方却没有详尽的">
 <meta property="og:updated_time" content="2016-04-07T10:28:39.662Z">
@@ -123,7 +123,7 @@
 
 
 
-  <link rel="canonical" href="/nodejs-2/"/>
+  <link rel="canonical" href="https://molunerfinn.com/nodejs-2/"/>
 
 
 
@@ -235,9 +235,39 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'zg5zsQFz7PmxAgE-nHVh','2.0.0');
+</script>
+
+
+
+    </div>
   
 </nav>
 
@@ -262,7 +292,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="/nodejs-2/">
+  <link itemprop="mainEntityOfPage" href="https://molunerfinn.com/nodejs-2/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Molunerfinn">
@@ -391,7 +421,7 @@
       
 
       
-        <p>前段时间，把之前用Nodejs做的爬虫程序（参看之前的<a href="http://molunerfinn.com/nodejs-1/" target="_blank" rel="external">cheerio爬虫</a>)，整合了一下。采用Nodejs市面上最普遍最常见的Express框架，简易地做了一个北邮人论坛每日十大的记录，暂且叫为<a href="http://topten.piegg.cn" target="_blank" rel="external">论坛日报</a>。在应用框架的过程中，我发现绝大部分的教程，还仅是在教你用Express写个简单的<code>Hello World</code>，然后就没有然后了。或者就是写多人博客，但是在一些关键的地方如数据的录入，读取等地方却没有详尽的描述。导致我在这个项目一开始真的是寸步难行。有数据但是不知道怎么写进数据库，怎么读出来-&gt;渲染到前端。  </p>
+        <p>前段时间，把之前用Nodejs做的爬虫程序（参看之前的<a href="http://molunerfinn.com/nodejs-1/">cheerio爬虫</a>)，整合了一下。采用Nodejs市面上最普遍最常见的Express框架，简易地做了一个北邮人论坛每日十大的记录，暂且叫为<a href="http://topten.piegg.cn" target="_blank" rel="external">论坛日报</a>。在应用框架的过程中，我发现绝大部分的教程，还仅是在教你用Express写个简单的<code>Hello World</code>，然后就没有然后了。或者就是写多人博客，但是在一些关键的地方如数据的录入，读取等地方却没有详尽的描述。导致我在这个项目一开始真的是寸步难行。有数据但是不知道怎么写进数据库，怎么读出来-&gt;渲染到前端。  </p>
 <p>这篇文章算是我自己做项目的切身体会，能够了解到Express基本使用、路由基本使用、数据写入读出、模板引擎渲染等等。希望能够帮上想要用Nodejs、Express做些简单应用的小伙伴们吧。<br><a id="more"></a></p>
 <h2 id="Express的安装和使用">Express的安装和使用</h2><p>要做一个Express应用，首先要先下载、安装Express。在命令行界面下（WIN用CMD，MAC，LINUX就用终端就行），输入<code>npm install -g express-generator</code>或者如果你装了cnpm也可以用<code>cnpm install -g express-generator</code>（下同）。之所以不直接安装<code>express</code>，是因为用<code>express-generator</code>能够直接生成一个<code>express</code>应用的骨架。  </p>
 <p>接着，在想要创建项目的地方，输入：<code>express test1</code>（注：test1是随便取的项目名字），于是命令行就会出现大致是如下的结果：</p>
@@ -491,7 +521,7 @@
         <div class="ds-share flat" data-thread-key="nodejs-2/"
      data-title="Nodejs学习日志（二）——Express+jade+stylus+mongodb搭建简单应用（上）"
      data-content=""
-     data-url="/nodejs-2/">
+     data-url="https://molunerfinn.com/nodejs-2/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -519,7 +549,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="nodejs-2/"
-           data-title="Nodejs学习日志（二）——Express+jade+stylus+mongodb搭建简单应用（上）" data-url="/nodejs-2/">
+           data-title="Nodejs学习日志（二）——Express+jade+stylus+mongodb搭建简单应用（上）" data-url="https://molunerfinn.com/nodejs-2/">
       </div>
     
   </div>

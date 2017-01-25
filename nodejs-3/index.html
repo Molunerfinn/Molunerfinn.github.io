@@ -89,7 +89,7 @@
 <meta name="description" content="前段时间，把之前用Nodejs做的爬虫程序（参看之前的cheerio爬虫)，整合了一下。采用Nodejs市面上最普遍最常见的Express框架，简易地做了一个北邮人论坛每日十大的记录，暂且叫为论坛日报。在应用框架的过程中，我发现绝大部分的教程，还仅是在教你用Express写个简单的Hello World，然后就没有然后了。或者就是写多人博客，但是在一些关键的地方如数据的录入，读取等地方却没有详尽的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Nodejs学习日志（三）——Express+jade+stylus+mongodb搭建简单应用（下）">
-<meta property="og:url" content="/nodejs-3/index.html">
+<meta property="og:url" content="https://molunerfinn.com/nodejs-3/index.html">
 <meta property="og:site_name" content="MARKSZのBlog">
 <meta property="og:description" content="前段时间，把之前用Nodejs做的爬虫程序（参看之前的cheerio爬虫)，整合了一下。采用Nodejs市面上最普遍最常见的Express框架，简易地做了一个北邮人论坛每日十大的记录，暂且叫为论坛日报。在应用框架的过程中，我发现绝大部分的教程，还仅是在教你用Express写个简单的Hello World，然后就没有然后了。或者就是写多人博客，但是在一些关键的地方如数据的录入，读取等地方却没有详尽的">
 <meta property="og:updated_time" content="2016-04-10T07:53:00.000Z">
@@ -123,7 +123,7 @@
 
 
 
-  <link rel="canonical" href="/nodejs-3/"/>
+  <link rel="canonical" href="https://molunerfinn.com/nodejs-3/"/>
 
 
 
@@ -235,9 +235,39 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'zg5zsQFz7PmxAgE-nHVh','2.0.0');
+</script>
+
+
+
+    </div>
   
 </nav>
 
@@ -262,7 +292,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="/nodejs-3/">
+  <link itemprop="mainEntityOfPage" href="https://molunerfinn.com/nodejs-3/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Molunerfinn">
@@ -391,9 +421,9 @@
       
 
       
-        <p>前段时间，把之前用Nodejs做的爬虫程序（参看之前的<a href="http://molunerfinn.com/nodejs-1/" target="_blank" rel="external">cheerio爬虫</a>)，整合了一下。采用Nodejs市面上最普遍最常见的Express框架，简易地做了一个北邮人论坛每日十大的记录，暂且叫为<a href="http://topten.piegg.cn" target="_blank" rel="external">论坛日报</a>。在应用框架的过程中，我发现绝大部分的教程，还仅是在教你用Express写个简单的<code>Hello World</code>，然后就没有然后了。或者就是写多人博客，但是在一些关键的地方如数据的录入，读取等地方却没有详尽的描述。导致我在这个项目一开始真的是寸步难行。有数据但是不知道怎么写进数据库，怎么读出来-&gt;渲染到前端。  </p>
+        <p>前段时间，把之前用Nodejs做的爬虫程序（参看之前的<a href="http://molunerfinn.com/nodejs-1/">cheerio爬虫</a>)，整合了一下。采用Nodejs市面上最普遍最常见的Express框架，简易地做了一个北邮人论坛每日十大的记录，暂且叫为<a href="http://topten.piegg.cn" target="_blank" rel="external">论坛日报</a>。在应用框架的过程中，我发现绝大部分的教程，还仅是在教你用Express写个简单的<code>Hello World</code>，然后就没有然后了。或者就是写多人博客，但是在一些关键的地方如数据的录入，读取等地方却没有详尽的描述。导致我在这个项目一开始真的是寸步难行。有数据但是不知道怎么写进数据库，怎么读出来-&gt;渲染到前端。  </p>
 <p>这篇文章算是我自己做项目的切身体会，能够了解到Express基本使用、路由基本使用、数据写入读出、模板引擎渲染等等。希望能够帮上想要用Nodejs、Express做些简单应用的小伙伴们吧。  </p>
-<p>上一篇<a href="http://molunerfinn.com/nodejs-2/" target="_blank" rel="external">文章</a>已经讲到了将mongodb开启以及我们输出了第一个页面了，从后台向前台render了数据并渲染。这次我们讲讲如何从mongodb里取数据、写数据并输出前端。</p>
+<p>上一篇<a href="http://molunerfinn.com/nodejs-2/">文章</a>已经讲到了将mongodb开启以及我们输出了第一个页面了，从后台向前台render了数据并渲染。这次我们讲讲如何从mongodb里取数据、写数据并输出前端。</p>
 <a id="more"></a>
 <h3 id="mongodb的简单使用">mongodb的简单使用</h3><p>在之前安装的mongodb的bin的目录下，打开命令行。如果是Windows输入<code>mongo</code>回车，如果是linux输入<code>./mongo</code>，就能进入mongodb的命令行界面。（前提是你开启了mongodb的服务）。</p>
 <p>一般来说会有提示<code>connecting to: test</code>。<code>mongodb</code>默认是没有设置用户名和密码，这需要你手动设置。本文就不对这方面进行赘述。<br>我们新建一个库。输入<code>use test</code>，就会切换到叫做<code>test</code>的数据库中。这个数据库在我们没有写入数据的时候，仅仅是被创建但是并未真正生成，如果没有写入数据，我们退出mongodb的话这个数据库就会自动销毁。接着我们写入第一个数据，让它真正创建。尤其开心的是，mongodb的数据存储采用的是<code>json</code>的格式，也就是很方便的能够进行构建和解析。</p>
@@ -493,7 +523,7 @@
         <div class="ds-share flat" data-thread-key="nodejs-3/"
      data-title="Nodejs学习日志（三）——Express+jade+stylus+mongodb搭建简单应用（下）"
      data-content=""
-     data-url="/nodejs-3/">
+     data-url="https://molunerfinn.com/nodejs-3/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -521,7 +551,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="nodejs-3/"
-           data-title="Nodejs学习日志（三）——Express+jade+stylus+mongodb搭建简单应用（下）" data-url="/nodejs-3/">
+           data-title="Nodejs学习日志（三）——Express+jade+stylus+mongodb搭建简单应用（下）" data-url="https://molunerfinn.com/nodejs-3/">
       </div>
     
   </div>

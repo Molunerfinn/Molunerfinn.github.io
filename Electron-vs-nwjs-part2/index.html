@@ -89,7 +89,7 @@
 <meta name="description" content="写在前头：最近要写点东西，准确来说是用前端技术写桌面应用。之前曾经对Electron有所了解，最近在查阅资料的时候又发现了一个“新的东西”，叫做nwjs——前身是node-webkit。作为一个还未入坑的人来说，到底选择哪个东西作为我们开发的工具会更好呢？我看了这个作者写的两篇文章，发现应该能给另外想要从事同样开发的或者有兴趣的人一些启发。文章不错，而且没发现有中文译版，所以我给出自己的翻译。只是">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Electron vs nwjs (part 2)[译]">
-<meta property="og:url" content="/Electron-vs-nwjs-part2/index.html">
+<meta property="og:url" content="https://molunerfinn.com/Electron-vs-nwjs-part2/index.html">
 <meta property="og:site_name" content="MARKSZのBlog">
 <meta property="og:description" content="写在前头：最近要写点东西，准确来说是用前端技术写桌面应用。之前曾经对Electron有所了解，最近在查阅资料的时候又发现了一个“新的东西”，叫做nwjs——前身是node-webkit。作为一个还未入坑的人来说，到底选择哪个东西作为我们开发的工具会更好呢？我看了这个作者写的两篇文章，发现应该能给另外想要从事同样开发的或者有兴趣的人一些启发。文章不错，而且没发现有中文译版，所以我给出自己的翻译。只是">
 <meta property="og:updated_time" content="2016-02-16T12:40:21.757Z">
@@ -123,7 +123,7 @@
 
 
 
-  <link rel="canonical" href="/Electron-vs-nwjs-part2/"/>
+  <link rel="canonical" href="https://molunerfinn.com/Electron-vs-nwjs-part2/"/>
 
 
 
@@ -235,9 +235,39 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'zg5zsQFz7PmxAgE-nHVh','2.0.0');
+</script>
+
+
+
+    </div>
   
 </nav>
 
@@ -262,7 +292,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="/Electron-vs-nwjs-part2/">
+  <link itemprop="mainEntityOfPage" href="https://molunerfinn.com/Electron-vs-nwjs-part2/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Molunerfinn">
@@ -391,7 +421,7 @@
       
 
       
-        <p>写在前头：最近要写点东西，准确来说是用前端技术写桌面应用。之前曾经对Electron有所了解，最近在查阅资料的时候又发现了一个“新的东西”，叫做nwjs——前身是node-webkit。作为一个还未入坑的人来说，到底选择哪个东西作为我们开发的工具会更好呢？我看了这个<a href="http://www.akawebdesign.com/author/arthurakay/" target="_blank" rel="external">作者</a>写的两篇文章，发现应该能给另外想要从事同样开发的或者有兴趣的人一些启发。文章不错，而且没发现有中文译版，所以我给出自己的翻译。只是兴趣之作，有错误之处还请指出。<br>这是两篇文章中的第二篇。第一篇的翻译在<a href="http://molunerfinn.com/Electron-vs-nwjs/" target="_blank" rel="external">这里</a>。<br>以下是译文：<br><a id="more"></a></p>
+        <p>写在前头：最近要写点东西，准确来说是用前端技术写桌面应用。之前曾经对Electron有所了解，最近在查阅资料的时候又发现了一个“新的东西”，叫做nwjs——前身是node-webkit。作为一个还未入坑的人来说，到底选择哪个东西作为我们开发的工具会更好呢？我看了这个<a href="http://www.akawebdesign.com/author/arthurakay/" target="_blank" rel="external">作者</a>写的两篇文章，发现应该能给另外想要从事同样开发的或者有兴趣的人一些启发。文章不错，而且没发现有中文译版，所以我给出自己的翻译。只是兴趣之作，有错误之处还请指出。<br>这是两篇文章中的第二篇。第一篇的翻译在<a href="http://molunerfinn.com/Electron-vs-nwjs/">这里</a>。<br>以下是译文：<br><a id="more"></a></p>
 <hr>
 <p>几个月前我写过一个叫做<a href="http://www.akawebdesign.com/2015/05/06/electron-vs-nwjs/" target="_blank" rel="external">Electron vs nwjs</a>的博客，并得到了不少的阅读量。我花费了5个月的时间，用两种办法构建了相当多的应用（明确一下，是不同的应用）并由此我感觉我对于Electron和nwjs有着相当明确的喜欢或者不喜欢的地方——在我现在用这两种办法来制作的应用中也是如此。<br>注意：下面我所写的纯粹是因为好玩。我只是一个在互联网上制作软件和吐槽的普通人。我的建议和经历，你可以相信或者不相信，一切取决于你。  </p>
 <h3 id="开源行为">开源行为</h3><p>在我前面的那篇文章里，Electron仍然是我更喜欢的一个项目。对于Electron我有一点尤其喜欢的是它的发行版的更新速度之快——到11月底已经有10个发行版本了！尽管更新速度快但是本身还是很稳定的，并且bug出现后也能被很快地修复。开发团队在GitHub的issues上也一直是很活跃。  </p>
@@ -499,7 +529,7 @@
         <div class="ds-share flat" data-thread-key="Electron-vs-nwjs-part2/"
      data-title="Electron vs nwjs (part 2)[译]"
      data-content=""
-     data-url="/Electron-vs-nwjs-part2/">
+     data-url="https://molunerfinn.com/Electron-vs-nwjs-part2/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -527,7 +557,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="Electron-vs-nwjs-part2/"
-           data-title="Electron vs nwjs (part 2)[译]" data-url="/Electron-vs-nwjs-part2/">
+           data-title="Electron vs nwjs (part 2)[译]" data-url="https://molunerfinn.com/Electron-vs-nwjs-part2/">
       </div>
     
   </div>
