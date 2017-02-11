@@ -105,7 +105,7 @@
 <meta property="og:image" content="http://7xog0l.com1.z0.glb.clouddn.com/vue-koa-demo/vue-koa.png">
 <meta property="og:image" content="http://7xog0l.com1.z0.glb.clouddn.com/vue-koa-demo/404.png">
 <meta property="og:image" content="http://7xog0l.com1.z0.glb.clouddn.com/vue-koa-demo/postman.png">
-<meta property="og:updated_time" content="2017-01-17T07:20:38.518Z">
+<meta property="og:updated_time" content="2017-02-03T12:54:12.550Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="全栈开发实战：用Vue2+Koa1开发完整的前后端项目">
 <meta name="twitter:description" content="简介本文从一名新手的角度（默认对Vue有了解，对Koa或者Express有了解）出发，从0开始构建一个数据通过Koa提供API的形式获取，页面通过Vue渲染的完整的前端项目。可以了解到Vue构建单页面的一些知识以及前端路由的使用、Koa如何提供API接口，如何进行访问过滤（路由）、验证（JSON-WEB-TOKEN）以及Sequelize操作MySQL数据库的一些知识和技巧，希望能够作为一篇入门全">
@@ -125,9 +125,9 @@
       author: '皮蛋'
     },
     algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
+      applicationID: 'BGLU1ICJFH',
+      apiKey: 'de05646e7bb736b8478e6854743e5963',
+      indexName: 'mofinn',
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     }
@@ -250,7 +250,7 @@
       
         <li class="menu-item menu-item-search">
           
-            <a href="javascript:;" class="st-search-show-outputs">
+            <a href="javascript:;" class="popup-trigger">
           
             
               <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
@@ -265,18 +265,26 @@
   
     <div class="site-search">
       
-  <form class="site-search-form">
-  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
-</form>
+  
+  <div class="algolia-popup popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
 
-<script type="text/javascript">
-  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
-    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
-    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
-  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
 
-  _st('install', 'zg5zsQFz7PmxAgE-nHVh','2.0.0');
-</script>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
 
 
 
@@ -693,7 +701,7 @@
 <p>Tips：这种只判断token存不存在就通过的验证是很不安全的，此例只是做了一个演示，实际上还应该进行更深一层的判断，比如从token解包出来的信息里包含我们想要的信息才可以作为有效token，才可以登录。等等。本文只是做一个简要介绍。</p>
 </blockquote>
 <h4 id="解析token">解析token</h4><p>注意到我们在签发<code>token</code>的时候，写过这样几句话：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// server/controllers/user.js</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> userToken = &#123;</span><br><span class="line">  name: userInfo.user_name,</span><br><span class="line">  id: userInfo.id</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> secret = <span class="string">'vue-koa-demo'</span>; <span class="comment">// 指定密钥，这是之后用来判断token合法性的标志</span></span><br><span class="line"><span class="keyword">const</span> token = jwt.sign(userInfo,secret); <span class="comment">// 签发token</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// server/controllers/user.js</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> userToken = &#123;</span><br><span class="line">  name: userInfo.user_name,</span><br><span class="line">  id: userInfo.id</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> secret = <span class="string">'vue-koa-demo'</span>; <span class="comment">// 指定密钥，这是之后用来判断token合法性的标志</span></span><br><span class="line"><span class="keyword">const</span> token = jwt.sign(userToken,secret); <span class="comment">// 签发token</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
 <p>我们将用户名和id打包进JWT的主体部分，同时我们解密的密钥是<code>vue-koa-demo</code>。所以我们可以通过这个信息，来进行登录后的用户名显示，以及用来区别这个用户是谁，这个用户有哪些<code>Todolist</code>。</p>
 <p>接下来在<code>Todolist</code>页面进行token解析，从而让用户名显示为登录用户名。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// src/components/TodoList.vue</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> jwt <span class="keyword">from</span> <span class="string">'jsonwebtoken'</span> // 我们安装koa-jwt的时候会自动下载这个依赖</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line"></span><br><span class="line">  created()&#123; // 组件创建时调用</span><br><span class="line">    const userInfo = this.getUserInfo(); <span class="comment">// 新增一个获取用户信息的方法</span></span><br><span class="line">    <span class="keyword">if</span>(userInfo != <span class="literal">null</span>)&#123;</span><br><span class="line">      <span class="keyword">this</span>.id = userInfo.id;</span><br><span class="line">      <span class="keyword">this</span>.name = userInfo.name;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.id = <span class="string">''</span>;</span><br><span class="line">      <span class="keyword">this</span>.name = <span class="string">''</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  data () &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      name: <span class="string">''</span>, <span class="comment">// 用户名改为空</span></span><br><span class="line">      todos: <span class="string">''</span>,</span><br><span class="line">      activeName: <span class="string">'first'</span>,</span><br><span class="line">      list:[],</span><br><span class="line">      count: <span class="number">0</span>,</span><br><span class="line">      id: <span class="string">''</span> <span class="comment">// 新增用户id属性，用于区别用户</span></span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">  computed: &#123;...&#125;, <span class="comment">//省略</span></span><br><span class="line"></span><br><span class="line">  methods: &#123;</span><br><span class="line">    addTodos() &#123;...&#125;, <span class="comment">// 省略</span></span><br><span class="line">    finished(index) &#123;...&#125;,</span><br><span class="line">    remove(index) &#123;...&#125;,</span><br><span class="line">    restore(index) &#123;...&#125;,</span><br><span class="line">    getUserInfo()&#123; <span class="comment">// 获取用户信息</span></span><br><span class="line">      <span class="keyword">const</span> token = sessionStorage.getItem(<span class="string">'demo-token'</span>);</span><br><span class="line">      <span class="keyword">if</span>(token != <span class="literal">null</span> &amp;&amp; token != <span class="string">'null'</span>)&#123;</span><br><span class="line">        <span class="keyword">let</span> decode = jwt.verify(token,<span class="string">'vue-koa-demo'</span>); <span class="comment">// 解析token</span></span><br><span class="line">        <span class="keyword">return</span> decode <span class="comment">// decode解析出来实际上就是&#123;name: <span class="label">XXX,id: XXX&#125;</span></span></span><br><span class="line">      &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
@@ -826,8 +834,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/PerfectMoviePerWeek4/" rel="prev" title="一周一部好电影IV【WEEK147】攻壳机动队">
-                一周一部好电影IV【WEEK147】攻壳机动队 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/" rel="prev" title="2016小结">
+                2016小结 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -921,7 +929,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">43</span>
+                <span class="site-state-item-count">44</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1178,6 +1186,19 @@
 
 
   
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
 
 
 </body>
