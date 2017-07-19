@@ -34,4 +34,4 @@ branches:
     - hexo
 env:
  global:
-   - GH_REF: https://github.com/Molunerfinn/Molunerfinn.github.io.git
+   - GH_REF: github.com/Molunerfinn/Molunerfinn.github.io.git
