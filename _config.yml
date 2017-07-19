@@ -1,0 +1,109 @@
+# Hexo Configuration
+## Docs: http://hexo.io/docs/configuration.html
+## Source: https://github.com/hexojs/hexo/
+
+# Site
+title: MARKSZのBlog 
+subtitle: Do what you love,Love what you do
+description: For MElody
+author: Molunerfinn 
+language: zh-Hans
+timezone:
+
+# URL
+## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
+url: https://molunerfinn.com 
+root: / 
+permalink: :title/
+permalink_defaults:
+
+# Directory
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render:
+
+# Writing
+new_post_name: :title.md # File name of new posts
+default_layout: post
+titlecase: false # Transform title into titlecase
+external_link: true # Open external links in new tab
+filename_case: 0
+render_drafts: false
+post_asset_folder: false
+relative_link: false
+future: true
+highlight:
+  enable: true
+  line_number: true
+  auto_detect: true
+  tab_replace:
+
+# Category & Tag
+default_category: uncategorized
+category_map:
+tag_map:
+
+# Date / Time format
+## Hexo uses Moment.js to parse and display date
+## You can customize the date format as defined in
+## http://momentjs.com/docs/#/displaying/format/
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+
+# Pagination
+## Set per_page to 0 to disable pagination
+per_page: 7
+pagination_dir: page
+
+# Extensions
+## Plugins: http://hexo.io/plugins/
+## Themes: http://hexo.io/themes/
+theme: next
+Plugins: 
+  - hexo-generator-feed
+feed: 
+  type: atom
+  path: atom.xml
+  limit: 20
+
+algolia: 
+  appId: "BGLU1ICJFH"
+  apiKey: "de05646e7bb736b8478e6854743e5963"
+  adminApiKey: "32f0096d77eb438d15625b2509a11984"
+  indexName: "mofinn"
+  chunkSize: 5000
+  fields:
+    - title
+    - tags
+    - categories
+    - excerpt:strip
+    - content:strip
+    - slug
+    - permalink
+    - path
+
+# Deployment
+## Docs: http://hexo.io/docs/deployment.html
+deploy:
+  type: git
+  repo: git@github.com:Molunerfinn/Molunerfinn.github.io.git 
+  branch: master
+
+sitemap:
+  path: sitemap.xml
+
+# Optimize
+## Optimize
+  # Defaults
+  image_min: true
+  css_concat: true
+  css_min: true
+  js_concat: true
+  js_min: true
+  html_min: true
+  gzip: true
