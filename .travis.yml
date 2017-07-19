@@ -9,6 +9,7 @@ cache:
 
 # S: Build Lifecycle
 install:
+  - npm install hexo-cli -g
   - npm install
 
 before_script:
