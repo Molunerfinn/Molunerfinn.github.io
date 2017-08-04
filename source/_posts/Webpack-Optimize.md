@@ -275,7 +275,7 @@ webpack自带的uglifyjs插件效果确实不错。只不过由于受限于单�
 plugins: [
   new webpack.optimize.UglifyJsPlugin({
     compress: {
-      warings: false
+      warnings: false
     },
     sourceMap: true
   })
@@ -295,7 +295,7 @@ new UglifyJsparallelPlugin({
   workers: os.cpus().length,
   mangle: true,
   compressor: {
-    warings: false,
+    warnings: false,
     drop_console: true,
     drop_debugger: true
   }
