@@ -38,7 +38,7 @@ tags: Mac
 |Regular Expression|Action|Parameters|Instant|
 |---|---|---|---|
 |rz waiting to receive.\\\*\\\*B0100|Run Silent Coprocess|/usr/local/bin/iterm2-send-zmodem.sh|checked|
-|\\\*\\\*B00000000000000|Run Silent Coprocess|/usr/local/bin/iterm2-send-zmodem.sh|checked|
+|\\\*\\\*B00000000000000|Run Silent Coprocess|/usr/local/bin/iterm2-recv-zmodem.sh|checked|
 
 **尤其注意最后一项需要你将`Instant`选项勾上，否则将不生效**
 
