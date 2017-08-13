@@ -1,7 +1,7 @@
 title: 一周一部好电影IV【WEEK171战狼2】
 tags: 
   - 电影
-  categories:
+categories:
   - 日志
   - 周电
   date: 2017-08-13 21:52
