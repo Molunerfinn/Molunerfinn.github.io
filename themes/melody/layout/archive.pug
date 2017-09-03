@@ -1,0 +1,10 @@
+
+extends includes/layout.pug
+
+block content
+  include ./includes/mixins/article-sort.pug
+  #archive
+    .article-sort-title= '文章总览'
+    +articleSort(page.posts)
+  include includes/pagination.pug
+

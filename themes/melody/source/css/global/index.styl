@@ -1,0 +1,106 @@
+html
+  height: 100%
+  font-size: $rem
+
+body
+  position: relative
+  display: flex
+  flex-direction: column
+  min-height: 100%
+  color: $font-color
+  font-size: $font-size
+  font-family: $font-family
+  line-height: $text-line-height
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+  margin: 0.2rem 0
+  color: $font-black
+  font-weight: normal
+
+#content-outer
+  flex: 1
+
+*
+  box-sizing: border-box
+
+#toggle-sidebar
+  position: fixed
+  bottom: $sidebar-icon-top
+  left: $sidebar-icon-left
+  z-index: 100
+  font-size: $sidebar-icon-size
+  cursor: pointer
+
+#go-up
+  position: fixed
+  right: $go-up-right
+  bottom: $go-up-bottom
+  z-index: 100
+  font-size: $sidebar-icon-size
+  opacity: 0
+  cursor: pointer
+
+.fancybox-caption
+  text-align: center
+
+.fireworks
+  position: fixed
+  z-index: -1
+  pointer-events: none
+
+hr
+  position: relative
+  margin: 2rem auto
+  width: 100%
+  border: 2px dashed $pale-blue
+  background: $white
+
+  &:hover
+    &:before
+      left: calc(95% - 20px)
+
+  &:before
+    position: absolute
+    top: -10px
+    left: 5%
+    z-index: 1
+    color: $light-blue
+    content: "\f0c4"
+    font: normal normal normal 14px / 1 FontAwesome
+    font-size: 20px
+    transition: all 1s ease-in-out
+
+table
+  display: block
+  overflow: auto
+  width: 100%
+  border-spacing: 0
+  border-collapse: collapse
+
+  thead
+    background: alpha($a-link-color, 10%)
+
+  th,
+  td
+    padding: 0.3rem 0.6rem
+    border: 1px solid $light-grey
+
+*::selection
+  background: $selection
+  color: $pale-grey
+
+.text-center
+  text-align: center
+
+@media screen and (max-width: $bg)
+  i#toggle-sidebar,
+  #sidebar
+    display: none
+
+  body
+    padding-left: 0 !important

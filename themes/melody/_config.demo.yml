@@ -1,0 +1,96 @@
+# html lang
+# ---------------
+language: en
+
+# main menu navigation
+# ---------------
+menu:
+  Home: /
+  Archives: /archives
+  Tags: /tags
+  Categories: /categories
+
+# Favicon
+# ---------------
+favicon: /favicon.ico
+
+# Highlight theme
+# ---------------
+highlight_theme: default
+
+# Toggle fireworks (IE >= 10)
+# ---------------
+fireworks: false
+
+# stylesheets loaded in the <head>
+# ---------------
+stylesheets:
+- /css/index.css
+
+# scripts loaded in the end of the body
+# ---------------
+scripts:
+- /js/utils.js
+- /js/fancybox.js
+- /js/sidebar.js
+- /js/copy.js
+- /js/fireworks.js
+- /js/transition.js
+- /js/scroll.js
+- /js/head.js
+
+# cdn for third-party library
+# ---------------
+cdn:
+  css:
+    fontawesome: https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css
+  js:
+    anime: /js/third-party/anime.min.js
+    jquery: /js/third-party/jquery.min.js
+    fancybox: /js/third-party/jquery.fancybox.min.js
+    velocity: /js/third-party/velocity.min.js 
+    velocity-ui: /js/third-party/velocity.ui.min.js 
+
+# Post info settings
+# ---------------
+avatar: 
+
+top_img: true # false or url of img 
+
+social:
+  #icon_name: url
+
+post_meta:
+  date_type: updated # created or updated 
+  categories: true
+  tags: true
+
+toc:
+  enable: true
+
+addThis:
+  #enable: true
+  #pubid: 
+
+disqus:
+  #enable: 
+  #shortname: 
+  #count: 
+
+# Footer Settings
+# ---------------
+since: 2013
+
+ICP:
+  #enable: false
+  #text: 
+
+# Sidebar Settings
+# ---------------
+#links_title: Links
+#links:
+  #Name: url
+
+# Version
+# ---------------
+version: 1.0

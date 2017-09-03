@@ -1,0 +1,251 @@
+#post-title
+  font-size: 1.4rem
+
+  &.plain
+    margin-bottom: 0.3rem
+    border-bottom: 1px solid $light-grey
+    cursor: pointer
+    transition: all 0.2s ease-in-out
+
+    &:hover
+      border-bottom: 1px solid $light-blue
+      color: $light-blue
+
+#post
+  overflow: hidden
+
+  #post-meta
+    color: $grey
+
+    a
+      text-decoration: none
+
+    i.fa.fa-comment-o
+      margin-right: 0.2rem
+
+#top-container
+  position: relative
+  margin-bottom: 1rem
+  background-color: $light-blue
+  background-attachment: fixed
+  background-position: center
+  background-size: cover
+  opacity: 0
+
+  &.no-bg
+    background-color: $light-blue
+    background-image: url($bg-svg + "") !important
+    background-size: auto
+
+  &.plain
+    margin-bottom: 1rem
+    height: 56px
+
+  a
+    color: $light-grey
+    text-decoration: none
+    transition: all 0.3s ease-out
+
+    &:hover
+      color: $white
+
+  #top-img
+    padding: 0
+    border: none
+
+  #site-name
+    font-weight: bold
+    cursor: pointer
+
+  #post-info
+    padding: 10rem 1rem
+    width: 100%
+    color: $light-grey
+    text-align: center
+
+  #post-title
+    font-size: 1.3rem
+
+  i.fa.fa-angle-right,
+  i.fa.fa-tag,
+  i.fa.fa-comment-o
+    margin-right: 0.2rem
+
+.post-meta
+  &__separator
+    margin: 0 0.3rem
+
+  &__tag-list
+    margin-bottom: 0.5rem
+
+  &__tags
+    margin-right: 0.4rem
+    padding: 0.2rem 0.6rem
+    border: 1px solid $light-blue
+    border-radius: 0.6rem
+    background: $white
+    color: $light-blue
+    text-decoration: none
+    font-size: 12px
+    cursor: pointer
+    transition: all 0.2s ease-in-out
+
+    &:hover
+      background: $light-blue
+      color: $white
+
+.layout
+  margin: 0 auto
+  width: $content-width
+  opacity: 0
+
+#content-inner
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6
+    cursor: pointer
+
+    &:before
+      margin-right: unit(0.3 * $rem, "px")
+      color: $light-red
+      content: "\f02e"
+      font: normal normal normal 14px / 1 FontAwesome
+      font-size: unit(0.8 * $rem, "px")
+      transition: all 0.2s ease-out
+
+    &:hover
+      &:before
+        margin-right: unit(0.4 * $rem, "px")
+        color: $light-blue
+
+  ol,
+  ul
+    margin-top: 0.4rem
+    padding: 0 0 0 0.8rem
+    list-style: none
+    counter-reset: li
+
+    p
+      margin: 0
+
+    ol,
+    ul
+      padding-left: 0.5rem
+
+    li
+      position: relative
+      margin: 0.2rem 0
+      padding: 0.1rem 0.5rem 0.1rem 1.5rem
+
+      &:hover
+        &:before
+          transform: rotate(360deg)
+
+      &:before
+        position: absolute
+        top: 0
+        left: 0
+        background: $light-blue
+        color: $white
+        cursor: pointer
+        transition: all 0.3s ease-out
+
+  ol
+    li
+      &:before
+        margin-top: 0.2rem
+        width: w = unit(1.2 * $rem, "px")
+        height: h = w
+        border-radius: 0.5 * w
+        content: counter(li)
+        counter-increment: li
+        text-align: center
+        font-size: unit(0.6 * $rem, "px")
+        line-height: h
+
+  ul
+    li
+      &:hover
+        &:before
+          border-color: $ruby
+
+      &:before
+        $w = unit(0.3 * $rem, "px")
+        top: 10px
+        margin-left: unit(0.75 * $rem, "px") - $w
+        width: w = $w
+        height: h = w
+        border: 0.5 * w solid $light-blue
+        border-radius: w
+        background: $white
+        content: ""
+        line-height: h
+
+#post-content
+  margin-bottom: 1rem
+
+a
+  color: $a-link-color
+  transition: all 0.2s
+
+  &:hover
+    color: $light-blue
+    text-decoration: none
+
+  &#site-name
+    text-decoration: none
+
+a.fancybox
+  outline: none
+
+  &:focus
+    outline: none
+
+  display: inline-block
+  width: 100%
+  text-align: center
+
+img
+  padding: $img-border-padding
+  max-width: 100%
+  border: 1px solid $img-border-color
+  transition: all 0.2s
+
+  &:hover
+    box-shadow: 0 0 8px 0 rgba(232, 237, 250, 0.6), 0 2px 4px 0 rgba(232, 237, 250, 0.5)
+
+.fa-clipboard
+  position: absolute
+  top: 10px
+  right: 10px
+  color: $highlight-aqua
+  cursor: pointer
+  transition: color 0.2s
+
+  &:hover
+    color: darken($highlight-aqua, 20%)
+
+.copy-notice
+  position: absolute
+  top: 6px
+  right: 0
+  background: $highlight-background
+  color: $highlight-aqua
+  opacity: 0
+
+@media screen and (max-width: $sm)
+  .layout
+    margin: 0 30px
+    width: auto
+
+@media screen and (min-width: $sm)
+  #top-container
+    #post-title
+      font-size: 2rem
+
+@media screen and (min-width: $md)
+  .layout
+    width: $content-large-width

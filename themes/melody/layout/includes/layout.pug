@@ -1,0 +1,48 @@
+
+- var pageTitle = page.title || config.subtitle || ''
+- if (is_archive()) pageTitle = 'Archives'
+- if (is_tag()) pageTitle = 'Tag: ' + page.tag
+- if (is_category()) pageTitle = 'Category: ' + page.category
+- if (is_month()) pageTitle += ': ' + page.month + '/' + page.year
+- if (is_year()) pageTitle += ': ' + page.year
+- pageTitle += ' | ' + config.title
+
+doctype html
+html(lang=config.language)
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv="X-UA-Compatible" content="IE=edge")
+    meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1")
+    title= pageTitle
+    if theme.stylesheets !== undefined && theme.stylesheets.length > 0
+      each url in theme.stylesheets
+        link(rel='stylesheet', href=url)
+    each item in theme.cdn.css
+      if item !== undefined
+        link(rel='stylesheet', href=item)
+    link(rel="icon", href=config.root + 'favicon.ico')
+    each item in theme.cdn.js
+      if item !== undefined
+        script(src=item)
+    
+  body
+    if theme.fireworks
+      canvas.fireworks
+    i.fa.fa-arrow-right#toggle-sidebar(aria-hidden="true")
+    include ./sidebar.pug
+    if (!is_post())
+      include ./nav.pug
+    #content-outer
+      block top_img
+      #content-inner.layout
+        if body
+          div!= body
+        else
+          block content
+    footer
+      include ./footer.pug
+    i.fa.fa-arrow-up#go-up(aria-hidden="true")
+    if theme.scripts !== undefined && theme.scripts.length > 0
+      //- scripts list from config.yml
+      each url in theme.scripts
+        script(src=url)
