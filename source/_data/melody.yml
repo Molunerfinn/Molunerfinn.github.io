@@ -1,34 +1,27 @@
 # html lang
-# ---------------
-language: en
+language: zh
 
 # main menu navigation
-# ---------------
 menu:
   Home: /
   Archives: /archives
   Tags: /tags
   Categories: /categories
 
-# Favicon
-# ---------------
+# Miscelaneous
 favicon: /favicon.ico
 
-# Highlight theme
-# ---------------
+# highlight
 highlight_theme: default
 
-# Toggle fireworks (IE >= 10)
-# ---------------
+# fireworks
 fireworks: false
 
 # stylesheets loaded in the <head>
-# ---------------
 stylesheets:
 - /css/index.css
 
 # scripts loaded in the end of the body
-# ---------------
 scripts:
 - /js/utils.js
 - /js/fancybox.js
@@ -39,29 +32,29 @@ scripts:
 - /js/scroll.js
 - /js/head.js
 
-# cdn for third-party library
-# ---------------
 cdn:
   css:
     fontawesome: https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css
   js:
-    anime: /js/third-party/anime.min.js
-    jquery: /js/third-party/jquery.min.js
-    fancybox: /js/third-party/jquery.fancybox.min.js
-    velocity: /js/third-party/velocity.min.js 
-    velocity-ui: /js/third-party/velocity.ui.min.js 
+    anime: https://cdn.bootcss.com/animejs/2.0.2/anime.min.js
+    jquery: https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js
+    fancybox: https://cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.min.js
+    velocity: https://cdn.bootcss.com/velocity/1.5.0/velocity.min.js
+    velocity-ui: https://cdn.bootcss.com/velocity/1.5.0/velocity.ui.min.js 
 
 # Post info settings
-# ---------------
-avatar: 
 
-top_img: true # false or url of img 
+avatar: https://ws1.sinaimg.cn/large/8700af19ly1fj3cdqu3f6j20ix0iwq5r.jpg
 
-#social:
-  #icon_name: url
+top_img: true 
+
+social:
+  github: https://github.com/Molunerfinn
+  weibo: http://weibo.com/mybluedreams/
+  rss: https://molunerfinn.com/atom.xml 
 
 post_meta:
-  date_type: created # created or updated 
+  date_type: updated # created or updated 
   categories: true
   tags: true
 
@@ -69,46 +62,46 @@ toc:
   enable: true
 
 addThis:
-  #enable: true
-  #pubid: 
+  enable: true
+  pubid: ra-5994f8f0fea9a5f4
 
 disqus:
-  #enable: 
-  #shortname: 
-  #count: 
+  enable: true
+  shortname: molunerfinn
+  count: true
 
-# Footer Settings
-# ---------------
+
 since: 2013
 
 ICP:
   enable: false
-  #text: 
+  text: 
 
 # busuanzi count for PV / UV in site
 busuanzi:
   # count values only if the other configs are false
-  enable: false
+  enable: true
   # custom uv span for the whole site
   site_uv: true
   site_uv_header: <i class="fa fa-user"></i>
-  site_uv_footer:
+  site_uv_footer: 
   # custom pv span for the whole site
   site_pv: true
   site_pv_header: <i class="fa fa-eye"></i>
-  site_pv_footer:
+  site_pv_footer: 
   # custom pv span for one page only
   page_pv: true
   page_pv_header: <i class="fa fa-file-o"></i>
-  page_pv_footer:
-
+  page_pv_footer: 
 
 # Sidebar Settings
-# ---------------
-#links_title: Links
-#links:
-  #Name: url
+
+# Links
+links_title: Links
+links:
+  Molunerfinn: https://molunerfinn.com
+  PiEgg: https://piegg.cn
+  Elody: https://elody-07.github.io
 
 # Version
-# ---------------
 version: 1.0
