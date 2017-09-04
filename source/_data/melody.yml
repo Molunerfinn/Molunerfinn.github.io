@@ -54,7 +54,7 @@ social:
   rss: https://molunerfinn.com/atom.xml 
 
 post_meta:
-  date_type: updated # created or updated 
+  date_type: created # created or updated 
   categories: true
   tags: true
 
