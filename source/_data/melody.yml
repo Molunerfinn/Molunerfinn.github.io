@@ -17,6 +17,11 @@ highlight_theme: default
 # fireworks
 fireworks: false
 
+# Analysis
+
+baidu_analytics: 19a7ebdbb87f2403773c7ab0cae16d21
+google_analytics: UA-105869658-1
+
 # algolia_search
 algolia_search:
   enable: true
