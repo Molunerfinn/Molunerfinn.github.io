@@ -15,7 +15,7 @@ favicon: /favicon.ico
 highlight_theme: default
 
 # fireworks
-fireworks: false
+fireworks: true
 
 # Analysis
 
