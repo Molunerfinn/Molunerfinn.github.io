@@ -63,9 +63,7 @@ Hexo的官方文档是出了名的烂。不过有两个用得比较多的部分�
 
 另外我们的主题需要`pug`和`stylus`的渲染引擎，所以如下一并安装了：
 
-```
-npm install hexo-server hexo-browsersync hexo-jade-renderer hexo-stylus-renderer --save-dev
-```
+`npm install hexo-server hexo-browsersync hexo-jade-renderer hexo-stylus-renderer --save-dev`
 
 > 注意，新版的`hexo-jade-renderer`已经包括了处理`pug`的渲染引擎。
 
@@ -95,7 +93,7 @@ highlight:
  auto_detect: false
 ```
 
-并在写文章的时候，代码块的声明区域边上直接带上代码类型，比如：` ```js `，这样就正常了。
+并在写文章的时候，代码块的声明区域边上直接带上代码类型，比如：\`\`\`js，这样就正常了。
 
 ### 用Yeoman来生成主题结构
 
