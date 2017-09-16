@@ -8,6 +8,7 @@
   "dependencies": {
     "hexo": "^3.1.0",
     "hexo-algoliasearch": "^0.2.1",
+    "hexo-all-minifier": "^0.2.6",
     "hexo-deployer-git": "^0.2.0",
     "hexo-generator-archive": "^0.1.2",
     "hexo-generator-category": "^0.1.2",
@@ -17,8 +18,8 @@
     "hexo-generator-tag": "^0.1.1",
     "hexo-migrator-wordpress": "^0.1.2",
     "hexo-renderer-ejs": "^0.1.0",
-    "hexo-renderer-marked": "^0.2.4",
     "hexo-renderer-jade": "^0.4.1",
+    "hexo-renderer-marked": "^0.2.4",
     "hexo-renderer-stylus": "^0.3.1",
     "hexo-renderer-swig": "^1.1.0",
     "hexo-server": "^0.1.2"

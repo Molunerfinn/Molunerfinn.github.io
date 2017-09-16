@@ -66,7 +66,7 @@ top_img: true
 social:
   github: https://github.com/Molunerfinn
   weibo: http://weibo.com/mybluedreams/
-  rss: https://molunerfinn.com/atom.xml 
+  rss: https://molunerfinn.com/atom.xml
 
 post_meta:
   date_type: created # created or updated 
@@ -75,6 +75,11 @@ post_meta:
 
 toc:
   enable: true
+
+post_copyright:
+  enable: true
+  license: CC BY-NC-SA 3.0
+  license_url: https://creativecommons.org/licenses/by-nc-sa/3.0/
 
 addThis:
   enable: true
