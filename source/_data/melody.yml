@@ -4,6 +4,7 @@ language: zh
 # main menu navigation
 menu:
   Home: /
+  About: /about
   Archives: /archives
   Tags: /tags
   Categories: /categories
