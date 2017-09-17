@@ -81,6 +81,14 @@ post_copyright:
   license: CC BY-NC-SA 3.0
   license_url: https://creativecommons.org/licenses/by-nc-sa/3.0/
 
+QR_code:
+  - itemlist:
+      img: https://ws1.sinaimg.cn/large/8700af19ly1fjmba1eumhj20jz0jzq4b.jpg
+      text: 支付宝打赏
+  - itemlist:
+      img: https://ws1.sinaimg.cn/large/8700af19ly1fjmbbmp7uwj20jm0jmt9a.jpg
+      text: 微信打赏
+
 addThis:
   enable: true
   pubid: ra-5994f8f0fea9a5f4
