@@ -15,8 +15,7 @@ before_script:
 
 
 script:
-  - hexo clean
-  - hexo algolia
+  - hexo clean && hexo algolia
 
 
 after_script:
