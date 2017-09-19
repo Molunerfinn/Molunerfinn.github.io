@@ -12,7 +12,7 @@ menu:
 # PWA
 pwa:
   enable: true
-  mainfest: /mainfest.json
+  mainfest: /manifest.json
 
 # Miscelaneous
 favicon: /favicon.ico
