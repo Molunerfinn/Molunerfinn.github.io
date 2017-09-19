@@ -9,6 +9,11 @@ menu:
   Tags: /tags
   Categories: /categories
 
+# PWA
+pwa:
+  enable: true
+  mainfest: /mainfest.json
+
 # Miscelaneous
 favicon: /favicon.ico
 
@@ -133,4 +138,4 @@ links:
   Elody: https://elody-07.github.io
 
 # Version
-version: 1.0
+version: 1.1
