@@ -8,7 +8,7 @@ date: 2017-07-27 18:44:00
 
 过一段时间博客的主机要到期了。我看了一下才发现，主机上其实我也只是放着我hexo的静态博客而已。觉得每个月要交几十块钱其实并不值当，遂决定把hexo博客从云主机上转移出来到github-page上。
 
-本文主要记录如何运用`Travis-CI`对hexo博客进行持久化构建，以及通过`Cloudflare`给自有域名的github-page加上`https`。**文末给出如何将自己的博客加入`HSTS`网站列表。**
+本文主要记录如何运用`Travis-CI`对hexo博客进行持久化构建，以及通过`Cloudflare`给自有域名的github-page加上`https`。**文末给出如何将自己的博客加入`HSTS`网站列表。**
 
 <!-- more -->
 
@@ -46,7 +46,7 @@ date: 2017-07-27 18:44:00
 
 ![Token](https://ws1.sinaimg.cn/large/8700af19gy1fi434caiywj216o08otaa.jpg)
 
-**然后保存一下这个Token——它只显示一次，之后就不再显示了。所以找个地方把它记下来先。**
+**然后保存一下这个Token——它只显示一次，之后就不再显示了。所以找个地方把它记下来先。**
 
 然后回到`Travis-CI`里，对于开启同步的仓库进行设置，我们把刚才的这个Token存储为一个叫做`GH_TOKEN`的环境变量，可以在`.travis.yml`这个配置文件里通过`${GH_TOKEN}`的方式获取。这样就不会将你的TOKEN暴露出去了。
 
@@ -120,7 +120,7 @@ env: # 环境变量
 
 做完上述工作后，将`.travis.yml`这个文件添加进`git`仓库，然后推送到远端的`hexo`分支，就会发现`Travis-CI`已经接收到相应的请求正在进行构建了。构建完成后，会将`public`文件夹内的内容推送到`master`分支。至此我们完成了持久化构建的部分。
 
-## 给自有域名的github-page上HTTPS
+## 给自有域名的github-page上HTTPS
 
 从Chrome56左右开始，对于没有HTTPS的网站，不符合要求的，都不会出现一把小绿锁。反之，有了小绿锁的网站，标志着这个网站是HTTPS安全的。
 
@@ -160,9 +160,9 @@ env: # 环境变量
 
 这个时候我们访问`https://molunerfinn.com`自然走的是HTTPS。但是如果有人访问了`http://molunerfinn.com`，那要如何跳转到HTTPS的页面呢？`CloudFare`另一个很棒的功能`Page Rules`就派上用场了。我们可以指定我们的域名强制使用HTTPS，并且当访问是HTTP的时候重定向到HTTPS。这样就能保证用户访问我们的页面都是通过HTTPS的了。
 
-![Rewrite](https://ws1.sinaimg.cn/large/8700af19gy1fi45ezb4b2j21k20xotdz.jpg)
+![Rewrite](https://ws1.sinaimg.cn/large/8700af19gy1fi45ezb4b2j21k20xotdz.jpg)
 
-### 附录
+### 附录
 
 #### DNS解析
 
@@ -172,7 +172,7 @@ env: # 环境变量
 
 上面说到，我们有可能访问自己的网站是走HTTP->304重定向->HTTPS。这个是浏览器跟服务器进行了一次通信之后才发生的跳转。那有没有可能做到，访问的是HTTP，但是浏览器识别之后自动转成HTTPS访问，而不经过重定向那一层操作呢？有的。通过HSTS的Preload List。
 
-可以参考这篇文章对[HSTS](http://www.jianshu.com/p/caa80c7ad45c)进行更深入的了解。简单来说，HSTS能够使我们的网站安全性更上一层楼。
+可以参考这篇文章对[HSTS](http://www.jianshu.com/p/caa80c7ad45c)进行更深入的了解。简单来说，HSTS能够使我们的网站安全性更上一层楼。
 
 还是`CloudFare`，它家自有的HSTS功能，开启之后就能很好的满足我们的需要。（真是完美了）还是在`Crypto`选项下，开启`HSTS`
 
