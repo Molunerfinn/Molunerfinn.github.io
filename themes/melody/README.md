@@ -13,7 +13,10 @@
 A simple & beautiful & fast theme for Hexo.
 
 
-See demo: [molunerfinn.com](https://molunerfinn.com)
+See demo: 
+
+- [molunerfinn.com](https://molunerfinn.com)
+- [LiuNianのBlog](http://www.huborui.com/)
 
 # Documentation
 
@@ -38,7 +41,7 @@ git clone -b master https://github.com/Molunerfinn/hexo-theme-melody themes/melo
 If you don't have jade & stylus renderer, follow this:
 
 ```bash
-npm install hexo-jade-renderer hexo-stylus-renderer
+npm install hexo-renderer-jade hexo-renderer-stylus
 ```
 
 # Configuration
@@ -64,7 +67,7 @@ IE >= 10
 - ~~Analysis~~ // Baidu & Google analytics support
 - ~~MathJax~~ // MathJax support
 - ~~i18n~~ // zh-Hans & en support
-- PWA 
+- ~~PWA~~ // v1.2 support
 - Performance optimization
 - ...
 
