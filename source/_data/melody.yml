@@ -55,7 +55,7 @@ scripts:
 
 cdn:
   css:
-    fontawesome: https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css
+    fontawesome: https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css 
   js:
     anime: https://cdn.bootcss.com/animejs/2.0.2/anime.min.js
     jquery: https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js
