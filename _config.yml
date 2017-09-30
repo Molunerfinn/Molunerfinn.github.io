@@ -132,4 +132,32 @@ offline:
       handler: cacheFirst
       options:
         origin: cdnjs.cloudflare.com
+    - urlPattern: /*
+      handler: cacheFirst
+      options:
+        origin: cdn.jsdelivr.net
+    - urlPattern: /*
+      handler: cacheFirst
+      options:
+        origin: fonts.googleapis.com
+    - urlPattern: /*
+      handler: cacheFirst
+      options:
+        origin: fonts.gstatic.com
+    - urlPattern: /*
+      handler: cacheFirst
+      options:
+        origin: cdnjs.cloudflare.com
+    - urlPattern: /*
+      handler: cacheFirst
+      options:
+        origin: cdn.bootcss.com
+    - urlPattern: /*
+      handler: cacheFirst
+      options:
+        origin: molunerfinn.com
+    - urlPattern: /*
+      handler: cacheFirst
+      options:
+        origin: ws1.sinaimg.cn 
 
