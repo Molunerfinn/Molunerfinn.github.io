@@ -139,6 +139,10 @@ offline:
     - urlPattern: /*
       handler: cacheFirst
       options:
+        origin: unpkg.com 
+    - urlPattern: /*
+      handler: cacheFirst
+      options:
         origin: fonts.googleapis.com
     - urlPattern: /*
       handler: cacheFirst
