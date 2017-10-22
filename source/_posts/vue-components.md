@@ -336,7 +336,7 @@ export default {
       }
     })
 
-    const toggleLoading = (el, binding) => { // 用于控制Loading的出现与消失
+    const toggleLoading = (el, binding) => { // 用于控制Loading的出现与消失
       if(binding.value) { 
         Vue.nextTick(() => {
           if (binding.modifiers.fullscreen) { // 如果是全屏
