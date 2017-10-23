@@ -41,6 +41,14 @@ algolia_search:
     hits_empty: "We didn't find any results for the search: ${query}"
     hits_stats: "${hits} results found in ${time} ms"
 
+# Local search
+# ---------------
+local_search:
+  enable: false
+  labels:
+    input_placeholder: Search for Posts
+    hits_empty: "We didn't find any results for the search: ${query}"
+
 # MathJax
 # ---------------
 
@@ -99,6 +107,9 @@ post_meta:
   categories: true
   tags: true
 
+wordcount:
+  enable: false
+
 toc:
   enable: true
 
@@ -156,4 +167,4 @@ busuanzi:
 
 # Version
 # ---------------
-version: 1.2
+version: 1.3
