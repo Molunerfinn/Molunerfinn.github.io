@@ -69,6 +69,9 @@ avatar: https://ws1.sinaimg.cn/large/8700af19ly1fj3cdqu3f6j20ix0iwq5r.jpg
 
 top_img: true 
 
+wordcount:
+  enable: true
+
 social:
   github: https://github.com/Molunerfinn
   weibo: http://weibo.com/mybluedreams/
@@ -138,4 +141,4 @@ links:
   Elody: https://elody-07.github.io
 
 # Version
-version: 1.2
+version: 1.3
