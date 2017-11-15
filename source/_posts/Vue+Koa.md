@@ -1215,7 +1215,7 @@ export default {
     getUserInfo(){ // 获取用户信息
       const token = sessionStorage.getItem('demo-token');
       if(token != null && token != 'null'){
-        let decode = jwt.verify(token,'vue-koa-demo'); // 解析token
+        let decode = jwt.decode(token); // 解析token
         return decode // decode解析出来实际上就是{name: XXX,id: XXX}
       }else {
         return null
