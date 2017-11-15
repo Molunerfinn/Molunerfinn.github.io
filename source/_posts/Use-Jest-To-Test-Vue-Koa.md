@@ -1239,6 +1239,8 @@ beforeEach(() => {
 
 接下去开始测试`Todolist.vue`这个组件了。
 
+### Todolist.vue的测试
+
 #### 键盘事件测试以及隐式事件触发
 
 类似的我们在`test/client`目录下创建一个叫做`todolist.spec.js`的文件。
