@@ -837,7 +837,7 @@ npm install vue-test-utils vue-jest jest-serializer-vue --save-dev
     "js"
   ],
   "transform": { // 增加transform转换
-    ".*\\.(vue)$": "<rootDir>/node_modules/jest-vue",
+    ".*\\.(vue)$": "<rootDir>/node_modules/vue-jest",
     "^.+\\.js$": "<rootDir>/node_modules/babel-jest"
   },
   "coverageDirectory": "coverage",
