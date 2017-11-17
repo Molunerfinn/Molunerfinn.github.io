@@ -891,7 +891,7 @@ npm install vue-test-utils vue-jest jest-serializer-vue --save-dev
 
 ```js
 import { shallow } from 'vue-test-utils'
-import import Login from '../../src/components/Login.vue'
+import Login from '../../src/components/Login.vue'
 
 let wrapper
 
@@ -913,7 +913,7 @@ test('Should have two input & one button', () => {
 
 ```js
 import { mount } from 'vue-test-utils'
-import import Login from '../../src/components/Login.vue'
+import Login from '../../src/components/Login.vue'
 
 let wrapper
 
