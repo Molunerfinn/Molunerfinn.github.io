@@ -63,9 +63,9 @@ Hexo的官方文档是出了名的烂。不过有两个用得比较多的部分�
 
 另外我们的主题需要`pug`和`stylus`的渲染引擎，所以如下一并安装了：
 
-`npm install hexo-server hexo-browsersync hexo-jade-renderer hexo-stylus-renderer --save-dev`
+`npm install hexo-server hexo-browsersync hexo-renderer-jade hexo-renderer-stylus --save-dev`
 
-> 注意，新版的`hexo-jade-renderer`已经包括了处理`pug`的渲染引擎。
+> 注意，新版的`hexo-renderer-jade`已经包括了处理`pug`的渲染引擎。
 
 #### Bug以及解决
 
