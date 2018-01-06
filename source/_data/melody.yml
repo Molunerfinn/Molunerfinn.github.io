@@ -24,7 +24,6 @@ highlight_theme: default
 fireworks: true
 
 # Analysis
-
 baidu_analytics: 19a7ebdbb87f2403773c7ab0cae16d21
 google_analytics: UA-105869658-1
 
@@ -87,8 +86,8 @@ toc:
 
 post_copyright:
   enable: true
-  license: CC BY-NC-SA 3.0
-  license_url: https://creativecommons.org/licenses/by-nc-sa/3.0/
+  license: CC BY-NC-SA 4.0
+  license_url: https://creativecommons.org/licenses/by-nc-sa/4.0/
 
 QR_code:
   - itemlist:
@@ -107,8 +106,12 @@ disqus:
   shortname: molunerfinn
   count: true
 
+adv:
+  enable: true
+  info: <a href="https://www.vultr.com/?ref=7231808"><img src="https://www.vultr.com/media/banner_1.png" width="728" height="90"></a>
 
-since: 2013
+
+since: 2015
 
 ICP:
   enable: false
