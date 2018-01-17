@@ -15,8 +15,8 @@ date: 2018-01-11 17:30:00
 
 预计将会从几篇系列文章或方面来展开：
 
-1. electron-vue入门
-2. Main进程和Renderer进程的简单开发
+1. [electron-vue入门](https://molunerfinn.com/electron-vue-1/)
+2. [Main进程和Renderer进程的简单开发](https://molunerfinn.com/electron-vue-2/)
 3. 引入基于Lodash的json database——lowdb
 4. 跨平台的一些兼容措施
 5. 通过CI发布以及更新的方式
