@@ -66,7 +66,7 @@ cdn:
 
 avatar: https://ws1.sinaimg.cn/large/8700af19ly1fm4iuz15lsj20ix0iw0u8
 
-top_img: true 
+top_img: https://ws1.sinaimg.cn/large/8700af19ly1fnp7q2phkzj21hc0xc0yl 
 
 wordcount:
   enable: true
@@ -108,7 +108,7 @@ disqus:
 
 adv:
   enable: true
-  info: <a href="https://www.vultr.com/?ref=7231808"><img src="https://www.vultr.com/media/banner_1.png" width="728" height="90"></a>
+  info: <a href="https://www.vultr.com/?ref=7231808"><img src="https://www.vultr.com/media/banner_1.png" width="100%" height="90"></a>
 
 
 since: 2015
@@ -140,8 +140,7 @@ busuanzi:
 links_title: Links
 links:
   Molunerfinn: https://molunerfinn.com
-  PiEgg: https://piegg.cn
   Elody: https://elody-07.github.io
 
 # Version
-version: 1.3
+version: 1.4
