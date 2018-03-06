@@ -1,4 +1,4 @@
-title: hexo-theme-melody v1.5 supports iframe & slides
+title: hexo-theme-melody v1.5 supports slides & iframe
 categories:
   - Web 
   - 开发

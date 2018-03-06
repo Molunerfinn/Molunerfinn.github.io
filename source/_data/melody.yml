@@ -144,3 +144,22 @@ links:
 
 # Version
 version: 1.4
+
+slide:
+  separator: ===
+  separator_vertical: ==
+  charset: utf-8
+  theme: black
+  loop: false
+  showNotes: false
+  autoPlayMedia: null
+  autoSlide: 0
+  autoSlideStoppable: true
+  mouseWheel: false
+  hideAddressBar: true
+  transition: slide
+  transitionSpeed: default
+  parallaxBackgroundImage: ''
+  parallaxBackgroundSize: ''
+  parallaxBackgroundHorizontal: null
+  parallaxBackgroundVertical: null
