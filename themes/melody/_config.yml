@@ -118,10 +118,21 @@ post_copyright:
   license: CC BY-NC-SA 3.0
   license_url: https://creativecommons.org/licenses/by-nc-sa/3.0/
 
+# slide
+# For reveal.js config, see https://github.com/hakimel/reveal.js#configuration
 slide:
-  separator: ^\n---\n$
-  separator_vertical: ^\n--\n$
+  separator: ---
+  separator_vertical: --
   charset: utf-8
+  theme: black
+  # optional
+  mouseWheel: false
+  transition: slide
+  transitionSpeed: default
+  parallaxBackgroundImage: ''
+  parallaxBackgroundSize: ''
+  parallaxBackgroundHorizontal: null
+	parallaxBackgroundVertical: null
 
 # QR_code:
   # - itemlist:
@@ -164,22 +175,22 @@ disqus:
 #   enable: false
 #   client_id: 
 #   client_secret: 
-#   repo: gitalkBlog
-#   owner: zouyaoji
-#   admin: zouyaoji
+#   repo:
+#   owner:
+#   admin:
 
 # valine comment system. https://valine.js.org
-valine:
-  enable: false # if you want use valine,please set this value is ture
-  appId:  # leancloud application app id
-  appKey:  # leancloud application app key
-  notify: false # valine mail notify (true/false) https://github.com/xCss/Valine/wiki
-  verify: false # valine verify code (true/false)
-  pageSize: 10 # comment list page size
-  avatar: mm # gravatar style https://valine.js.org/#/avatar
-  lang: zh-cn # i18n: zh-cn/en
-  placeholder: Just go go # valine comment input placeholder(like: Please leave your footprints )
-  guest_info: nick,mail,link #valine comment header inf
+# valine:
+#   enable: false # if you want use valine,please set this value is ture
+#   appId:  # leancloud application app id
+#   appKey:  # leancloud application app key
+#   notify: false # valine mail notify (true/false) https://github.com/xCss/Valine/wiki
+#   verify: false # valine verify code (true/false)
+#   pageSize: 10 # comment list page size
+#   avatar: mm # gravatar style https://valine.js.org/#/avatar
+#   lang: zh-cn # i18n: zh-cn/en
+#   placeholder: Just go go # valine comment input placeholder(like: Please leave your footprints )
+#   guest_info: nick,mail,link #valine comment header inf
 
 # Footer Settings
 # ---------------
