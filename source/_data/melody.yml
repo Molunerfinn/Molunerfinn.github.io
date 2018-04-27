@@ -163,3 +163,8 @@ slide:
   parallaxBackgroundSize: ''
   parallaxBackgroundHorizontal: null
   parallaxBackgroundVertical: null
+
+follow:
+  enable: true
+  url: 'https://github.com/Molunerfinn'
+  text: 'Follow Me'
