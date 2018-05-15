@@ -2,6 +2,7 @@ title: 全栈测试实战：用Jest测试Vue+Koa全栈应用
 tags: 
   - 前端
   - Nodejs
+  - Vue
 categories:
   - Web
   - 开发
@@ -1480,6 +1481,3 @@ test('Should add a todo if handle in the right way', async () => {
 [Test Methods and Mock Dependencies in Vue.js with Jest](https://alexjoverm.github.io/2017/09/25/Test-Methods-and-Mock-Dependencies-in-Vue-js-with-Jest/)
 
 [Storage problem](https://stackoverflow.com/questions/30792076/mocking-sessionstorage-when-using-jestjs)
-
-
-
