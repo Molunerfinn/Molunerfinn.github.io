@@ -1,12 +1,26 @@
-// https://github.com/chriskempson/tomorrow-theme
-@require 'theme'
-@require 'diff'
+// https://github.com/equinusocio/vsc-material-theme
+@require "theme"
+@require "diff"
+
+languages = "js" "javascript" "python" "ruby" "xml" "html" "css" "perl" "sql" "coffeescript" "java" "scala" "kotlin" "c" "c++" "go" "less" "sass" "scss" "stylus" "styl" "typescript"
+
+loopForLanguages()
+  for lang in languages
+    .article-container
+      figure.highlight
+        &{"." + lang}
+          table
+            &:before
+              content: lang
+
+loopForLanguages()
 
 // Placeholder: $code-block
 $code-block
   overflow: auto
   margin: 1rem 0
   padding: 0
+  padding-top: 1.4rem
   background: $highlight-background
   color: $highlight-foreground
   font-size: $code-font-size
@@ -21,156 +35,233 @@ blockquote
   border-left: 0.2rem solid $blockquote-padding-color
   color: $blockquote-color
 
-pre,
-code
-  font-family: $code-font !important
-
-code
-  padding: 0.1rem 0.2rem
-  background: $code-background
-  color: $code-foreground
-  word-wrap: break-word
-  font-size: $code-font-size
-
-pre
-  @extend $code-block
+.article-container
+  pre,
+  code
+    font-family: $code-font !important
 
   code
-    padding: 0
-    background: none
-    color: $highlight-foreground
-    text-shadow: none
-
-.highlight
-  @extend $code-block
-  border-radius: 1px
+    padding: 0.1rem 0.2rem
+    background: $code-background
+    color: $code-foreground
+    word-wrap: break-word
+    font-size: $code-font-size
 
   pre
-    margin: 0
-    padding: 8px 0
-    border: none
+    @extend $code-block
 
-  table
-    margin: 0
-    width: auto
-    border: none
-
-  td
-    padding: 0
-    border: none
-
-  figcaption
-    clearfix()
-    margin-bottom: 1em
-    color: $highlight-foreground
-    font-size: 1em
-    line-height: 1em
-
-    a
-      float: right
+    code
+      padding: 0
+      background: none
       color: $highlight-foreground
+      text-shadow: none
 
-      &:hover
-        border-bottom-color: $highlight-foreground
+  .highlight
+    @extend $code-block
+    position: relative
+    border-radius: 1px
 
-  .gutter pre
-    padding-right: 0.5rem
-    padding-left: 0.5rem
-    background-color: $highlight-gutter.bg-color
-    color: $highlight-gutter.color
-    text-align: right
+    &:after
+      position: absolute
+      top: 0
+      z-index: 0
+      min-width: 100%
+      height: 1.4rem
+      background: darken($highlight-background, 5)
+      content: ""
 
-  .code pre
-    padding-right: 0.5rem
-    padding-left: 0.5rem
-    width: 100%
-    background-color: $highlight-background
+    pre
+      margin: 0
+      padding: 8px 0
+      border: none
 
-  .line
-    height: 1rem
+    .line
+      &::selection
+        background: $highlight-selection
+        color: $highlight-foreground
 
-.gutter
-  -webkit-user-select: none
-  -moz-user-select: none
-  -ms-user-select: none
-  user-select: none
+    table
+      position: relative
+      margin: 0
+      width: auto
+      border: none
 
-.gist table
-  width: auto
+      &:before
+        position: fixed
+        right: 0
+        left: 0
+        z-index: 1
+        display: inline-block
+        margin-top: -1.4rem
+        padding: 0 0.7rem
+        width: 5rem
+        color: $highlight-foreground
+        content: "Code"
+        font-weight: bold
+        font-size: 0.8rem
+        line-height: 1.4rem
 
-  td
-    border: none
+      &:after
+        position: absolute
+        top: -1.4rem
+        z-index: 0
+        width: 100%
+        height: 1.4rem
+        background: darken($highlight-background, 5)
+        content: ""
 
-// For diff highlight
-pre .deletion
-  background: $highlight-deletion
+    td
+      padding: 0
+      border: none
 
-pre .addition
-  background: $highlight-addition
+    figcaption
+      clearfix()
+      margin-bottom: 1em
+      color: $highlight-foreground
+      font-size: 1em
+      line-height: 1em
 
-pre .meta
-  color: $highlight-purple
+      a
+        float: right
+        color: $highlight-foreground
 
-pre
-  .comment
-    color: $highlight-comment
+        &:hover
+          border-bottom-color: $highlight-foreground
 
-  .variable,
-  .attribute,
-  .regexp,
-  .ruby .constant,
-  .xml .tag .title,
-  .xml .pi,
-  .xml .doctype,
-  .html .doctype,
-  .css .id,
-  .tag .name,
-  .css .class,
-  .css .pseudo
-    color: $highlight-red
+    .gutter pre
+      padding-right: 0.5rem
+      padding-left: 0.5rem
+      background-color: $highlight-gutter.bg-color
+      color: $highlight-gutter.color
+      text-align: right
 
-  .tag
-    color: $highlight-aqua
+    .code pre
+      padding-right: 0.5rem
+      padding-left: 0.5rem
+      width: 100%
+      background-color: $highlight-background
 
-  .number,
-  .preprocessor,
-  .literal,
-  .params,
-  .constant,
-  .command
-    color: $highlight-orange
+    .line
+      height: 1rem
 
-  .built_in
-    color: $highlight-yellow
+  .gutter
+    user-select: none
+    -webkit-user-select: none
+    -moz-user-select: none
+    -ms-user-select: none
 
-  .ruby .class .title,
-  .css .rules .attribute,
-  .string,
-  .value,
-  .inheritance,
-  .header,
-  .ruby .symbol,
-  .xml .cdata,
-  .special,
-  .number,
-  .formula
-    color: $highlight-green
+  .gist table
+    width: auto
 
-  .keyword,
-  .title,
-  .css .hexcolor
-    color: $highlight-aqua
+    td
+      border: none
 
-  .function,
-  .python .decorator,
-  .python .title,
-  .ruby .function .title,
-  .ruby .title .keyword,
-  .perl .sub,
-  .javascript .title,
-  .coffeescript .title
-    color: $highlight-blue
+  // For diff highlight
+  pre .deletion
+    background: $highlight-deletion
 
-  .tag .attr,
-  .javascript .function
+  pre .addition
+    background: $highlight-addition
+
+  pre .meta
     color: $highlight-purple
+
+  pre
+    .comment
+      color: $highlight-comment
+
+      &::selection
+        background: $highlight-selection
+        color: $highlight-foreground
+
+    .variable,
+    .attribute,
+    .regexp,
+    .ruby .constant,
+    .xml .tag .title,
+    .xml .pi,
+    .xml .doctype,
+    .html .doctype,
+    .css .id,
+    .tag .name,
+    .css .class,
+    .css .pseudo
+      color: $highlight-red
+
+      &::selection
+        background: $highlight-selection
+        color: $highlight-foreground
+
+    .tag
+      color: $highlight-aqua
+
+      &::selection
+        background: $highlight-selection
+        color: $highlight-foreground
+
+    .number,
+    .preprocessor,
+    .literal,
+    .params,
+    .constant,
+    .command
+      color: $highlight-orange
+
+      &::selection
+        background: $highlight-selection
+        color: $highlight-foreground
+
+    .built_in
+      color: $highlight-yellow
+
+      &::selection
+        background: $highlight-selection
+        color: $highlight-foreground
+
+    .ruby .class .title,
+    .css .rules .attribute,
+    .string,
+    .value,
+    .inheritance,
+    .header,
+    .ruby .symbol,
+    .xml .cdata,
+    .special,
+    .number,
+    .formula
+      color: $highlight-green
+
+      &::selection
+        background: $highlight-selection
+        color: $highlight-foreground
+
+    .keyword,
+    .title,
+    .css .hexcolor
+      color: $highlight-aqua
+
+      &::selection
+        background: $highlight-selection
+        color: $highlight-foreground
+
+    .function,
+    .python .decorator,
+    .python .title,
+    .ruby .function .title,
+    .ruby .title .keyword,
+    .perl .sub,
+    .javascript .title,
+    .coffeescript .title
+      color: $highlight-blue
+
+      &::selection
+        background: $highlight-selection
+        color: $highlight-foreground
+
+    .tag .attr,
+    .javascript .function
+      color: $highlight-purple
+
+      &::selection
+        background: $highlight-selection
+        color: $highlight-foreground
