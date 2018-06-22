@@ -14,11 +14,30 @@ if (theme.gitment && theme.gitment.enable)
 
 if (theme.gitalk && theme.gitalk.enable)
   link(rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css")
-  script(src="https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js")
+  if(theme.gitalk.js)
+    script(src=theme.gitalk.js)
+  else
+    script(src="https://cdn.jsdelivr.net/gh/upupming/gitalk@36368e5dffd049e956cdbbd751ff96c28d8255cf/dist/gitalk.min.js")
   script(src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js")
 
 if (theme.pwa && theme.pwa.enable)
   link(rel="manifest" href=theme.pwa.manifest)
+
+if (theme.pwa && theme.pwa.enable)
+  link(rel="manifest" href=theme.pwa.manifest)
+  if(theme.pwa.theme_color) 
+    meta(name="theme-color" content=theme.pwa.theme_color)
+  if(theme.pwa.theme_color) 
+    meta(name="msapplication-TileColor" content=theme.pwa.theme_color)
+  if(theme.pwa.apple_touch_icon) 
+    link(rel="apple-touch-icon" sizes="180x180" href=theme.pwa.apple_touch_icon)
+  if(theme.pwa.favicon_32_32) 
+    link(rel="icon" type="image/png" sizes="32x32" href=theme.pwa.favicon_32_32)
+  if(theme.pwa.favicon_16_16)
+    link(rel="icon" type="image/png" sizes="16x16" href=theme.pwa.favicon_16_16)
+  if(theme.pwa.theme_color)
+    link(rel="mask-icon" href=theme.pwa.mask_icon color=theme.pwa.theme_color)
+
 
 if theme.baidu_analytics
   link(rel="dns-prefetch" href="https://hm.baidu.com")

@@ -1,5 +1,7 @@
 $(function () {
   $('a.social-icon.search').on('click', function () {
+    $('body').css('width', '100%')
+    $('body').css('overflow', 'hidden')
     $('.search-dialog').velocity('stop')
       .velocity('transition.expandIn', {
         duration: 300,
@@ -11,9 +13,18 @@ $(function () {
       .velocity('transition.fadeIn', {
         duration: 300
       })
-    // $('.ais-search-box--input').attr('autofocus', 'autofocus')
+
+    // shortcut: ESC
+    document.addEventListener('keydown', function f(event) {
+      if (event.code == "Escape") {
+        closeSearch();
+        document.removeEventListener('keydown', f);
+      }
+    })
   })
-  $('.search-mask, .search-close-button').on('click', function () {
+
+  var closeSearch = function () {
+    $('body').css('overflow', 'auto')
     $('.search-dialog').velocity('stop')
       .velocity('transition.expandOut', {
         duration: 300
@@ -22,7 +33,10 @@ $(function () {
       .velocity('transition.fadeOut', {
         duration: 300
       })
-  })
+  }
+  $('.search-mask, .search-close-button').on('click', closeSearch)
+
+
 
   var algolia = GLOBAL_CONFIG.algolia
   var isAlgoliaValid = algolia.appId && algolia.apiKey && algolia.indexName
@@ -51,7 +65,7 @@ $(function () {
       container: '#algolia-search-input',
       reset: false,
       magnifier: false,
-      placeholder: algolia.labels.input_placeholder
+      placeholder: GLOBAL_CONFIG.algolia.languages.input_placeholder
     })
   )
   search.addWidget(
@@ -69,7 +83,7 @@ $(function () {
         empty: function (data) {
           return (
             '<div id="algolia-hits-empty">' +
-            algolia.labels.hits_empty.replace(/\$\{query}/, data.query) +
+            GLOBAL_CONFIG.algolia.languages.hits_empty.replace(/\$\{query}/, data.query) +
             '</div>'
           )
         }
@@ -85,7 +99,7 @@ $(function () {
       container: '#algolia-stats',
       templates: {
         body: function (data) {
-          var stats = algolia.labels.hits_stats
+          var stats = GLOBAL_CONFIG.algolia.languages.hits_stats
             .replace(/\$\{hits}/, data.nbHits)
             .replace(/\$\{time}/, data.processingTimeMS)
           return (

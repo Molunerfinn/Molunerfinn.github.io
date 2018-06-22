@@ -90,6 +90,21 @@ hr
     font-size: 20px
     transition: all 1s ease-in-out
 
+// collapse/expand beautify
+details
+  border: 2px solid darken($light-grey, 10%)
+  padding: 0.3rem
+  summary
+    color: $theme-color
+
+// set <caption> of <figure> to center-align
+// use class="not-code" to avoid conflicts because code also use <figure> tag
+.not-code
+  text-align: center
+  margin: 0.5em
+  padding: 0.5em
+  border: thin silver solid
+
 table
   overflow: auto
   width: 100%
@@ -102,7 +117,8 @@ table
   th,
   td
     padding: 0.3rem 0.6rem
-    border: 1px solid $light-grey
+    border: 1px solid darken($light-grey, 10%)
+    vertical-align: top
 
 *::selection
   background: $selection
