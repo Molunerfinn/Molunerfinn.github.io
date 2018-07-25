@@ -3,7 +3,7 @@ date: 2017-12-28 09:16:38
 type: "about"
 ---
 
-15年5月开始自学前端。
+研究生在读，15年5月开始自学前端。
 
 不敢说有什么特别擅长的，涉猎广泛，喜欢尝试新技术。
 
@@ -13,9 +13,13 @@ Linux基本操作、Vim较熟练、Sublime熟悉、VSCode熟悉、Git熟悉。
 
 ### 2018年
 
+- **2018.07.22** [PicGo](https://github.com/Molunerfinn/PicGo) star数破1500，下载量破9k。【Electron】
+
+- **2018.07.11** [PicGo](https://github.com/Molunerfinn/PicGo) 更新v1.6版本，支持阿里云OSS，imgur，mini窗口，批量删除等功能。【Electron】
+
 - **2018.05.23** 为VSCode的[amVim-for-VSCode](https://github.com/aioutecism/amVim-for-VSCode)插件提交的支持`:`呼出`Command Palette`并实现部分Vim命令的[PR](https://github.com/aioutecism/amVim-for-VSCode/pull/199)被合并。【TypeScript】
 
-- **2018.05.17** [PicGo](https://github.com/Molunerfinn/PicGo)的star数破800。下载数破5k。
+- **2018.05.17** [PicGo](https://github.com/Molunerfinn/PicGo) star数破800，下载数破5k。【Electron】
 
 - **2018.05.15** 开发推来推趣3期后台时遇到微信二维码支付相关功能的开发，总结了一篇[《基于Koa2开发微信二维码扫码支付相关流程》](https://molunerfinn.com/koa2-wechatpay/)的经验文。【Koa】
 
