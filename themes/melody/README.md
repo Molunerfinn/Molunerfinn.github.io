@@ -5,9 +5,9 @@
 </p>
 
 <p align="center">
-  <a href="https://standardjs.com" target="_blank"><img alt="JavaScript Style Guide" src="https://img.shields.io/badge/code_style-standard-brightgreen.svg?style=flat-square"></a>
-  <a href="" target="_blank"><img alt="license" src="https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square"></a>
-  <a href="https://hexo.io" target="_blank"><img alt="hexo-image" src="https://img.shields.io/badge/hexo-%3E%3D3.0-blue.svg?style=flat-square"></a>
+  <a href="https://standardjs.com"><img alt="JavaScript Style Guide" src="https://img.shields.io/badge/code_style-standard-brightgreen.svg?style=flat-square"></a>
+  <a href=""><img alt="license" src="https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square"></a>
+  <a href="https://hexo.io"><img alt="hexo-image" src="https://img.shields.io/badge/hexo-%3E%3D3.0-blue.svg?style=flat-square"></a>
   <a href="https://github.com/Molunerfinn/hexo-theme-melody/releases/latest">
     <img src="https://img.shields.io/github/release/Molunerfinn/hexo-theme-melody.svg?style=flat-square" alt="">
   </a>
@@ -35,8 +35,15 @@ See demo:
 * [种地的小豆豆](http://www.lslqm.com)
 * [Athrun's Blog](https://www.athrun.org/)
 * [Ykk's blog](https://ykksmile.top/)
+* [Mrjoe的博客](https://mrjoe.cc/)
+* [陆阿狸的博客](https://daialihexiaoniu.github.io/)
+* [Inno’s Blog](https://innofang.github.io/)
+* [YUGE'S BLOG](https://www.yugepower.com)
+* [SpiffyEight77's Blog](https://spiffyeight77.github.io/)
+* [JerryC](http://jerryc.me/)
+* [Yorushika Shi](https://sh.yorushika.live/)
 
-If you are using `theme-melody` and want to be shown to others like above, please write down your site in this [issue](https://github.com/Molunerfinn/hexo-theme-melody/issues/1)!
+~~If you are using `theme-melody` and want to be shown to others like above (It will be stopped when the demo sites' number up to 25), please write down your site in this [issue](https://github.com/Molunerfinn/hexo-theme-melody/issues/1)!~~
 
 # Documentation
 

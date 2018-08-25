@@ -168,3 +168,9 @@ follow:
   enable: true
   url: 'https://github.com/Molunerfinn'
   text: 'Follow Me'
+
+google_adsense: 
+  enable: true
+  js: //pagead2.googlesyndication.com/pagead/js/adsbygoogle.js
+  client: ca-pub-2358465699478507
+  enable_page_level_ads: true

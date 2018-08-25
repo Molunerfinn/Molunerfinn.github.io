@@ -21,9 +21,9 @@ $(function () {
 
     // shortcut: ESC
     document.addEventListener('keydown', function f(event) {
-      if (event.code == "Escape") {
-        closeSearch();
-        document.removeEventListener('keydown', f);
+      if (event.code === 'Escape') {
+        closeSearch()
+        document.removeEventListener('keydown', f)
       }
     })
   })
@@ -41,10 +41,9 @@ $(function () {
   }
   $('.search-mask, .search-close-button').on('click', closeSearch)
 
-
   function search(path) {
     $.ajax({
-      url: '/' + path,
+      url: GLOBAL_CONFIG.root + path,
       dataType: 'xml',
       success: function (xmlResponse) {
         // get the contents from search data
@@ -90,7 +89,7 @@ $(function () {
             }
             // show search results
             if (isMatch) {
-              str += '<div class="local-search__hit-item"><a href="' + dataUrl + '" class="search-result-title" target="_blank">' + dataTitle + '</a>' + '</div>'
+              str += '<div class="local-search__hit-item"><a href="' + dataUrl + '" class="search-result-title">' + dataTitle + '</a>' + '</div>'
               count += 1
               $('.local-search-stats__hr').show()
             }
