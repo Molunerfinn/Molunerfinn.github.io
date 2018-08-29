@@ -13,7 +13,9 @@ Linux基本操作、Vim较熟练、Sublime熟悉、VSCode熟悉、Git熟悉。
 
 ### 2018年
 
-- **2018.07.26** [PicGo](https://github.com/Molunerfinn/PicGo) star数破1600，下载量破10k。【Electron】
+- **2018.08.28** [PicGo](https://github.com/Molunerfinn/PicGo) star数破2000，下载量破12k。【Electron】
+
+- **2018.07.19** [PicGo-Core](https://github.com/Molunerfinn/PicGo-Core) 开坑PicGo底层流程系统，将支持插件系统【Node+TypeScript】
 
 - **2018.07.11** [PicGo](https://github.com/Molunerfinn/PicGo) 更新v1.6版本，支持阿里云OSS，imgur，mini窗口，批量删除等功能。【Electron】
 
