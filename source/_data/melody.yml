@@ -3,7 +3,6 @@ language: zh
 
 # main menu navigation
 menu:
-  Home: /
   About: /about
   Archives: /archives
   Tags: /tags
@@ -66,7 +65,7 @@ cdn:
 
 avatar: https://ws1.sinaimg.cn/large/8700af19ly1fm4iuz15lsj20ix0iw0u8
 
-top_img: https://ws1.sinaimg.cn/large/8700af19ly1fnp7q2phkzj21hc0xc0yl 
+top_img: https://ws1.sinaimg.cn/large/8700af19ly1fvpabr30o6j22yo1o0q7i.jpg
 
 wordcount:
   enable: true
@@ -75,6 +74,7 @@ social:
   github: https://github.com/Molunerfinn
   weibo: http://weibo.com/mybluedreams/
   rss: https://molunerfinn.com/atom.xml
+  twitter: https://twitter.com/molunerfinn
 
 post_meta:
   date_type: created # created or updated 
