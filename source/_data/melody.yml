@@ -53,13 +53,15 @@ scripts:
 
 cdn:
   css:
-    fontawesome: https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css 
+    fontawesome: https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css
+    # fontawesomeV5: https://use.fontawesome.com/releases/v5.3.1/css/all.css
   js:
-    anime: https://cdn.bootcss.com/animejs/2.0.2/anime.min.js
-    jquery: https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js
-    fancybox: https://cdn.bootcss.com/fancybox/3.1.20/jquery.fancybox.min.js
-    velocity: https://cdn.bootcss.com/velocity/1.5.0/velocity.min.js
-    velocity-ui: https://cdn.bootcss.com/velocity/1.5.0/velocity.ui.min.js 
+    anime: https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js
+    jquery: https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js
+    fancybox: https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js
+    velocity: https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js
+    velocity-ui: https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js
+
 
 # Post info settings
 
@@ -71,10 +73,10 @@ wordcount:
   enable: true
 
 social:
-  github: https://github.com/Molunerfinn
-  weibo: http://weibo.com/mybluedreams/
-  rss: https://molunerfinn.com/atom.xml
-  twitter: https://twitter.com/molunerfinn
+  github fa: https://github.com/Molunerfinn
+  weibo fa: http://weibo.com/mybluedreams/
+  rss fa: https://molunerfinn.com/atom.xml
+  twitter fa: https://twitter.com/molunerfinn
 
 post_meta:
   date_type: created # created or updated 

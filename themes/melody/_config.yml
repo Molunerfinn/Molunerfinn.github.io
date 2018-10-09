@@ -20,9 +20,8 @@ menu:
   #XXX: /xxx
 
 # Favicon
-# use my-favicon.ico to avoid duplicate favicon of melody theme
 # ---------------
-favicon: /my-favicon.ico
+favicon: /melody-favicon.ico
 
 # PWA
 # See https://github.com/JLHwung/hexo-offline
@@ -46,9 +45,12 @@ highlight_theme: default
 # code_word_wrap: true or false
 
 # Nav settings
+# see the icon_name in fontawesome website.
+# And you need to add the `fa` or `fab` prefix by your self.
 # ---------------
 #social:
-  #icon_name: url
+  #icon_name fa: url
+  #icon_name fab: url
 
 # Algolia search
 # ---------------
@@ -106,13 +108,14 @@ scripts:
 # ---------------
 cdn:
   css:
-    fontawesome: https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css
+    fontawesome: https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css
+    # fontawesomeV5: https://use.fontawesome.com/releases/v5.3.1/css/all.css
   js:
-    anime: /js/third-party/anime.min.js
-    jquery: /js/third-party/jquery.min.js
-    fancybox: /js/third-party/jquery.fancybox.min.js
-    velocity: /js/third-party/velocity.min.js 
-    velocity-ui: /js/third-party/velocity.ui.min.js 
+    anime: https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js
+    jquery: https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js
+    fancybox: https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js
+    velocity: https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js
+    velocity-ui: https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js
 
 # Post info settings
 # ---------------
