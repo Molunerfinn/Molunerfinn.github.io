@@ -8,7 +8,7 @@ date: 2015-12-20 00:30:00
 ---
 
 头脑特工队———————————————————————————————Inside Out
-![头脑特工队](http://7xog0l.com1.z0.glb.clouddn.com/week93.jpg "头脑特工队")
+![头脑特工队](https://img.piegg.cn/week93.jpg "头脑特工队")
 
 <!--more-->
 

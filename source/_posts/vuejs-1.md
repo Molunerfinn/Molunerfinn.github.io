@@ -43,13 +43,13 @@ date: 2016-06-26 17:06:00
 
 ### 注册信息页
 
-![注册信息页](http://7xog0l.com1.z0.glb.clouddn.com/blog/1.png)
+![注册信息页](https://img.piegg.cn/blog/1.png)
 
 ### 关注版面页
 
-![关注版面页](http://7xog0l.com1.z0.glb.clouddn.com/blog/2.png)
-![关注版面页](http://7xog0l.com1.z0.glb.clouddn.com/blog/3.png)
-![关注版面页](http://7xog0l.com1.z0.glb.clouddn.com/blog/4.png)
+![关注版面页](https://img.piegg.cn/blog/2.png)
+![关注版面页](https://img.piegg.cn/blog/3.png)
+![关注版面页](https://img.piegg.cn/blog/4.png)
 
 ## 整体架构
 
@@ -150,11 +150,11 @@ var vm = new Vue({
 
 我们分析一下注册页：
 
-![注册信息页](http://7xog0l.com1.z0.glb.clouddn.com/blog/1.png)
+![注册信息页](https://img.piegg.cn/blog/1.png)
 
 实际上注册页的中间部分是重复的元素，他们都是input标签+显示文字标签（对，尤其注意这里并不是用placeholder实现的）。效果：
 
-![效果](http://7xog0l.com1.z0.glb.clouddn.com/blog/5.gif)
+![效果](https://img.piegg.cn/blog/5.gif)
 
 所以这中间的部分实际上可以看成是一个列表，可以用Vue的v-for来渲染。列表里所不同的只是显示的文字不同以及input框的类型不同（有text类型的，有password类型的），所以用数据绑定的方式我们可以将这个页面的数据格式安排如下：
 

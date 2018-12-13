@@ -8,7 +8,7 @@ date: 2015-12-6 18:12:46
 ---
 
 老男孩———————————————————————————————올드보이
-![老男孩](http://7xog0l.com1.z0.glb.clouddn.com/WEEK91.jpg "老男孩")
+![老男孩](https://img.piegg.cn/WEEK91.jpg "老男孩")
 
 <!--more-->
 

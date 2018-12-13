@@ -44,6 +44,6 @@ tags: Mac
 
 注意看图：
 
-![iterm2-lrzsz](http://7xog0l.com1.z0.glb.clouddn.com/iterm2-lrzsz.png)
+![iterm2-lrzsz](https://img.piegg.cn/iterm2-lrzsz.png)
 
 至此结束。只要服务端也已经装好了`lrzsz`工具包便可以方便地通过rz\sz来进行文件上传下载了。

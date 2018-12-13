@@ -7,7 +7,7 @@ date: 2015-06-09 23:57:33
 tags:
 ---
 
-##这是篇记录，自觉得不能算是教程
+## 这是篇记录，自觉得不能算是教程
 
 本篇文章重点： [双系统引导](#jump1)， [安装NVIDIA显卡驱动](#jump2)
 <!--more-->
@@ -37,16 +37,16 @@ tags:
 
 #### 安装NVIDIA显卡驱动
 因为我的电脑是NVIDIA的显卡，在一开始装完CENTOS后浏览网页发现CENTOS的自带显卡驱动实在效果差劲。所以就考虑装一下NVIDIA的显卡驱动，与之前的情况不太一样，显卡驱动在一个小问题解决后就顺利安装成功，比我想象的速度快多了。
-#####显卡驱动安装
+##### 显卡驱动安装
 去英伟达官网下载相应的显卡驱动。官网界面还算比较友好，很快就能找到相应驱动的下载。这里需要强调的是，在`点击下载` 这个选项这里我们不直接左键下载，那样会开启一个新的网页从而无法下载。右键这个按钮，然后执行`另存为` ,在非中文目录下建立一个文件夹把需要下载的`*.run`文件放进去就OK。
-#####屏蔽nouveau
+##### 屏蔽nouveau
 用root账户或者用`su root`切换到root用户下，打开`/lib/modprobe.d/dist-blacklist.conf`这个目录，然后找到`blacklist nvidiafb`,将其注释：`#blacklist nvidiafb`。
 然后在这个禁用列表里找个地方添加如下语句：
 
 `blacklist nouveau`
 
 `options nouveau modeset=0`
-#####重建initramfs image的步骤
+##### 重建initramfs image的步骤
 在终端输入如下命令：`mv /boot/initramfs-$(uname -r).img /boot/initramfs-$(uname -r).img.bak`以及
 `dracut /boot/initramfs-$(uname -r).img $(uname -r)`
 #####切换默认启动界面为命令行模式
@@ -61,5 +61,5 @@ tags:
 输入：`systemctl set-default graphical.target`
 然后重启。这个时候重启后就能看到一闪而过的NVIDIA的图案了。进入系统在`应用-其他`的选项里便能看到`NVIDIA X Server Settings`设置菜单了。说明驱动已经安装成功。
 ##### 安装时候我遇到的问题
-![](http://7xjikt.com1.z0.glb.clouddn.com/NVIDIA驱动问题.jpg)
+![](http://img2.piegg.cn/NVIDIA驱动问题.jpg)
 在执行安装这个步骤的时候，成功运行了`NVIDIA-Linux-x86_64-346.72.run`这个文件，但是在安装过程中，出现了一个选项，要求你是否提供kernel module，如果你选择提供，那么会要求你去找寻这个文件的path；如果选择不提供，那么直接安装失败。我们并没有kernel module啊，那怎么办？这个时候我看完安装说明里的要求，于是就懂了。当我们BIOS里的`Security boot`是被设置成`Enable`的话，那么就会影响到英伟达显卡驱动安装。所以我们就只需把`Security boot`设置成`disabled`就行了，问题就能解决。不过要注意的是，如果你的机器里的WINDOWS是原厂WIN8，并且系统并没有重装过，那么请一定要注意，把`Security boot`设置成`disabled`后，将不能启动WIN8。这个是微软的一个机制，如果不懂的同学可以百度一下。由于我的WIN8是重装过的，所以并没有影响。但是我还没有试过将`Security boot`设置成`disabled`，安装完驱动后，再改回去的话驱动还能不能运行。总之如果是WIN7系统或者非原厂WIN8这个问题就没有了。改成`disabled`即可解决。
