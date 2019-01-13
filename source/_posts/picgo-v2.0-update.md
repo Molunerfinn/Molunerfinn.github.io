@@ -90,6 +90,24 @@ PicGo除了`PicGo-Core`提供的核心功能之外，额外给GUI插件给予一
 - 修复：拖拽图片到软件会自动在软件内部打开这张图片的[bug](https://github.com/Molunerfinn/PicGo/issues/140)。
 - 修复：重命名窗口只出现在屏幕中央而不是跟随主窗口的[bug](https://github.com/Molunerfinn/PicGo/issues/145)。
 
+## VSCode的PicGo插件vs-picgo
+
+在PicGo-Core发布不久，就有人根据PicGo-Core的API编写了VSCode版的PicGo插件。使用起来也非常方便：
+
+- 截图上传
+
+![](https://user-gold-cdn.xitu.io/2019/1/13/1684764986e5edd7?w=891&h=498&f=gif&s=297594)
+
+- 文件浏览器选择文件上传
+
+![](https://raw.githubusercontent.com/Molunerfinn/test/master/picgo/vs-picgo-explorer.gif)
+
+- 输入文件路径上传
+
+![](https://user-gold-cdn.xitu.io/2019/1/13/1684765698ad41fe?w=891&h=498&f=gif&s=155843)
+
+配置项与PicGo的图床的配置项基本保持一致。在VSCode插件栏搜索PicGo即可下载安装与体验！
+
 ## 结语
 
 PicGo第一个稳定版本是在少数派上发布的，详见[PicGo：基于 Electron 的图片上传工具](https://sspai.com/post/42310)。支持macOS、Windows、Linux三平台，开源免费，界面美观，也得到了很多朋友的认可。如果你对它有什么意见或者建议，也欢迎在[issues](https://github.com/Molunerfinn/PicGo/issues)里指出。如果你喜欢它，不妨给它点个star。如果对你真的很有帮助，不妨请我喝杯咖啡（PicGo的GitHub[首页](https://github.com/Molunerfinn/PicGo)有赞助的二维码）？
@@ -99,9 +117,3 @@ PicGo第一个稳定版本是在少数派上发布的，详见[PicGo：基于 El
 > Windows用户请下载`.exe`文件，macOS用户请下载`.dmg`文件，Linux用户请下载`.AppImage`文件。
 
 Happy uploading！
-
-
-
-
-
-
