@@ -7,9 +7,14 @@ type: "about"
 
 不敢说有什么特别擅长的，涉猎广泛，喜欢尝试新技术。
 
-Linux基本操作、Vim较熟练、Sublime熟悉、VSCode熟悉、Git熟悉。
+Linux基本操作、Vimer、 ~~Sublime熟悉~~ 、VSCode熟悉、Git熟悉。
 
 学习&项目经历：
+
+### 2019年
+
+- **2019.01.17** [hexo-theme-melody](https://github.com/Molunerfinn/hexo-theme-melody) star数破500。【hexo+hexo-theme】
+- **2019.01.13** [PicGo](https://github.com/Molunerfinn/PicGo) 发布v2.0版本，正式支持插件系统。star数破3200，下载量破26k。【Electron】
 
 ### 2018年
 
