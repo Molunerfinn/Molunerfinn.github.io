@@ -104,9 +104,19 @@ addThis:
   pubid: ra-5994f8f0fea9a5f4
 
 disqus:
-  enable: true
+  enable: false
   shortname: molunerfinn
   count: true
+
+gitalk:
+  enable: true
+  client_id: f7b6cca0b0a65f07a027
+  client_secret: 84b5ccac558161d1bdaa50fc498619fca9d4c640
+  repo: Molunerfinn.github.io
+  owner: Molunerfinn
+  admin: Molunerfinn
+  language: zh-CN
+  js: https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js
 
 adv:
   enable: true
@@ -176,4 +186,3 @@ google_adsense:
   js: //pagead2.googlesyndication.com/pagead/js/adsbygoogle.js
   client: ca-pub-2358465699478507
   enable_page_level_ads: true
-

@@ -116,6 +116,10 @@ js_minifier:
 image_minifier:
   enable: false
 
+owner: Molunerfinn
+comment_repo: Molunerfinn.github.io
+labels: ["comment"]
+
 offline:
   maximumFileSizeToCacheInBytes: 10485760
   staticFileGlobs:
@@ -160,4 +164,3 @@ offline:
       handler: cacheFirst
       options:
         origin: ws1.sinaimg.cn 
-
