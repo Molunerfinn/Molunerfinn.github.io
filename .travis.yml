@@ -27,6 +27,7 @@ script:
 
 after_script:
   - cd ../
+  - chmod +x ./bin/autoissue
   - ./bin/autoissue
 # E: Build LifeCycle
 
