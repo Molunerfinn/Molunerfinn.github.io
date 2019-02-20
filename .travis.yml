@@ -25,10 +25,10 @@ script:
   - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
 
 
-after_script:
-  - cd ../
-  - chmod +x ./bin/autoissue
-  - ./bin/autoissue
+# after_script:
+#   - cd ../
+#   - chmod +x ./bin/autoissue
+#   - ./bin/autoissue
 # E: Build LifeCycle
 
 branches:
