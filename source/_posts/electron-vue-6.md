@@ -23,8 +23,8 @@ date: 2019-02-04 11:30:00
 4. [跨平台的一些兼容措施](https://molunerfinn.com/electron-vue-4/)
 5. [通过CI发布以及更新的方式](https://molunerfinn.com/electron-vue-5/)
 6. [开发插件系统——CLI部分](https://molunerfinn.com/electron-vue-6/)
-6. 开发插件系统——GUI部分
-7. 想到再写...
+7. [开发插件系统——GUI部分](https://molunerfinn.com/electron-vue-7/)
+8. 想到再写...
 
 ## 说明
 
