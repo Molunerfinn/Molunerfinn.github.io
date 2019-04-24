@@ -1,3 +1,4 @@
+---
 title: 【NOTE】观察者模式VS订阅发布模式
 tags: 
   - note

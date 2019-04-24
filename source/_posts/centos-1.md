@@ -1,3 +1,4 @@
+---
 title: CentOS7初接触Ⅰ
 id: 210
 categories:

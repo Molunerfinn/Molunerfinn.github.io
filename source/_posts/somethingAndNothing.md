@@ -1,3 +1,4 @@
+---
 title: 一些杂碎的笔记整理 | JS、Linux、Sublime相关
 tags: 
   - 前端

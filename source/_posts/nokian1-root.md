@@ -1,3 +1,4 @@
+---
 title: 诺基亚N1国行版已经被ROOT！
 tags:
   - NokiaN1

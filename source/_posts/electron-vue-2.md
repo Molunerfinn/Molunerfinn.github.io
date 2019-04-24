@@ -1,3 +1,4 @@
+---
 title: Electron-vue开发实战1——Main进程和Renderer进程的简单开发
 tags: 
   - 前端
@@ -784,14 +785,3 @@ ipcRenderer.on('img-files', (event, files) => {
 本文详细地讲述了electron里`Main`进程和`Renderer`进程的基础知识和开发相关。很多都是我在开发`PicGo`的时候碰到的问题、踩的坑。也许文中简单的几句话背后就是我无数次的查阅和调试。内容相比第一篇多了不少，希望这篇文章能够给你的`electron-vue`开发带来一些启发。文中相关的代码，你都可以在[PicGo](https://github.com/Molunerfinn/PicGo)的项目仓库里找到。希望本文能够给你带来帮助，这是我最开心的地方。如果喜欢，欢迎关注我的博客以及本系列文章的后续进展。
 
 > **注：文中的图片除未特地说明之外均属于我个人作品，需要转载请私信**
-
-
-
-
-
-
-
-
-
-
-

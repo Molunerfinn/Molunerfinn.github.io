@@ -1,3 +1,4 @@
+---
 title: 基于Electron-vue的图床上传工具PicGo v1.5更新说明
 tags: 
   - 前端
@@ -134,9 +135,3 @@ PicGo第一个稳定版本是在少数派上发布的，详见[PicGo：基于 El
 > Windows用户请下载`.exe`文件，macOS用户请下载`.dmg`文件。
 
 Happy uploading！
-
-
-
-
-
-

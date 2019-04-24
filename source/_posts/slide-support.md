@@ -1,3 +1,4 @@
+---
 title: hexo-theme-melody v1.5 supports slides & iframe
 categories:
   - Web 
@@ -138,5 +139,3 @@ slide:
 
 # Enjoy!
 <!-- .slide: data-background="#49B1F5" -->
-
-

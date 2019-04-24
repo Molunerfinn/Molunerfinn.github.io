@@ -1,3 +1,4 @@
+---
 title: Electron-vue开发实战5——开发插件系统之CLI部分
 tags: 
   - 前端

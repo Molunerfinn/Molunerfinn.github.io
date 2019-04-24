@@ -1,3 +1,4 @@
+---
 title: Nodejs学习日志（三）——Express+jade+stylus+mongodb搭建简单应用（下）
 tags: 
   - 前端
@@ -239,4 +240,3 @@ router.post('/adduser', function(req, res) {
 ### 结语
 
 作为一个前端开发人员，在nodejs诞生前，如果只会js你是无法在后端进行操作的。要做后台的处理，就必须依赖后端的语言例如php，python等等。如今，nodejs已经大面积渗透到前端的世界中，哪怕你只会用js也能前后都靠前端工程师来构建。本文就是采用了最简单的方式阐述了express最简单的前后交互。希望能给想用nodejs做开发的前端er一些启发~这毕竟也是作为我的nodejs学习日志，如果不出意外，每周都将更新新的干货。
-

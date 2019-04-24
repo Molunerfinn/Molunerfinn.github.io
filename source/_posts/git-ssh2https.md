@@ -1,3 +1,4 @@
+---
 title: 把你的github操作从ssh转成https
 tags: 
   - git
@@ -102,6 +103,3 @@ git config --global credential.helper manager
 ## 总结
 
 如果你已经无法用ssh的方式连接github的话，不妨试试https的方式。至少目前来说还是有效的，而且配置也不难~Happy coding again！
-
-
-

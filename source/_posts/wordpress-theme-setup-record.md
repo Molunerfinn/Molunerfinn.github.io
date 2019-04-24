@@ -1,3 +1,4 @@
+---
 title: Wordpress 主题BioPaul 安装记录
 id: 78
 categories:

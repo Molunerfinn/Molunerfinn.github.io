@@ -65,9 +65,9 @@ cdn:
 
 # Post info settings
 
-avatar: https://ws1.sinaimg.cn/large/8700af19ly1fm4iuz15lsj20ix0iw0u8
+avatar: https://blog-1251750343.cos.ap-beijing.myqcloud.com/blog/avatar.jpeg
 
-top_img: https://ws1.sinaimg.cn/large/8700af19ly1fvpabr30o6j22yo1o0q7i.jpg
+top_img: https://blog-1251750343.cos.ap-beijing.myqcloud.com/blog/blog-bg.jpg
 
 wordcount:
   enable: true
@@ -93,10 +93,10 @@ post_copyright:
 
 QR_code:
   - itemlist:
-      img: https://ws1.sinaimg.cn/large/8700af19ly1fjmba1eumhj20jz0jzq4b.jpg
+      img: https://blog-1251750343.cos.ap-beijing.myqcloud.com/blog/alipay.jpg
       text: 支付宝打赏
   - itemlist:
-      img: https://ws1.sinaimg.cn/large/8700af19ly1fjmbbmp7uwj20jm0jmt9a.jpg
+      img: https://blog-1251750343.cos.ap-beijing.myqcloud.com/blog/wechat-pay.jpg
       text: 微信打赏
 
 addThis:

@@ -1,3 +1,4 @@
+---
 title: Electron-vue开发实战4——通过CI发布以及更新的方式
 tags: 
   - 前端
@@ -499,14 +500,3 @@ app.on('ready', () => {
 本文很多都是我在开发`PicGo`的时候碰到的问题、踩的坑。也许文中简单的几句话背后就是我无数次的查阅和调试。希望这篇文章能够给你的`electron-vue`开发带来一些启发。文中相关的代码，你都可以在[PicGo](https://github.com/Molunerfinn/PicGo)的项目仓库里找到，欢迎star~如果本文能够给你带来帮助，那么将是我最开心的地方。如果喜欢，欢迎关注我的[博客](https://molunerfinn.com)以及[本系列文章](https://molunerfinn.com/tags/Electron-vue/)的后续进展。
 
 > **注：文中的图片除未特地说明之外均属于我个人作品，需要转载请私信**
-
-
-
-
-
-
-
-
-
-
-

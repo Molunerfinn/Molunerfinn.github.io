@@ -1,3 +1,4 @@
+---
 title: 【译】Having fun with Html5 Canvas
 tags: 
   - 前端

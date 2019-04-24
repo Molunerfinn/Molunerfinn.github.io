@@ -1,3 +1,4 @@
+---
 title: Electron-vue开发实战6——开发插件系统之GUI部分
 tags: 
   - 前端

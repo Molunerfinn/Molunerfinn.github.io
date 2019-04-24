@@ -1,3 +1,4 @@
+---
 title: 用新版的Chrome把PWA网站添加到桌面，获得媲美原生应用的体验
 tags: 
   - 前端
@@ -131,4 +132,3 @@ Windows平台找到`添加到桌面`这个按钮，点击，然后会出现一�
 下面给出一个别人总结的PWA网站列表，可以去体验一波~
 
 https://github.com/hemanth/awesome-pwa
-

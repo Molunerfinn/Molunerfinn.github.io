@@ -1,3 +1,4 @@
+---
 title: WIN8.1下安装CentOS7.1
 id: 199
 categories:

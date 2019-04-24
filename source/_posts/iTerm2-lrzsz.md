@@ -1,3 +1,4 @@
+---
 title: OSX下iTerm2实现rz/sz与服务器进行文件上传/下载 
 categories: 
   - 其他

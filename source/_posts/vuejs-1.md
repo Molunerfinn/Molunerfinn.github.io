@@ -1,3 +1,4 @@
+---
 title: 移动端web开发初探之Vuejs的简单实战
 tags: 
   - 前端
@@ -434,11 +435,3 @@ input:focus ~ label,.trans {
 
 
 **DEMO的github地址在[这里](https://github.com/Molunerfinn/vue-mobile-learning-demo)**
-
-
-
-
-
-
-
-
