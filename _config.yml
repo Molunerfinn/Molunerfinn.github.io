@@ -160,7 +160,3 @@ offline:
       handler: cacheFirst
       options:
         origin: molunerfinn.com
-    - urlPattern: /*
-      handler: cacheFirst
-      options:
-        origin: ws1.sinaimg.cn 

@@ -36,7 +36,7 @@ date: 2017-12-27 21:01
 
 **2017.11.18** 开坑[PicGo](https://github.com/Molunerfinn/PicGo)，学习electron的基本开发流程，边写边学。最终完成了一个我现在写博客贴图片时很方便的工具。并于12月中发布正式版，还上了少数派首页推荐。【electron】
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1fmvr6uah8rj21z20vk7wh)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fmvr6uah8rj21z20vk7wh)
 
 > PS，在掘金也发了一遍[推荐](https://juejin.im/post/5a30e4755188256e7a06cc3e)不过没有被推荐到首页T T
 

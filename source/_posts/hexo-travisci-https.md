@@ -31,27 +31,27 @@ date: 2017-07-27 18:44:00
 
 去官网注册一下[Travis-CI](https://travis-ci.org/)，关联上你的github账号，给予权限后就可以把你的github仓库同步到它这里来。
 
-![Travis-CI](https://ws1.sinaimg.cn/large/8700af19gy1fi42yvwwfzj21460le418.jpg)
+![Travis-CI](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19gy1fi42yvwwfzj21460le418.jpg)
 
 在需要`Travis-CI`构建的仓库打开同步设置。
 
-![打开同步设置](https://ws1.sinaimg.cn/large/8700af19gy1fi430jb981j20w404ct8w.jpg)
+![打开同步设置](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19gy1fi430jb981j20w404ct8w.jpg)
 
 ### 设定Token
 
 去github的个人设置那边找到Token设置。
 
-![Github-token](https://ws1.sinaimg.cn/large/8700af19gy1fi433d1zlkj21mi0q4799.jpg)
+![Github-token](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19gy1fi433d1zlkj21mi0q4799.jpg)
 
 设定一个Token给`Travis-CI`，名字自己取让它对我们的仓库能够拥有读写权限（就够了）。
 
-![Token](https://ws1.sinaimg.cn/large/8700af19gy1fi434caiywj216o08otaa.jpg)
+![Token](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19gy1fi434caiywj216o08otaa.jpg)
 
 **然后保存一下这个Token——它只显示一次，之后就不再显示了。所以找个地方把它记下来先。**
 
 然后回到`Travis-CI`里，对于开启同步的仓库进行设置，我们把刚才的这个Token存储为一个叫做`GH_TOKEN`的环境变量，可以在`.travis.yml`这个配置文件里通过`${GH_TOKEN}`的方式获取。这样就不会将你的TOKEN暴露出去了。
 
-![GH_TOKEN](https://ws1.sinaimg.cn/large/8700af19gy1fi438l5g9sj218a0wmn1u.jpg)
+![GH_TOKEN](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19gy1fi438l5g9sj218a0wmn1u.jpg)
 
 然后在所在github项目里创建一个叫做`.travis.yml`的文件。这个文件就是`Travis-CI`的执行脚本。它会根据里面定义的环境、步骤一步一步执行直到最后输出结果。
 
@@ -139,11 +139,11 @@ env: # 环境变量
 
 然后需要增加几个记录，其中A记录就是指向这`192.30.252.153`和`192.30.252.154`这两个IP地址，它们是github-page的ip地址。然后建一个CNAME将`www`的网址指向我们非`www`的网址
 
-![DNS Records](https://ws1.sinaimg.cn/large/8700af19gy1fi43icnw1jj21l80wajwm.jpg)
+![DNS Records](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19gy1fi43icnw1jj21l80wajwm.jpg)
 
 然后需要将我们的域名的DNS服务商的地址改成`Cloudflare`要求的两个`DNS`服务器地址。每个人分配的不一样，而且必须用分配的否则会失效。
 
-![DNS Server](https://ws1.sinaimg.cn/large/8700af19gy1fi43n3bs7yj21ig0g4wgj.jpg)
+![DNS Server](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19gy1fi43n3bs7yj21ig0g4wgj.jpg)
 
 这个操作需要在自己的域名服务提供那边修改。一般是48小时内生效。
 
@@ -151,7 +151,7 @@ env: # 环境变量
 
 找到`Crypto`选项，这里我们需要开启`Flexible`的HTTPS选项。
 
-![https](https://ws1.sinaimg.cn/large/8700af19gy1fi45c5avd6j21jq0s4tcc.jpg)
+![https](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19gy1fi45c5avd6j21jq0s4tcc.jpg)
 
 其实`Cloudflare`做的事就是，当访问我们的域名的时候，实际上走的是`Cloudflare`的服务器，这个时候这个阶段的访问是有HTTPS的。然后`Cloudflare`再去请求我们实际的内容，再将内容返回给用户。这一段是没有HTTPS的。也就是实际上是半HTTPS。不过对于我们静态博客来说，这种半HTTPS实际上已经够我们使用了。
 
@@ -161,7 +161,7 @@ env: # 环境变量
 
 这个时候我们访问`https://molunerfinn.com`自然走的是HTTPS。但是如果有人访问了`http://molunerfinn.com`，那要如何跳转到HTTPS的页面呢？`CloudFare`另一个很棒的功能`Page Rules`就派上用场了。我们可以指定我们的域名强制使用HTTPS，并且当访问是HTTP的时候重定向到HTTPS。这样就能保证用户访问我们的页面都是通过HTTPS的了。
 
-![Rewrite](https://ws1.sinaimg.cn/large/8700af19gy1fi45ezb4b2j21k20xotdz.jpg)
+![Rewrite](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19gy1fi45ezb4b2j21k20xotdz.jpg)
 
 ### 附录
 
@@ -177,18 +177,18 @@ env: # 环境变量
 
 还是`CloudFare`，它家自有的HSTS功能，开启之后就能很好的满足我们的需要。（真是完美了）还是在`Crypto`选项下，开启`HSTS`
 
-![HSTS](https://ws1.sinaimg.cn/large/8700af19gy1fi45gia6pcj21kc0iugny.jpg)
+![HSTS](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19gy1fi45gia6pcj21kc0iugny.jpg)
 
 建议都使用默认的选项。
 
 然后可以去[HSTS Preload List](https://hstspreload.org/)的网站把我们的域名进行检查并收录（不能是子域名，必须是一级域名），如果没通过会给出修改建议，按照建议修改就行。如果通过了，就会放入审核列表。之后可以时不时回来看看自己的网站被收录了没有。我是等了快一周才被收录。网上的说法普遍是几周内。所以耐心等待收录。一旦被收录就会应用到主流浏览器上，这样你的网站就是更加安全的网站啦。
 
-![HSTS Preload List](https://ws1.sinaimg.cn/large/8700af19gy1fi45hvxt3oj21fu0f8gn5.jpg)
+![HSTS Preload List](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19gy1fi45hvxt3oj21fu0f8gn5.jpg)
 
 ## 记录总结
 
 至此，我的博客迁移工作就做完了。用的因为是`Cloudflare`的cdn加速，所以在国外访问速度很快，在国内访问的速度会稍慢一些。不过也无伤大雅。最关键的是通过上述的办法，让我的博客能够实现持久化构建，加上了HTTPS的小绿锁，并且成功加入HSTS的Preload List，还是比较满意。
 
-![HTTPS](https://ws1.sinaimg.cn/large/8700af19gy1fi45ityzzrj20yo01smxb.jpg)
+![HTTPS](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19gy1fi45ityzzrj20yo01smxb.jpg)
 
 最后由衷感谢GitHub+Travis-CI+Cloudflare提供的这么优质的服务。

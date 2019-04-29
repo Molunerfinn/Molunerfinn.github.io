@@ -47,7 +47,7 @@ date: 2018-04-24 14:11:00
 
 然后我们将所得的三个图片文件，放到electron-vue项目根目录的`build/icons/`目录下。
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1fqnr7sfuvjj20h806cglq.jpg)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fqnr7sfuvjj20h806cglq.jpg)
 
 ## 不同平台的构建配置
 
@@ -96,7 +96,7 @@ date: 2018-04-24 14:11:00
 
 首先`productName`是你的应用的名字。`appId`的作用是用于Windows平台区分应用的标识。（**注意**该配置必须配置，而且稍后会有使用该配置的地方。如果不配置不使用的话，构建出来的Windows平台的应用将无法发送eletron的桌面通知）`dmg`这个配置里描述了macOS平台里，打开`dmg`安装包后显示的界面里的信息。如下图：
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1fqnrlfwfcej20u00mct9y.jpg)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fqnrlfwfcej20u00mct9y.jpg)
 
 表示了有两个标识，一个是应用文件，坐标是`(130, 150)`， 一个是应用文件夹的快捷方式，坐标是`(410, 150)`。
 
@@ -242,7 +242,7 @@ if (process.platform === 'win32') {
 
 有了CI之后，我的electron应用的发布就变成这样的流程了：
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1fqq9mnpumwj20rb04bt9a.jpg)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fqq9mnpumwj20rb04bt9a.jpg)
 
 这样，我们只需要Push代码足矣。
 
@@ -258,7 +258,7 @@ if (process.platform === 'win32') {
 
 注册并登录Travis-CI后，找到你要构建的仓库，然后打开，点击设置进入如下页面：
 
-![](https://ws1.sinaimg.cn/large/8700af19gy1fi438l5g9sj218a0wmn1u.jpg)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19gy1fi438l5g9sj218a0wmn1u.jpg)
 
 配置一下环境变量，名为`GH_TOKEN`，token的值就是上一步我们在GitHub生成的token。等会会有用。
 
@@ -331,17 +331,17 @@ after_script:
 
 有了之前的经验，AppVeyor就更简单了。注册登录后，我们在主页添加一个PROJECT，选中你要构建的仓库。然后找到SETTING设置：
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1fqqawmvu6sj21ji06e3z0.jpg)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fqqawmvu6sj21ji06e3z0.jpg)
 
 然后在左侧的`Genral`一栏的内容区中，找到构建的分支为master，以及设置我们仅在`tag`更新的时候构建：
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1fqqazwrslxj21600emjse.jpg)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fqqazwrslxj21600emjse.jpg)
 
 > 当然这个都是根据项目实际来的配置，我只是说PicGo的项目是这样配置的。
 
 然后在左侧的`Environment`区，找到环境变量配置，我们依然写入`GH_TOKEN`:
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1fqqb1ufhj7j21ow0gydhu.jpg)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fqqb1ufhj7j21ow0gydhu.jpg)
 
 **修改完配置都别忘了拉到底部去保存！**
 
@@ -491,7 +491,7 @@ app.on('ready', () => {
 
 这样就能在启动应用的时候弹出更新提示：
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1fqqbm19ptvj20nc08swf7)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fqqbm19ptvj20nc08swf7)
 
 ## 总结
 

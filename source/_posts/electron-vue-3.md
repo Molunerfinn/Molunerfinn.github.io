@@ -122,7 +122,7 @@ export default db // 暴露出去
 
 然而在生产模式下不是这样。生产模式下，第一次打开应用的过程中，`APP.getPath('userData')`获取的路径并未创建，而`datastore.js`却已经被加载。所以这个时候初始化路径并不存在。用户在第一次打开应用的时候就会遇到如下报错：
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1fodwgwq9k6j20nc176dov)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fodwgwq9k6j20nc176dov)
 
 所以我们必须在`datastore.js`里做一次路径是否存在的判断：
 

@@ -393,11 +393,11 @@ if(is_post()) //- 如果是文章页面
 
 标签云页，也就是我们常见的一个能够展现所有标签集合的页面：
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1fjib2khkdoj21je0y20x0.jpg)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fjib2khkdoj21je0y20x0.jpg)
 
 分类归纳页，也就是展示所有`categories`层级关系的页面：
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1fjib7uhzo0j21jc0rydie.jpg)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fjib7uhzo0j21jc0rydie.jpg)
 
 一开始我以为是在`tag.pug`页面书写这个这个标签云的。后来我发现错了。这个标签云的页面实际上是在`page.pug`页面，通过判断页面类型来进行不同输出的。而分类归纳页也是同理：
 
@@ -434,15 +434,15 @@ block content
 
 1\.具体的标签页
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1fjibyqrm5gj21z211kjxf.jpg)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fjibyqrm5gj21z211kjxf.jpg)
 
 2\.具体的分类页
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1fjibyqq731j21z212244o.jpg)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fjibyqq731j21z212244o.jpg)
 
 3\.文章归档页
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1fjibyr0atdj21z211e447.jpg)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fjibyr0atdj21z211e447.jpg)
 
 可以发现，基本上除了标题有所不同之外，基本都是文章列表的形式。如果没有特殊要求，实际上就跟做首页一样，统一用`each article in page.posts.data`，然后把文章标题和标题地址拿出来就好了。然而由于我对文章列表的形式有所要求和定制，所以我写了一个`mixin`，用于处理文章列表。
 
@@ -612,7 +612,7 @@ script.
 
 我的主题[hexo-theme-melody](https://github.com/Molunerfinn/hexo-theme-melody)就已经成功被官方收录啦：
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1fjjgshdhkwj20p20suwqd.jpg)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fjjgshdhkwj20p20suwqd.jpg)
 
 ------
 

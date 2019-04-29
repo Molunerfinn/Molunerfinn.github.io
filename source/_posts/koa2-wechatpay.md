@@ -59,7 +59,7 @@ yarn
 
 > 这条路由是在`routes/index.js`里。
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1frc14ddfn9j21iq0r2n0p.jpg)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1frc14ddfn9j21iq0r2n0p.jpg)
 
 如果你看到了
 
@@ -285,7 +285,7 @@ export default {
 
 > 文本是我自己添加的
 
-![](http://mofinn123-1251750343.costj.myqcloud.com/wechat-pay.png)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/wechat-pay.png)
 
 ## 付款成功自动刷新页面
 

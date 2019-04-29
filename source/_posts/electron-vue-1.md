@@ -36,11 +36,11 @@ date: 2018-01-11 17:30:00
 
 一开始学习electron的时候，我被官网文档密密麻麻的概念所镇住了：
 
-![](https://ws1.sinaimg.cn/mw690/8700af19ly1fncsj44xlhj21xy3e8x1g)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fncsj44xlhj21xy3e8x1g)
 
 概念太多，没有办法一下子接受。所以我自己学习完electron开发后，做了一张图。来看看图理解一下什么是`electron`，以及它包括了啥：
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1fncq342rk8j20cs0d63zd)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fncq342rk8j20cs0d63zd)
 
 ### 图解
 
@@ -73,7 +73,7 @@ electron由Node.js+Chromium+Native APIs构成。你可以理解成，它是一�
 
 由于我自己是Vue的技术栈，所以就想在electron里使用vue。而vue只是在renderer进程里使用的框架，不涉及到main进程。如下图：
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1fncpxesazgj20dy08kwf1)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fncpxesazgj20dy08kwf1)
 
 > 因此react、angluar以及其他的前端开发框架同样适用。
 
@@ -151,7 +151,7 @@ yarn run dev # or npm run dev
 
 如果上述都没有问题，那么你将会看到如下界面：
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1fncs5yv0qdj21jk0wi44h)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fncs5yv0qdj21jk0wi44h)
 
 ## 总结
 

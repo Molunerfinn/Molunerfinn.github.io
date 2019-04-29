@@ -188,7 +188,7 @@ npm install babel-jest --save-dev
 
 重现一下之前的应用的操作流程，可以发现应用分为登录前和登录后两种状态。
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1fl97i5zzb0g20z30ixk77.gif)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fl97i5zzb0g20z30ixk77.gif)
 
 可以根据操作流程或者后端api的结构来写测试。如果根据操作流程来写测试就可以分为登录前和登录后。如果根据后端api的结构的话，就可以根据routes或者controllers的结构、功能来写测试。
 
@@ -556,23 +556,23 @@ test('Removed todolist successfully if set the JWT & correct todoId', async () =
 
 然后我们再进行一遍测试，可以看到在终端里已经输出了简易的测试报告总结：
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1flc95bhjwmj20y80lijus.jpg)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1flc95bhjwmj20y80lijus.jpg)
 
 从中我们能看到一些字段是100%，而一些不是100%。最后一列`Uncovered Lines`就是告诉我们，测试里没有覆盖到的代码行。为了更直观地看到测试的结果报告，可以到项目的根目录下找到一个`coverage`的目录，在`lcov-report`目录里有个`index.html`就是输出的html报告。打开来看看：
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1fld7tv6c91j21z20h0n0f.jpg)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fld7tv6c91j21z20h0n0f.jpg)
 
 首页是个概览，跟命令行里输出的内容差不多。不过我们可以往深了看，可以点击左侧的File提供的目录：
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1fld8bgzj3gj21z20hotc4.jpg)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fld8bgzj3gj21z20hotc4.jpg)
 
 然后我们可以看到没有被覆盖到代码行数（50）以及有一个函数没有被测试到：
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1fld8erd8g6j215w05a757.jpg)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fld8erd8g6j215w05a757.jpg)
 
 通常我们没有测试到的函数也伴随着代码行数没有被测试到。我们可以看到在本例里，app的`error`事件没有被触发过。想想也是的，我们的测试都是建立在合法的api请求的基础上的。所以自然不会触发`error`事件。因此我们需要写一个测试用例来测试这个`.on('error')`的函数。
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1fld8fyapefj21z20fy0yc.jpg)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fld8fyapefj21z20fy0yc.jpg)
 
 通常这样的测试用例并不是特别好写。不过好在我们可以尝试去触发server端的错误，对于本例来说，如果向服务端创建一个todo的时候，没有附上相应的信息（id、status、content），就无法创建相应的todo，会触发错误。
 
@@ -605,11 +605,11 @@ test('Failed to create a todo if not give the params', async () => {
 
 再进行测试，发现之前对于app.js的相关测试都已经是100%了。
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1fld8s0m0g5j20xy0lq41t.jpg)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fld8s0m0g5j20xy0lq41t.jpg)
 
 不过`controllers/todolist.js`里还是有未测试到的行数34，以及我们可以看到`% Branch`这列的数字显示的是50而不是100。`Branch`的意思就是分支测试。什么是分支测试呢？简单来说就是你的条件语句测试。比如一个`if...else`语句，如果测试用例只跑过`if`的条件，而没有跑过`else`的条件，那么`Branch`的测试就不完整。让我们来看看是什么条件没有测试到？
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1fld8yzgta5j214w0b6di6.jpg)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fld8yzgta5j214w0b6di6.jpg)
 
 可以看到是个三元表达式并没有测试完整。（三元表达式也算分支）我们测试了0的情况，但是没有测试非零的情况，所以再写一个非零的情况：
 
@@ -624,7 +624,7 @@ test('Failed to update todolist  if not update the status of todolist', async ()
 
 再次跑测试：
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1fld977icalj20x40lmdj2.jpg)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fld977icalj20x40lmdj2.jpg)
 
 哈，成功做到了100%测试覆盖率！
 
@@ -778,7 +778,7 @@ const Todolist = new Sequelize(`mysql://${process.env.DB_USER}:${process.env.DB_
 
 做完这些工作之后，再跑一次测试，一次通过：
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1fld977icalj20x40lmdj2.jpg)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fld977icalj20x40lmdj2.jpg)
 
 这样我们就完成了后端的api测试。完成了100%测试覆盖率。下面我们可以开始测试Vue的前端项目了。
 
@@ -1237,7 +1237,7 @@ beforeEach(() => {
 
 上述两个问题解决之后，我们的测试也顺利通过了：
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1flj15nzsg0j215c06aq4c.jpg)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1flj15nzsg0j215c06aq4c.jpg)
 
 接下去开始测试`Todolist.vue`这个组件了。
 
@@ -1385,7 +1385,7 @@ test('Should add a todo if handle in the right way', async () => {
 
 接下去的就是对todo的一些增删改查的操作，采用的测试方法已经和前文所述相差无几，不再赘述。至此所有的独立测试用例的说明就说完了。看看这测试通过的成就感：
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1flj2hpjeprj213606udhc.jpg)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1flj2hpjeprj213606udhc.jpg)
 
 不过在测试中我还有关于调试的一些经验想分享一下，配合调试能更好的判断我们的测试的时候发生的不可预知的问题所在。
 
@@ -1432,15 +1432,15 @@ test('Should add a todo if handle in the right way', async () => {
 
 配置完上面的配置之后，你可以在`DEBUG`面板里（不要跟我说你不知道什么是DEBUG面板~）找到名为`Debug Jest`的选项：
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1flj2s0qhxkj20og09kq3p.jpg)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1flj2s0qhxkj20og09kq3p.jpg)
 
 然后你可以在你的测试文件里打断点了：
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1flj2uakvi4j21bk09oq5s.jpg)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1flj2uakvi4j21bk09oq5s.jpg)
 
 然后运行debug模式，按那个绿色启动按钮，就能进入DEBUG模式，当运行到断点处就会停下：
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1flj2y2hpeaj21fa09u41u.jpg)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1flj2y2hpeaj21fa09u41u.jpg)
 
 于是你可以在左侧面板的`Local`和`Closure`里找到当前作用域下你所需要的变量值、变量类型等等。充分运用VSCode的debug模式，开发的时候查错和调试的效率都会大大加大。
 

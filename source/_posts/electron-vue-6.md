@@ -65,11 +65,11 @@ date: 2019-02-04 11:30:00
 
 其实CLI插件系统可以认为是无GUI的插件系统，也就是运行在命令行或者不带有可视化界面的插件系统。为什么我们开发Electron的插件系统，需要扯到CLI插件系统呢？这里需要简单回顾一下Electron的结构：
 
-![Electron结构](https://ws1.sinaimg.cn/large/8700af19ly1fncq342rk8j20cs0d63zd)
+![Electron结构](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fncq342rk8j20cs0d63zd)
 
 可以看到除了`Renderer`的界面渲染，大部分的功能是由`Main`进程提供的。对于PicGo而言，它的底层应该是一个上传流程系统，如下：
 
-![PicGo-Core](https://raw.githubusercontent.com/Molunerfinn/test/master/picgo/picgo-core-fix.jpg)
+![PicGo-Core](https://blog-1251750343.cos.ap-beijing.myqcloud.com/picgo-core-fix.jpg)
 
 1. Input（输入）：接受来自外部的输入，默认是通过路径或者完整的图片base64信息
 2. Transformer（转换器）：把输入转换成可以被上传器上传的对象（包含图片尺寸、base64、图片名等信息）
@@ -209,7 +209,7 @@ async start (input: any[]): Promise<void> {
 
 通过监听这个事件，PicGo就能做出如下的上传进度条：
 
-![progress-bar](https://raw.githubusercontent.com/Molunerfinn/test/master/picgo/picgo-2.0.gif)
+![progress-bar](https://blog-1251750343.cos.ap-beijing.myqcloud.com/picgo-2.0.gif)
 
 #### 系统通知
 
@@ -362,7 +362,7 @@ PicGo本身的实现并不复杂，基本上只是调用上述几个类实例的
 
 比如`Logger`类实现了美观的命令行日志输出：
 
-![logger](https://raw.githubusercontent.com/Molunerfinn/test/master/picgo/20180912153940.png)
+![logger](https://blog-1251750343.cos.ap-beijing.myqcloud.com/20180912153940.png)
 
 那么在其他子类里想要调用`Logger`的方法也很容易：
 
@@ -380,7 +380,7 @@ ctx.log.success('Hello world!')
 
 PicGo实现美化日志输出的库是[chalk](https://github.com/chalk/chalk)，它的作用就是用来输出花花绿绿的命令行文字：
 
-![](https://camo.githubusercontent.com/036b5e5ae84937a17ce0a1a424aeb6f7eb23863f/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f6368616c6b2f616e73692d7374796c657340383236313639376339356266333462366337373637653263626539393431613835316435393338352f73637265656e73686f742e737667)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f6368616c6b2f616e73692d7374796c657340383236313639376339356266333462366337373637653263626539393431613835316435393338352f73637265656e73686f742e737667)
 
 用起来也很简单：
 
@@ -391,7 +391,7 @@ console.log(log) // 绿色字体的Success
 
 我们打算实现4种输出类型，success、warn、info和error：
 
-![logger](https://raw.githubusercontent.com/Molunerfinn/test/master/picgo/20180912153940.png)
+![logger](https://blog-1251750343.cos.ap-beijing.myqcloud.com/20180912153940.png)
 
 于是创建如下的类：
 
@@ -903,7 +903,7 @@ picgo use uploader
 
 这个时候由`commander.js`去解析这句命令，告诉我们这个时候调用的是`use`这个命令，参数是`uploader`，那么就进入`Inquirer.js`提供的交互式界面了：
 
-![Inquirer.js](https://i.loli.net/2019/01/31/5c529491e27e4.png)
+![Inquirer.js](https://blog-1251750343.cos.ap-beijing.myqcloud.com/5c529491e27e4.png)
 
 如果你用过诸如`vue-cli3`或者`create-react-app`等类似的命令行工具一定类似的情况很熟悉。
 

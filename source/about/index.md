@@ -48,7 +48,7 @@ Linux基本操作、Vimer、 ~~Sublime熟悉~~ 、VSCode熟悉、Git熟悉。
 
 - **2017.11.18** 开坑[PicGo](https://github.com/Molunerfinn/PicGo)，学习electron的基本开发流程，边写边学。最终完成了一个我现在写博客贴图片时很方便的工具。并于12月中发布正式版，还上了少数派首页推荐。【Electron】
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1fmvr6uah8rj21z20vk7wh)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fmvr6uah8rj21z20vk7wh)
 
 - **2017.11.02** 开坑[vue-koa-demo](https://github.com/Molunerfinn/vue-koa-demo)项目的前端测试。同期写了一篇[Jest 全栈测试的经验](https://molunerfinn.com/Use-Jest-To-Test-Vue-Koa/)博客。【Jest】
 

@@ -15,7 +15,7 @@ date: 2018-06-14 15:28:00
 
 > 赶巧前不久也有一个开发者chyingp的开源项目破了1000star，也有着类似的[文章](https://juejin.im/post/5b1717a86fb9a01e3e5ce540)，祝贺！
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1fs892cewamj21ks0emq5n.jpg)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fs892cewamj21ks0emq5n.jpg)
 
 <!--more -->
 
@@ -39,21 +39,21 @@ date: 2018-06-14 15:28:00
 
 1.0.0版本的截图如下：
 
-![](https://user-images.githubusercontent.com/12621342/34242310-b5056510-e655-11e7-8568-60ffd4f71910.gif)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/34242310-b5056510-e655-11e7-8568-60ffd4f71910.gif)
 
-![](https://user-images.githubusercontent.com/12621342/34242857-d177930a-e658-11e7-9688-7405851dd5e5.gif)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/34242857-d177930a-e658-11e7-9688-7405851dd5e5.gif)
 
 基本实现了我预期的功能，类似iPic能够通过拖拽到顶部栏图标上传。并且为了今后支持windows平台（windows平台的任务栏图标不支持拖拽事件），我就做了一个主窗口，在主窗口里也有拖拽上传的区域。因为有了主窗口，我就顺便把图床的配置也放到了主窗口里。
 
 应用做出来了，我也想让更多的人用到。于是我在北邮人论坛、cnode、v2ex还有掘金都发了文章。不过一开始看到的人寥寥无几，发了文章也没多少人看到和使用。后来我在少数派上发了同样的文章，意外地被推荐到了首页。
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1fmvr6uah8rj21z20vk7wh)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fmvr6uah8rj21z20vk7wh)
 
 这次的契机让PicGo意外地有了些用户和star数。在跟使用者交流的过程中我也开始逐步往PicGo里加功能和修复bug。在1月10日的时候，PicGo更新v1.3.1版本支持了windows系统。
 
 因为开始有用户了，PicGo早期确实存在着不少功能的缺失，比如`快捷键上传`，其他常用图床的缺失等等。所以那时候是PicGo迭代最快的一段时间。通过大家在issue里的反馈，我也在不断打磨PicGo。可以看到截止6月14日，已经有61个被关闭的issue了。
 
-![](https://i.loli.net/2018/06/14/5b2223c52853f.png)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/5b2223c52853f.png)
 
 ## 项目改进
 
@@ -67,7 +67,7 @@ date: 2018-06-14 15:28:00
 
 还有一个对我以及PicGo这个项目影响深远的[issue](https://github.com/Molunerfinn/PicGo/issues/26)，ZetaoYang提出了一个想法：
 
-![](https://i.loli.net/2018/06/14/5b2228f31219a.png)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/5b2228f31219a.png)
 
 这个建议改变了我对PicGo开发的后续想法。我思考了好久，发现确实一步步增加默认的图床支持是不长远的。一个是重复性劳动太多（图床上传除了协议和加密方式不同之外，接收文件，转成base64和最后上传成功后存到本地的流程是一样的），一个是无止尽的图床支持其实也不应该。相比之下，把PicGo做成一个Core+Plugin模式的应用会更好。其中Core的部分可以单独只做图片接收和转码，并预留一些生命周期，供上传过程中不同的需求来调用。Core的部分可以单独发布成一个npm包。Plugin可以实现接入Core的生命周期，可以实现自己的上传逻辑，可以实现图片压缩、加水印等等其他功能。而PicGo只是在Core+Plugin的基础上套了一层electron的皮方便普通用户使用，而Core和Plugin可以独立拆出方便开发者使用和开发。这个也是PicGo的2.0版本将要做的事。
 

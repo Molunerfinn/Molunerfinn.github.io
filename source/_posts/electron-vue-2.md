@@ -37,11 +37,11 @@ date: 2018-01-17 10:55:00
 
 从上一篇文章结尾部分我们运行成功的一个electron-vue的[DEMO](https://molunerfinn.com/electron-vue-1/#electron-vue%E5%AE%89%E8%A3%85)来直观看看这两个进程的粗浅认识：
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1fnh28jgs8nj20ms098wge)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fnh28jgs8nj20ms098wge)
 
 可以看到Main进程管理的是这个app窗口（[BrowserWindow](https://electronjs.org/docs/api/browser-window)），而Renderer进程负责的就是我们熟悉的页面UI渲染。不过实际上，它们远远不仅如此。下面一张图能够把它们所支持、管理的electron或者原生的模块大致列出来：
 
-![main & renderer process tree](https://ws1.sinaimg.cn/large/8700af19ly1fnhcn82n7sj21wu1fmn6v)
+![main & renderer process tree](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fnhcn82n7sj21wu1fmn6v)
 
 > 图中列出来的大部分模块都是我们会在开发过程中用到的。
 
@@ -135,21 +135,21 @@ BrowserWindow模块用于创建最常见的应用窗口。对于不同系统，�
 
 mac版的
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1fncs5yv0qdj21jk0wi44h)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fncs5yv0qdj21jk0wi44h)
 
 windows版的
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1fnhdibuabmj20rq0h2whl)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fnhdibuabmj20rq0h2whl)
 
 可以看到二者在窗口顶部的操作区（最小化、最大化、关闭）和标题的位置以及菜单的位置还是有明显的不同的。它们跟系统原生的窗口是一致的。不过如果你想要美化一下也是没问题的。比如：
 
 mac版的PicGo
 
-![picgo-mac](https://ws1.sinaimg.cn/large/8700af19ly1fnhdaimi40j218g0p0dic)
+![picgo-mac](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fnhdaimi40j218g0p0dic)
 
 和windows的PicGo
 
-![picgo-windows](https://ws1.sinaimg.cn/large/8700af19ly1fnhdb9mj1uj20m80ci3yz)
+![picgo-windows](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fnhdb9mj1uj20m80ci3yz)
 
 其中mac版用了系统的操作区，而windows则没有用系统的操作区，而是用图标模拟的。不过同样的地方是都未使用系统默认的`titlebar`。这个之后会结合`renderer`进程来说。
 
@@ -250,11 +250,11 @@ const createSettingWindow = () => {
 
 比如在macOS里，`Tray`配合上图标之后就是顶部栏里的应用图标了：
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1fnijxxj5gkj215i01at9b)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fnijxxj5gkj215i01at9b)
 
 比如在windows里，`Tray`配合上图标之后就是windows右下角的应用图标了：
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1fnijzo4hgbj20gl016a9z)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fnijzo4hgbj20gl016a9z)
 
 需要注意的是，windows和macOS里，图标的大小都是`16*16`px。macOS下顶部栏的图标通常都是走`黑白`路线，所以可以为两种系统分别准备不同的图标。`PicGo`里`Tray`的生成代码大致如下：
 
@@ -321,7 +321,7 @@ function createTray () {
 
 就像PicGo实现的拖拽图片到Tray的icon上时实现图片上传的功能，就是用到了上述的一些事件：
 
-![](https://user-images.githubusercontent.com/12621342/34242310-b5056510-e655-11e7-8568-60ffd4f71910.gif)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/34242310-b5056510-e655-11e7-8568-60ffd4f71910.gif)
 
 尤其注意到在拖拽上的时候和拖拽结束后的时候icon是不一样的。在PicGo里是这样实现的，很简单：
 
@@ -345,13 +345,13 @@ electron威力强大的Menu组件，既能够生成系统菜单项，也能实�
 
 > macOS
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1fnisjmm1f9j213m074wln)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fnisjmm1f9j213m074wln)
 
 > windows
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1fnisory5p4j215c0pen3z)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fnisory5p4j215c0pen3z)
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1fnislgodz9j204k047mx8)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fnislgodz9j204k047mx8)
 
 主要分两种。
 
@@ -397,13 +397,13 @@ tray.on('right-click', () => { // 右键点击tray的时候
 
 通常来说，配置的菜单项基本从类型里来组合。比如PicGo的菜单项：
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1fnivun40bij20fg082wgo)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fnivun40bij20fg082wgo)
 
 这里面就有normal、submenu、checkbox和radio四种类型。其中默认是normal。
 
 角色的话通常对应的是一些常见的行为。比如`quit`是退出app，比如`minimize`是最小化，比如`copy`是复制。不过需要注意的是，如果你没有在创建app菜单里指定这些操作的快捷键的话，那么一些常见的快捷操作就无法在你的app里使用了。比如`ctrl+c`或者`command+c`复制这个操作，如果你没有通过`Menu.setApplicationMenu()`来设定这个快捷键的话，那么在你的electron应用里就无法执行复制的操作了。PicGo在早期版本里也犯了这个[错误]()。当时的问题是我在开发模式下是没有问题的，但是在生产模式下就无法进行复制粘贴操作。后来查了一下原因，发现原来在开发模式下，electron会置入默认的一些快捷操作菜单，如图：
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1fnjcaoo0btj20pg0fcah1)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fnjcaoo0btj20pg0fcah1)
 
 所以在生产模式如果我没有置入这些快捷键的话，使用者就无法使用了。**这个是大坑**。
 
@@ -682,11 +682,11 @@ remote模块是electron为了让一些原本在Main进程里运行的模块也�
 
 > macOS
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1fnje5uvnlrj20nc08kq3d)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fnje5uvnlrj20nc08kq3d)
 
 > windows
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1fnje4njzafj20a60543yd)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fnje4njzafj20a60543yd)
 
 这个时候就可以通过`dialog`这个模块来实现了。逻辑跟上面一样也是点击一个按钮打开一个dialog：
 

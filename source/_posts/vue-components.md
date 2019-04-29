@@ -27,7 +27,7 @@ date: 2017-06-15 14:23:00
 
 我习惯把这个东西叫做对话框，实际上还有叫做modal(弹窗)组件的[叫法](https://www.zhihu.com/question/35820643)。其实就是在页面里，弹出一个小窗口，这个小窗口里的内容可以定制。通常可以用来做登录功能的对话框。
 
-![dialog](https://ws1.sinaimg.cn/large/8700af19ly1fgoih3m6apg20kw0do4pv.gif)
+![dialog](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fgoih3m6apg20kw0do4pv.gif)
 
 这种组件就很适合通过`v-model`或者`.sync`的方式来显式的控制出现和消失。它可以直接写在页面里，然后通过data去控制——这也是最符合Vue的设计思路的组件。
 
@@ -115,7 +115,7 @@ CSS什么的就不写了，跟组件本身关系比较小。不过值得注意�
 
 这个组件类似于`element-ui`的[message](http://element.eleme.io/#/zh-CN/component/message)（消息提示）。它吸引我的最大的地方在于，它不是通过显式的在页面里写好组件的html结构通过v-model去调用的，而是通过在js里通过形如`this.$message()`这样的方法调用的。这种方法虽然跟Vue的数据驱动的思想有所违背。不过不得不说在某些情况下真的特别方便。
 
-![notice](https://ws1.sinaimg.cn/large/8700af19ly1fgoiiwtkymg20ju07m46t.gif)
+![notice](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fgoiiwtkymg20ju07m46t.gif)
 
 对于Notice这种组件，一次只要提示几个文字，给用户简单的消息提示就行了。提示的信息可能是多变的，甚至可以出现叠加的提示。如果通过第一种方式去调用，事先就得写好html结构，这无疑是麻烦的做法，而且无法预知有多少消息提示框。而通过js的方法调用的话，只需要考虑不同情况调用的文字、类型不同就可以了。
 
@@ -225,7 +225,7 @@ Vue.use(Notice)
 
 在看`element-ui`的时候，我也发现了一个很有意思的组件，是`Loading`，用于给一些需要加载数据等待的组件套上一层加载中的样式的。这个loading的调用方式，最方便的就是通过`v-loading`这个指令，通过赋值的`true/false`来控制Loading层的显隐。这样的调用方法当然也是很方便的。而且可以选择整个页面Loading或者某个组件Loading。这样的开发体验自然是很好的。
 
-![loading](https://ws1.sinaimg.cn/large/8700af19ly1fgoija6xrkg20k6082js0.gif)
+![loading](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fgoija6xrkg20k6082js0.gif)
 
 其实跟Notice的思路差不多，不过因为涉及到`directive`，所以在逻辑上会相对复杂一点。
 

@@ -43,11 +43,11 @@ date: 2018-03-20 14:40:00
 
 在开发electron应用的时候，很多时候我们只注意去查找api名，却容易忽视这个api能够使用的平台。在官方文档里，对于一些独占的api，大多都会有标识标出：
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1fpifmc1muoj21mo0ti0wa.jpg)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fpifmc1muoj21mo0ti0wa.jpg)
 
 不过需要注意的是一些未有平台标识的api里的配置项，也有可能是某个平台的独占：
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1fpifrhg1r8j21k804w0tt.jpg)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fpifrhg1r8j21k804w0tt.jpg)
 
 平时开发的过程中，用到文档的地方还是需要细细留心，避免后续不必要的麻烦。
 
@@ -59,11 +59,11 @@ date: 2018-03-20 14:40:00
 
 下面是PicGo的windows版：
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1fpig60gzw6j20m80ciwf1.jpg)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fpig60gzw6j20m80ciwf1.jpg)
 
 下面是PicGo的macOS版：
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1fpig71431kj218g0p0tav.jpg)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fpig71431kj218g0p0tav.jpg)
 
 可以发现除了颜色有些区别之外，顶部的`title-bar`操作栏也有些区别。macOS的程序窗口习惯将窗口的缩放、关闭按钮放在窗口的左上角。而windows程序则相反，它们喜欢放在窗口的右上角。所以为了迎合用户的操作习惯，我们在开发electron程序的时候也应该注意到这一点。
 
@@ -150,7 +150,7 @@ closeWindow () {
 
 针对不同的平台，我对PicGo的任务栏图标交互也有所区别。对于macOS而言，点击顶部菜单栏的时候会弹出一个小窗口：
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1fma907llb5j20m30ed46a)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fma907llb5j20m30ed46a)
 
 由于macOS的顶部栏图标可以接受拖拽事件，所以就针对macOS的顶部栏制作了顶部栏图标对应的小窗口。让大部分操作不经过主窗口也能实现。而对于windows而言，没有顶部栏，取而代之的是位于底部栏的右侧的任务栏，通常点击任务栏里的图标就会把应用的主窗口调出来。所以为了迎合不同平台的操作习惯，我对于这个地方也做了相应的兼容性适配：
 

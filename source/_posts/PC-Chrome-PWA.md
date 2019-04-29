@@ -33,7 +33,7 @@ date: 2018-03-03 16:12:00
 
 然后在地址栏输入`chrome://flags`，找到`Desktop PWAs`的选项将其`Enabled`了，然后Chrome会提示你重启浏览器。
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1fozgv6nxloj20l7050q37)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fozgv6nxloj20l7050q37)
 
 
 
@@ -45,7 +45,7 @@ date: 2018-03-03 16:12:00
 
 ### Windows平台
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1foznbd9gcdj20x10iw4mx)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1foznbd9gcdj20x10iw4mx)
 
 
 
@@ -53,7 +53,7 @@ Windows平台找到`添加到桌面`这个按钮，点击，然后会出现一�
 
 
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1foznebsdhvj20w50gwhba)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1foznebsdhvj20w50gwhba)
 
 
 
@@ -61,7 +61,7 @@ Windows平台找到`添加到桌面`这个按钮，点击，然后会出现一�
 
 
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1fozng6ajhhj20bq09hwj9)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fozng6ajhhj20bq09hwj9)
 
 
 
@@ -69,7 +69,7 @@ Windows平台找到`添加到桌面`这个按钮，点击，然后会出现一�
 
 
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1foznhijnsdj20q30gjx1u)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1foznhijnsdj20q30gjx1u)
 
 
 
@@ -83,7 +83,7 @@ Windows平台找到`添加到桌面`这个按钮，点击，然后会出现一�
 
 
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1fozny8dva4j20zk0m81kx)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fozny8dva4j20zk0m81kx)
 
 
 
@@ -91,7 +91,7 @@ Windows平台找到`添加到桌面`这个按钮，点击，然后会出现一�
 
 
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1fozo1ww7ubj20zj0cnx29)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fozo1ww7ubj20zj0cnx29)
 
 
 
@@ -99,7 +99,7 @@ Windows平台找到`添加到桌面`这个按钮，点击，然后会出现一�
 
 
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1fozo2gf2xij20zk0m8qcm)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fozo2gf2xij20zk0m8qcm)
 
 
 
@@ -107,7 +107,7 @@ Windows平台找到`添加到桌面`这个按钮，点击，然后会出现一�
 
 
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1fozo545tmij20h50470tp)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fozo545tmij20h50470tp)
 
 
 
@@ -121,7 +121,7 @@ Windows平台找到`添加到桌面`这个按钮，点击，然后会出现一�
 
 前置步骤跟之前说的一样，然后打开`chrome://apps`，找到你制作的应用，然后右键，选择`在窗口中打开`。那么就能获得跟PWA应用单独窗口的类似体验。不过它是不具备PWA离线打开的能力哦，只是纯粹的一个网页通过独立窗口打开而已。
 
-![](https://ws1.sinaimg.cn/large/8700af19ly1fp32grp8nmj21ns0s8k4a)
+![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8700af19ly1fp32grp8nmj21ns0s8k4a)
 
 目前`Desktop PWAs`还是实验性的功能，所以有可能出现不稳定的情况，依照自己的情况作出决定~
 
