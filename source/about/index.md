@@ -1,3 +1,4 @@
+---
 title: About me
 date: 2017-12-28 09:16:38
 type: "about"
@@ -9,10 +10,15 @@ type: "about"
 
 Linux基本操作、Vimer、 ~~Sublime熟悉~~ 、VSCode熟悉、Git熟悉。
 
-学习&项目经历：
+学习&项目&成长经历：
 
 ### 2019年
 
+- **2019.04.29** [PicGo](https://github.com/Molunerfinn/PicGo) star数破4500，下载量破52k。【Electron】
+- **2019.04.25** 开始做毕设，使用 `React+TypeScript` 搭建毕设前端环境。
+- **2019.04.09** 开坑[@picgo/bump-version](https://github.com/PicGo/bump-version)，是一个 `commit -> commit-lint -> changelog -> release` （代码提交、commit检测、更新日志生成、版本发布）的工作流程规范工具。 【Node.js + Git】
+- **2019.04.05** [vs-picgo](https://github.com/PicGo/vs-picgo) 并入 [PicGo-Group](https://github.com/PicGo) 成为主要项目，组建 PicGo 核心开发者团队3人。
+- **2019.03.30** 接受腾讯微信小程序团队·开发者工具组实习Offer。这是我的[实习春招经历](https://molunerfinn.com/my-2019-interview-of-summer-internship/)。
 - **2019.01.17** [hexo-theme-melody](https://github.com/Molunerfinn/hexo-theme-melody) star数破500。【hexo+hexo-theme】
 - **2019.01.13** [PicGo](https://github.com/Molunerfinn/PicGo) 发布v2.0版本，正式支持插件系统。star数破3200，下载量破26k。【Electron】
 
