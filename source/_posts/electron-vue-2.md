@@ -552,7 +552,7 @@ menu.append(new MenuItem({ label: 'Helper', type: 'checkbox', checked: true }))
 
 可能很多朋友平时开发的时候没有感觉，那是因为vue-cli里在开发模式下启动的`webpack-dev-server`帮你实现了服务端的`history-fallback`的特性。所以在实际部署的时候，至少都需要在你的web服务器程序诸如`nginx`、`apache`等配置相关的规则，让前端路由返回给`vue-router`去处理。
 
-而electron里也是如此。在开发模式下，由于使用的是`webpack-dev-server`开启的服务器，所以`BrowserWindow`加载的是来自于类似``http://localhost:9080`这样的地址的页面。而在生产模式下，却是使用的`file://`的协议，比如`file://${__dirname}/index.html`来指定窗口加载的页面。
+而electron里也是如此。在开发模式下，由于使用的是`webpack-dev-server`开启的服务器，所以`BrowserWindow`加载的是来自于类似`http://localhost:9080`这样的地址的页面。而在生产模式下，却是使用的`file://`的协议，比如`file://${__dirname}/index.html`来指定窗口加载的页面。
 
 因此，从上面的表述你也能明白了。假如我有一个子路由地址为`child`。如果不启用Hash模式，在开发模式下没啥问题，`http://localhost:9080/child`，但是在生产模式下，`file://${__dirname}/index.html/child`却是无法匹配的一条路径。因此在electron下，`vue-router`请不要使用`history`模式，而使用默认的`hash`模式。
 
