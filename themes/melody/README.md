@@ -11,6 +11,9 @@
   <a href="https://github.com/Molunerfinn/hexo-theme-melody/releases/latest">
     <img src="https://img.shields.io/github/release/Molunerfinn/hexo-theme-melody.svg?style=flat-square" alt="">
   </a>
+  <a href="https://github.com/PicGo/bump-version">
+    <img src="https://img.shields.io/badge/picgo-convention-blue.svg?style=flat-square" alt="">
+  </a>
 </p>
 
 A simple & beautiful & fast theme for Hexo.
@@ -21,23 +24,23 @@ See demo:
 - [Elody's Blog](https://elody-07.github.io)
 - [zouyaoji's Blog](https://zouyaoji.top/)
 - [flytreeleft's Blog](https://flytreeleft.org/)
-- [Crystalwindz's Blog](http://crystalwindz.com/)
+- [Crystalwindz's Blog](https://crystalwindz.com/)
 - [霪霖笙箫的博客](https://fridolph.github.io/)
 - [upupming 的博客](https://upupming.site/)
-- [徒然の博客](http://techotaku.me/)
 - [HibisciDai's blog](https://hibiscidai.com/)
 - [李牧羊](https://www.limuyang.cc/)
 - [DoubleFJ の Blog](http://putop.top)
-- [种地的小豆豆](http://www.lslqm.com)
 - [Ykk's blog](https://ykksmile.top/)
-- [Mrjoe 的博客](https://mrjoe.cc/)
-- [陆阿狸的博客](https://daialihexiaoniu.github.io/)
 - [Inno’s Blog](https://innofang.github.io/)
-- [YUGE'S BLOG](https://www.yugepower.com)
 - [SpiffyEight77's Blog](https://spiffyeight77.github.io/)
-- [JerryC](http://jerryc.me/)
-- [Yorushika Shi](https://sh.yorushika.live/)
-- [JunzhouLiu](https://liujunzhou.top/)
+- [FoolのGarden](https://gofugui.github.io/)
+- [高可用可伸缩微服务架构](https://msainaction.github.io/)
+- [Oolong Box](https://www.oolongbox.com/)
+- [Kiyoshi's Blog](https://blog.k1yoshi.com/)
+- [Sheey的小窝](https://sheey.moe/)
+- [Ahuiyo の Blog](https://ahuiyo.cn/)
+- [XIAO Blog](https://blog.xiaojianzheng.cn)
+- [Moon's Blog](https://loumoon.github.io/)
 
 If you are using `theme-melody` and want to be shown to others like above (It will be stopped when the demo sites' number up to 25), please write down your site in this [issue](https://github.com/Molunerfinn/hexo-theme-melody/issues/1)!
 

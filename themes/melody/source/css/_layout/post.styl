@@ -1,6 +1,9 @@
 headStyle(fontsize)
   padding-left: unit(fontsize + 0.1, "rem")
 
+  code
+    font-size: unit(fontsize, "rem")
+
   &:before
     top: calc(50% - unit(fontsize / 2 - 0.05, "rem"))
     font-size: unit(fontsize, "rem")
@@ -25,7 +28,7 @@ headStyle(fontsize)
   overflow: hidden
 
   &-meta
-    text-shadow: 0.1rem 0.1rem 0.2rem rgba(0, 0, 0, 0.15)
+    text-shadow: $light-shadow
 
   #post-meta
     color: $grey
@@ -56,7 +59,7 @@ headStyle(fontsize)
     height: 56px
 
   a
-    color: $light-grey
+    color: $theme-header-text-color
     text-decoration: none
     transition: all 0.3s ease-out
 
@@ -72,13 +75,18 @@ headStyle(fontsize)
     cursor: pointer
 
   #post-info
-    padding: 10rem 1rem
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    padding: 0 1rem
     width: 100%
-    color: $light-grey
+    height: unit($top_img_height, "vh")
+    color: $theme-header-text-color
     text-align: center
 
   #post-title
-    text-shadow: 0.1rem 0.1rem 0.2rem rgba(0, 0, 0, 0.15)
+    text-shadow: $light-shadow
     font-size: 1.3rem
 
   i.fa.fa-angle-right
@@ -95,8 +103,10 @@ headStyle(fontsize)
     margin-bottom: 0.5rem
 
   &__tags
-    margin-right: 0.4rem
-    padding: 0.2rem 0.6rem
+    display: inline-block
+    margin: 0 0.4rem 0.2rem 0
+    padding: 0 0.6rem
+    width: fit-content
     border: 1px solid $light-blue
     border-radius: 0.6rem
     background: $white
@@ -234,6 +244,7 @@ a
     text-decoration: none
 
   &#site-name
+    color: $theme-header-text-color
     text-decoration: none
 
 a.fancybox
@@ -256,11 +267,24 @@ img
   &:hover
     box-shadow: 0 0 8px 0 rgba(232, 237, 250, 0.6), 0 2px 4px 0 rgba(232, 237, 250, 0.5)
 
+.code-area-wrap
+  position: relative
+
+  .codeblock-language
+    position: absolute
+    z-index: 1
+    display: inline-block
+    padding: 0 0.7rem
+    color: $highlight-foreground
+    font-weight: bold
+    font-size: 0.8rem
+    line-height: 1.4rem
+
 .fa-clipboard
-  position: fixed
+  position: absolute
+  top: 0.4rem
   right: 10px
   z-index: 1
-  margin-top: -1rem
   color: $highlight-aqua
   cursor: pointer
   transition: color 0.2s
@@ -270,7 +294,7 @@ img
 
 .copy-notice
   position: absolute
-  top: 4px
+  top: 0
   right: 0
   z-index: 1
   background: darken($highlight-background, 5)
@@ -353,9 +377,11 @@ img
     background-attachment: local
 
     #post-title
+      color: $theme-header-text-color
       font-size: 1.1rem
 
   #post-title
+    color: $theme-header-text-color
     font-size: 1.1rem
 
 @media screen and (min-width: $sm)
@@ -372,3 +398,10 @@ img
       iframe
         width: $content-large-width
         height: $iframe-large-height
+
+.katex-wrap
+  overflow: auto
+
+  if hexo-config("katex") && hexo-config("katex.hide_scrollbar")
+    &::-webkit-scrollbar
+      display: none

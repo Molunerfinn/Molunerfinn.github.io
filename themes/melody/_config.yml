@@ -1,4 +1,4 @@
---- # ---------------
+# ---------------
 # Theme color for customize
 # Notice: color value must in double quotes like "#000" or may cause error!
 # ---------------
@@ -12,6 +12,8 @@
 #   hr_color: "#A4D8FA"
 #   tag_start_color: "#A4D8FA"
 #   tag_end_color: "#1B9EF3"
+#   header_text_color: "#EEEEEE"
+#   footer_text_color: "#EEEEEE"
 
 # Main menu navigation
 menu:
@@ -61,24 +63,26 @@ algolia_search:
     per_page: 10
 
 # Local search
-# Please see doc for more details: https://molunerfinn.com/hexo-theme-melody-doc/#/third-party-support?id=local-search
+# Please see doc for more details: https://molunerfinn.com/hexo-theme-melody-doc/third-party-support.html#local-search
 # ---------------
 local_search:
   enable: false
 
 # MathJax
-# Please see doc for more details: https://molunerfinn.com/hexo-theme-melody-doc/#/third-party-support?id=mathjax
+# Please see doc for more details: https://molunerfinn.com/hexo-theme-melody-doc/third-party-support.html#mathjax
 # ---------------
 mathjax:
   enable: false
   cdn: https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML
 
 # KaTeX
+# Please see doc for more details: https://molunerfinn.com/hexo-theme-melody-doc/third-party-support.html#katex
 # ---------------
 katex:
   enable: false
   cdn:
     css: https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css
+  hide_scrollbar: true
 
 # Toggle fireworks (IE >= 10)
 # ---------------
@@ -97,8 +101,8 @@ tencent_analytics:
 # ---------------
 stylesheets:
   - /css/index.css
-  # scripts loaded in the end of the body
-  # ---------------
+# scripts loaded in the end of the body
+# ---------------
 scripts:
   - /js/utils.js
   - /js/fancybox.js
@@ -109,8 +113,8 @@ scripts:
   - /js/scroll.js
   - /js/head.js
 
-  # cdn for third-party library
-  # ---------------
+# cdn for third-party library
+# ---------------
 cdn:
   css:
     fontawesome: https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css
@@ -128,12 +132,14 @@ avatar:
 
 top_img: true # false or url of img
 
+top_img_height: 60 # best range: 60 - 100
+
 post_meta:
   date_type: created # created or updated
   categories: true
   tags: true
 
-# Please see doc for more details: https://molunerfinn.com/hexo-theme-melody-doc/#/additional-package-support?id=word-counting
+# Please see doc for more details: https://molunerfinn.com/hexo-theme-melody-doc/additional-package-support.html#word-counting
 wordcount:
   enable: false
 
@@ -146,7 +152,7 @@ post_copyright:
   license: CC BY-NC-SA 4.0
   license_url: https://creativecommons.org/licenses/by-nc-sa/4.0/
 
-# Please see doc for more details: https://molunerfinn.com/hexo-theme-melody-doc/#/theme-config?id=auto-excerpt
+# Please see doc for more details: https://molunerfinn.com/hexo-theme-melody-doc/theme-config.html#auto-excerpt
 # auto_excerpt:
 #   enable: false
 #   length: 150
@@ -162,8 +168,8 @@ slide:
   mouseWheel: false
   transition: slide
   transitionSpeed: default
-  parallaxBackgroundImage: ''
-  parallaxBackgroundSize: ''
+  parallaxBackgroundImage: ""
+  parallaxBackgroundSize: ""
   parallaxBackgroundHorizontal: null
   parallaxBackgroundVertical: null
 
@@ -214,7 +220,7 @@ disqus:
 
 # valine comment system. https://valine.js.org
 # valine:
-#   enable: false # if you want use valine,please set this value is ture
+#   enable: false # if you want use valine,please set this value is true
 #   appId:  # leancloud application app id
 #   appKey:  # leancloud application app key
 #   notify: false # valine mail notify (true/false) https://github.com/xCss/Valine/wiki
@@ -249,20 +255,32 @@ busuanzi:
   site_pv_footer:
   # custom pv span for one page only
   page_pv: true
-  page_pv_header: <i class="fa fa-file-o"></i>
+  page_pv_header: <i class="fa fa-file"></i>
   page_pv_footer:
+
+# canvas_ribbon
+# See: https://github.com/hustcc/ribbon.js
+canvas_ribbon:
+  enable: false
+  size: 150
+  alpha: 0.6
+  zIndex: -1
+  click_to_change: false
 
 # Sidebar Settings
 # ---------------
-#links_title: Links
-#links:
-#Name: url
+# links_title: Links
+# links:
+# Name: url
 
 # Follow Me Button
 # follow:
 #   enable: true
 #   url: ''
 #   text: ''
+
+# controls the sidebar showing or hidden in different pages
+sidebar_display: post # all/index/post/index-none/post-none/hidden
 
 # Ads
 # ---------------
@@ -272,3 +290,29 @@ google_adsense:
   js: //pagead2.googlesyndication.com/pagead/js/adsbygoogle.js
   client: ca-pub-...........
   enable_page_level_ads: true
+
+# Google Webmaster tools verification setting
+# See: https://www.google.com/webmasters/
+google_site_verification:
+
+# Bing Webmaster tools verification setting
+# See: https://www.bing.com/webmaster/
+bing_site_verification:
+
+# Yandex Webmaster tools verification setting
+# See: https://webmaster.yandex.ru/
+#yandex_site_verification:
+
+# Baidu Webmaster tools verification setting
+# See: https://ziyuan.baidu.com/site/
+baidu_site_verification:
+
+# 360 Webmaster tools verification setting
+# see http://zhanzhang.so.com/
+qihu_site_verification:
+
+# avoid baidu transformation
+disable_baidu_transformation: true
+
+# 404 Page SubTitle
+404Text:
