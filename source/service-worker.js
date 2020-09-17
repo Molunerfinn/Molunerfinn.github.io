@@ -1,5 +1,5 @@
 "use strict"
-if(window.navigator && navigator.serviceWorker) {
+if(navigator && navigator.serviceWorker) {
   navigator.serviceWorker.getRegistrations()
   .then(function(registrations) {
     for(let registration of registrations) {
