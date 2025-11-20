@@ -120,15 +120,14 @@ filter_optimize:
       - "@fortawesome/fontawesome-free"
       - "fonts.googleapis.com"
     # make specific css content inline into the html page
-    inlines:
-      # support full path only
-      - css/main.css
+    # inlines:
+    # support full path only
   js:
     # minify all js files
     minify: true
     excludes:
     # remove the comments in each of the js files
-    remove_comments: false
+    remove_comments: true
   html:
     # minify all html files
     minify: true
