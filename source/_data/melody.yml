@@ -119,7 +119,7 @@ gitalk:
 
 adv:
   enable: true
-  info: <a href="https://go.warp.dev/picgo"> <img alt="Warp sponsorship" width="400" src="https://raw.githubusercontent.com/warpdotdev/brand-assets/refs/heads/main/Github/Sponsor/Warp-Github-LG-03.png"> </a>
+  info: <div align="center"><sup>Special thanks to:</sup><br><a href="https://go.warp.dev/picgo"><img alt="Warp sponsorship" width="400" src="https://raw.githubusercontent.com/warpdotdev/brand-assets/refs/heads/main/Github/Sponsor/Warp-Github-LG-03.png"></a><div><a href="https://go.warp.dev/picgo">Warp, the intelligent terminal for developers</a></div><a href="https://go.warp.dev/picgo">Available for MacOS, Linux, & Windows</a><br></div>
 
 since: 2015
 
