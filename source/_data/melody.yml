@@ -38,18 +38,18 @@ algolia_search:
 
 # stylesheets loaded in the <head>
 stylesheets:
-- /css/index.css
+  - /css/index.css
 
 # scripts loaded in the end of the body
 scripts:
-- /js/utils.js
-- /js/fancybox.js
-- /js/sidebar.js
-- /js/copy.js
-- /js/fireworks.js
-- /js/transition.js
-- /js/scroll.js
-- /js/head.js
+  - /js/utils.js
+  - /js/fancybox.js
+  - /js/sidebar.js
+  - /js/copy.js
+  - /js/fireworks.js
+  - /js/transition.js
+  - /js/scroll.js
+  - /js/head.js
 
 cdn:
   css:
@@ -61,7 +61,6 @@ cdn:
     fancybox: https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js
     velocity: https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js
     velocity-ui: https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js
-
 
 # Post info settings
 
@@ -79,7 +78,7 @@ social:
   twitter fa: https://twitter.com/molunerfinn
 
 post_meta:
-  date_type: created # created or updated 
+  date_type: created # created or updated
   categories: true
   tags: true
 
@@ -120,14 +119,13 @@ gitalk:
 
 adv:
   enable: true
-  info: <a href="https://lostcloud.club/auth/register?code=O58Z227227WresQi">~超快便宜好用的SSR机场点我注册~</a>
-
+  info: <a href="https://go.warp.dev/picgo"> <img alt="Warp sponsorship" width="400" src="https://raw.githubusercontent.com/warpdotdev/brand-assets/refs/heads/main/Github/Sponsor/Warp-Github-LG-03.png"> </a>
 
 since: 2015
 
 ICP:
   enable: false
-  text: 
+  text:
 
 # busuanzi count for PV / UV in site
 busuanzi:
@@ -136,15 +134,15 @@ busuanzi:
   # custom uv span for the whole site
   site_uv: true
   site_uv_header: <i class="fa fa-user"></i>
-  site_uv_footer: 
+  site_uv_footer:
   # custom pv span for the whole site
   site_pv: true
   site_pv_header: <i class="fa fa-eye"></i>
-  site_pv_footer: 
+  site_pv_footer:
   # custom pv span for one page only
   page_pv: true
   page_pv_header: <i class="fa fa-file-o"></i>
-  page_pv_footer: 
+  page_pv_footer:
 
 # Sidebar Settings
 
@@ -171,17 +169,17 @@ slide:
   hideAddressBar: true
   transition: slide
   transitionSpeed: default
-  parallaxBackgroundImage: ''
-  parallaxBackgroundSize: ''
+  parallaxBackgroundImage: ""
+  parallaxBackgroundSize: ""
   parallaxBackgroundHorizontal: null
   parallaxBackgroundVertical: null
 
 follow:
   enable: true
-  url: 'https://github.com/Molunerfinn'
-  text: 'Follow Me'
+  url: "https://github.com/Molunerfinn"
+  text: "Follow Me"
 
-google_adsense: 
+google_adsense:
   enable: true
   js: //pagead2.googlesyndication.com/pagead/js/adsbygoogle.js
   client: ca-pub-2358465699478507

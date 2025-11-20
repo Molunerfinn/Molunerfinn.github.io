@@ -129,6 +129,7 @@ cdn:
 # Post info settings
 # ---------------
 avatar:
+og_image:
 
 top_img: true # false or url of img
 

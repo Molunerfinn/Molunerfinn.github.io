@@ -24,6 +24,9 @@ html(lang=config.language)
     meta(name="keywords" content=pageKeywords)
     meta(name="author" content=pageAuthor)
     meta(name="copyright" content=pageCopyright)
+    if theme.og_image || theme.avatar
+      meta(property="og:image" content=url_for(theme.og_image || theme.avatar))
+      meta(itemprop="image" content=url_for(theme.og_image || theme.avatar))
     title= pageTitle
     !=favicon_tag(config.favicon || theme.favicon || '/melody-favicon.ico')
     if theme.stylesheets !== undefined && theme.stylesheets.length > 0

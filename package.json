@@ -3,33 +3,30 @@
   "version": "0.0.0",
   "private": true,
   "hexo": {
-    "version": "3.7.1"
+    "version": "5.4.2"
   },
   "scripts": {
-    "build": "hexo g"
+    "build": "hexo clean && hexo g && hexo algolia",
+    "server": "hexo s"
   },
   "dependencies": {
-    "hexo": "^3.1.0",
-    "hexo-algoliasearch": "^0.2.1",
-    "hexo-all-minifier": "^0.2.6",
+    "@msktmi/hexo-algoliasearch": "^1.0.1",
+    "hexo": "^5.4.2",
     "hexo-deployer-git": "^0.2.0",
-    "hexo-generator-archive": "^0.1.2",
-    "hexo-generator-category": "^0.1.2",
-    "hexo-generator-feed": "^1.1.0",
-    "hexo-generator-index": "^0.1.2",
-    "hexo-generator-sitemap": "^1.1.2",
-    "hexo-generator-tag": "^0.1.1",
-    "hexo-migrator-wordpress": "^0.1.2",
-    "hexo-renderer-ejs": "^0.1.0",
-    "hexo-renderer-jade": "^0.4.1",
-    "hexo-renderer-marked": "^0.2.4",
-    "hexo-renderer-stylus": "^0.3.1",
-    "hexo-renderer-swig": "^1.1.0",
-    "hexo-server": "^0.1.2",
+    "hexo-generator-archive": "^2.0.0",
+    "hexo-generator-category": "^2.0.0",
+    "hexo-generator-feed": "^2.0.0",
+    "hexo-generator-index": "^2.0.0",
+    "hexo-generator-sitemap": "^2.0.0",
+    "hexo-generator-tag": "^2.0.0",
+    "hexo-renderer-ejs": "^2.0.0",
+    "hexo-renderer-marked": "^2.0.0",
+    "hexo-renderer-pug": "^2.0.0",
+    "hexo-renderer-stylus": "^3.0.0",
+    "hexo-renderer-swig": "^2.0.0",
+    "hexo-server": "^2.0.0",
+    "hexo-util": "2.7.0",
     "hexo-wordcount": "^6.0.1"
   },
-  "devDependencies": {
-    "hexo-console-optimize": "0.0.5",
-    "hexo-generator-feed": "^1.1.0"
-  }
+  "devDependencies": {}
 }

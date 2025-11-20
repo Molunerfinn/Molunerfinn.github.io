@@ -3,17 +3,17 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: MARKSZのBlog 
+title: MARKSZのBlog
 subtitle: Do what you love,Love what you do
 description: For MElody
-author: Molunerfinn 
+author: Molunerfinn
 language: en
 timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://molunerfinn.com 
-root: / 
+url: https://molunerfinn.com
+root: /
 permalink: :title/
 permalink_defaults:
 
@@ -64,14 +64,17 @@ pagination_dir: page
 ## Plugins: http://hexo.io/plugins/
 ## Themes: http://hexo.io/themes/
 theme: melody
-Plugins: 
+Plugins:
   - hexo-generator-feed
-feed: 
+feed:
   type: atom
   path: atom.xml
   limit: 20
 
-algolia: 
+algolia:
+  appId: "BGLU1ICJFH"
+  apiKey: "85948beeaf121424b806828adc21c8b5"
+  indexName: "mofinn"
   chunkSize: 5000
   fields:
     - title
@@ -87,14 +90,14 @@ algolia:
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@github.com:Molunerfinn/Molunerfinn.github.io.git 
+  repo: git@github.com:Molunerfinn/Molunerfinn.github.io.git
   branch: master
 
 sitemap:
   path: sitemap.xml
 
-# Optimize
-## Optimize
+  # Optimize
+  ## Optimize
   # Defaults
   image_min: true
   css_concat: true
@@ -104,22 +107,39 @@ sitemap:
   html_min: true
   gzip: true
 
-css_minifier:
+filter_optimize:
   enable: true
-  exclude: 
-    - '*.min.css'
-js_minifier:
-  enable: true
-  mangle: true
-  exclude: 
-    - '*.min.js'
-image_minifier:
-  enable: false
+  # static resource versioning
+  versioning: false
+  css:
+    # minify all css files
+    minify: true
+    excludes:
+    # use preload to load css elements dynamically
+    delivery:
+      - "@fortawesome/fontawesome-free"
+      - "fonts.googleapis.com"
+    # make specific css content inline into the html page
+    inlines:
+      # support full path only
+      - css/main.css
+  js:
+    # minify all js files
+    minify: true
+    excludes:
+    # remove the comments in each of the js files
+    remove_comments: false
+  html:
+    # minify all html files
+    minify: true
+    excludes:
+  # set the priority of this plugin,
+  # lower means it will be executed first, default of Hexo is 10
+  priority: 12
 
 owner: Molunerfinn
 comment_repo: Molunerfinn.github.io
 labels: ["comment"]
-
 # offline:
 #   maximumFileSizeToCacheInBytes: 10485760
 #   staticFileGlobs:
@@ -139,7 +159,7 @@ labels: ["comment"]
 #     - urlPattern: /*
 #       handler: cacheFirst
 #       options:
-#         origin: unpkg.com 
+#         origin: unpkg.com
 #     - urlPattern: /*
 #       handler: cacheFirst
 #       options:

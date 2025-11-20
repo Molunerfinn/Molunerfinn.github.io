@@ -11,8 +11,7 @@ install:
   - npm install
 
 before_script:
- # - npm install -g gulp
-
+  # - npm install -g gulp
 
 script:
   - hexo clean && hexo algolia && hexo g
@@ -24,7 +23,6 @@ script:
   - git commit -m "Update docs"
   - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
 
-
 # after_script:
 #   - cd ../
 #   - chmod +x ./bin/autoissue
@@ -35,5 +33,5 @@ branches:
   only:
     - hexo
 env:
- global:
-   - GH_REF: github.com/Molunerfinn/Molunerfinn.github.io.git
+  global:
+    - GH_REF: github.com/Molunerfinn/Molunerfinn.github.io.git

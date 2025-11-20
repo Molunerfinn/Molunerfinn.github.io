@@ -2,12 +2,12 @@
 title: PicGo——一个基于Electron的图片上传+简单管理的工具 
 tags: 
   - web
-  - vue
-  - electron
+  - Vue
+  - Electron
 categories:
   - Web
   - 开发
-  - electron
+  - Electron
 date: 2017-12-13 11:11:00
 ---
 
