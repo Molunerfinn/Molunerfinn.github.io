@@ -9,7 +9,7 @@ date: 2025-11-23 00:00
 
 2017 年 11 月 28 日，还在大学宿舍里的我，提交了 PicGo 的第一个 commit，距今已经 8 年。现在看来，时间是过得真快啊。
 
-![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/image.png)
+![](https://pics.molunerfinn.com/blog/image.png)
 
 如果你不知道 PicGo 是什么东西，也不会妨碍你阅读。从我提交它的第一个 commit 的那刻起，命运的齿轮就已经悄悄开始转动。我的研究生生涯、实习、工作都有它的影子，甚至我自己想要做的事情，我想学习的东西，也受到它很大的影响。
 
@@ -23,7 +23,7 @@ date: 2025-11-23 00:00
 
 在写 PicGo 之前，我最主要的学习 & 开源的项目是 [hexo-theme-melody](https://github.com/Molunerfinn/hexo-theme-melody)，也就是我的博客所用的主题。在这个主题上，各种天马行空的想法，感觉很赞的交互、很棒的 UI 我都在这个主题上基于它的风格自己实现了一遍。而在写 PicGo 之后，由于经历有限，这个项目的维护就逐步滞后以至于最后基本不怎么维护了，并由此催生了 hexo 社区另一个很知名的主题 [hexo-theme-butterfly](https://github.com/jerryc127/hexo-theme-butterfly) ，这个主题是基于 hexo-theme-melody 二次开发而来，也感谢作者把 hexo-theme-melody 放到致谢中。
 
-![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/image%201.png)
+![](https://pics.molunerfinn.com/blog/image%25201.png)
 
 我是在写博客的时候想要个好看点的主题，就自己写了上面那个开源项目。而你一旦开始写博客就无法避免的一个问题：你要如何往你的博客里贴图。
 
@@ -45,7 +45,7 @@ date: 2025-11-23 00:00
 
 可以看到要在 markdown 里贴一张图片，至少需要 1～2 分钟。当时我就在想有没有什么办法能够提高这个效率呢？于是我就在网上找解决方案，还真给我找到了，有一类工具叫做图床工具，就是专门用来解决这个问题的。当时我在 mac 上发现了一款叫做 [iPic](https://toolinbox.net/iPic/) 的工具非常吸引我：
 
-![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/006tKfTcgy1fewqw208xmg30j60aske8.gif)
+![](https://pics.molunerfinn.com/blog/006tKfTcgy1fewqw208xmg30j60aske8.gif)
 
 通过简单的拖拽，就能快速上传一张图片，并且把图片链接放到你的剪贴板里。这样的话，写 markdown 传图这件事情就变得非常简单：
 
@@ -63,25 +63,25 @@ date: 2025-11-23 00:00
 
 于是我就在 11.18 开始边学边写了第一版的 PicGo，现在看来它真的非常简陋，但是已经有了之后版本的基本雏形。
 
-![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/image%202.png)
+![](https://pics.molunerfinn.com/blog/image%25202.png)
 
 写完第一版之后，我自己感觉还是很好用的，就想着推广一下。我尝试了很多平台效果都比较一般。最后是在少数派上发了一篇[《PicGo：基于 Electron 的图片上传工具》](https://sspai.com/post/42310) 之后，被推荐上了少数派的首页，效果非常明显。我记得很清楚，PicGo 的 GitHub Star 数在上完少数派首页后一下子就突破了 500。对当时的我来说真是无法想象，是非常有成就感的事情。
 
 在接下来的一两年里，我除了在实验室打工以外，剩下的业余时间基本都花在迭代、更新 PicGo 上。同时我在开发 PicGo 的过程中，也在不断学习和总结。我把我的经验、遇到的问题，最终凝聚到了我自己的博客[《Electron-vue开发实战》](https://molunerfinn.com/electron-vue-1/)中，这个系列全网的阅读量有几十万。当时国内市面上并没有系统性的 Electron 开发教程，大部分都是 API 文档搬运工。所以我的教程其实影响了很多后来学习 Electron 开发的人。比如 [gridea](https://github.com/getgridea/gridea) 的作者就看过它并给了好评；比如 [rubick](https://github.com/rubickCenter/rubick) 的作者就加过我的微信，他说他是跟着 PicGo 一步步成长的。时至今日，你在谷歌上搜索“electron vue 开发实战”，第一条依然是我的博客。
 
-![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/image%203.png)
+![](https://pics.molunerfinn.com/blog/image%25203.png)
 
 PicGo 1.x 版本是在不断支持新的图床（比如一开始只有微博和七牛图床）的过程中迭代。这个过程虽然能够一直有事情做，但是市面上的图床服务商那么多，每个都需要我手动做适配，后期出问题的情况下，维护成本高、精力无法跟上，而且 PicGo 会做成一个臃肿的图床服务商的集散中心。但是不做这些图床服务商的支持，又会让 PicGo 的用户群体受限。
 
 正当我在苦恼的时候，一个划时代的 [issue](https://github.com/Molunerfinn/PicGo/issues/26#issuecomment-370105520) 点醒了我，这个用户向我提的意见是「希望能把对各种图床的支持，做成 插件化 的管理。Core + Plugins 这样的做法是否可行？」。可行，当然可行。类似 VSCode 一样，本体管好基本的功能，其他额外的能力让插件做就行。
 
-![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/image%204.png)
+![](https://pics.molunerfinn.com/blog/image%25204.png)
 
 于是 PicGo 在我开发到 1.6 版本之后，就停止了内置图床服务商的开发，转向了如何实现一个 Core + Plugins 架构的道路上。我之前并没有做过任何插件系统的开发，但是我用过一些带有插件系统的工具，比如 Webpack、VSCode 等。一开始我想着是否能复用他们底层已经实现的能力，比如 Webpack 底层的 [tapable](https://github.com/webpack/tapable) 。但是后来仔细想了之后，我觉得 PicGo 的上传图片流程没有那么复杂，用 tapable 的话有种杀鸡用牛刀的感觉。所以最终我还是决定自己实现一份，反正是我自己的项目，就当做学习，边学边写就是了。
 
 开发插件系统之前，最重要的一件事情就是我把 PicGo 抽象出了一个底层的流水线模型，从 input 到 output，然后这里面的每个模块、事件钩子都是可以被插件化的，能够极大提升它的插件自由度。这个模型可以说是奠定了 PicGo 后续迭代的思路和方向，而最终的事实证明，它是成功的，这个我们可以放到后面说。
 
-![PicGo 底层模型](https://blog-1251750343.cos.ap-beijing.myqcloud.com/image%205.png)
+![PicGo 底层模型](https://pics.molunerfinn.com/blog/image%25205.png)
 
 想清楚这个模型之后，我就开始了边学边写之旅。这个过程其实真的要学习的东西非常多，写一个插件系统要考虑的事情不只是插件系统本身，要考虑很多东西，比如：
 
@@ -167,7 +167,7 @@ PicGo 1.x 版本是在不断支持新的图床（比如一开始只有微博和�
 
 终于在这个项目开始 3 个月之后，终于跑通了第一个 MVP。后来经过一些性能优化、问题修复之后， 21 年 7 月正式发布到线上。到现在，这个真机调试 2.0 的整体架构还是没有发生非常大的变化，依旧还在运行。现在你所用的每个微信小程序，都需要经过它来进行真机调试。后来借此还去了趟 [T Web](https://tweb.tencent.com/#/) 做了个微信小程序真机调试的技术分享，这也是我第一次做讲师做对外的技术分享。
 
-![T Web 的分享](https://blog-1251750343.cos.ap-beijing.myqcloud.com/20251122102143261.png)
+![T Web 的分享](https://pics.molunerfinn.com/blog/20251122102143261.png)
 
 ### 下半场
 
@@ -225,13 +225,13 @@ PicGo 1.x 版本是在不断支持新的图床（比如一开始只有微博和�
 
 我离职的时候，我的工作拆散交接给了 8 个同事。二月底，我正式离开了我工作了 956 天的鹅厂。
 
-![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/BB2F6422-AE76-4212-A001-D4EC9E364B6F_4_5005_c.jpeg)
+![](https://pics.molunerfinn.com/blog/BB2F6422-AE76-4212-A001-D4EC9E364B6F_4_5005_c.jpeg)
 
 ### 开心的事
 
 当然，这几年里也有不少开心的事情。22 年 6 月的时候，我跟对象买房了，需要 24 年才交楼（现在看看可能是站在了最后一波高峰，哈哈），但是至少确定了我们的小家；国庆回家订了婚，然后回广州后就跟对象领证了（那个时候我们已经谈了 6 年了），终于可以叫老婆了。
 
-![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/E50886CC-24FB-4B10-9F5A-BF682D6D3036_1_102_o.jpeg)
+![](https://pics.molunerfinn.com/blog/E50886CC-24FB-4B10-9F5A-BF682D6D3036_1_102_o.jpeg)
 
 PicGo 在这个期间里更新到了 2.3.1 版本，GitHub start 19k+，下载量达到了 640k+；成为了 Typora 、Marktext 等文本编辑工具官方支持的图片上传工具；腾讯云官方推荐的图床软件；社区贡献的插件数量也到了 50+；我想，作为一个我只能业余时间抽空开发的项目来说，它已经远远超出了我的预期。
 
@@ -243,13 +243,13 @@ PicGo 在这个期间里更新到了 2.3.1 版本，GitHub start 19k+，下载�
 
 总之，感谢在微信的经历，在这里跟很多很厉害的大佬们学习了非常多知识，掌握了很多技术以及学习未知的方法；也感谢我自己愿意迈出这座城，我收获了很多同事的友谊，也得到了很多的帮助，感谢你们。
 
-![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/A399C7CF-A77F-4523-9D67-42FE68048AD2_1_102_o.jpeg)
+![](https://pics.molunerfinn.com/blog/A399C7CF-A77F-4523-9D67-42FE68048AD2_1_102_o.jpeg)
 
 ## 2023.2 ~ 2025.11
 
 在美国，宠物服务的商家分成好多种类型。比如 Grooming 就是提供宠物剪毛、洗澡这类服务的商家。它们又分成了 Salon（开实体店的）和 Mobile（开着房车的，如下图），尤其后者在美国是一种非常特别的商家类型，买或者租一辆房车，就可以开始自己的 business。 MoeGo 做的事情就是给这些商家提供电子化的平台（Web & App），方便他们管理自己的日程、员工排班、收发顾客的消息，以及对外提供在线预约的网站等。美国的人工很贵，做一次剪毛、洗澡可能就要大几十上百刀。而 MoeGo 的一个月订阅费也不便宜，也要几十到 200 多刀，在国内这个事情不敢想。但是如果使用了 MoeGo 之后能获得更多的订单，可能一单就能回本。所以从这样的角度看的话，商家用了之后生意变好了就会愿意继续续费下去。同时 MoeGo 不仅做 SaaS 订阅，还自己做支付方式，可以根据商家的交易流水抽点，所以商家生意做得越好，MoeGo 的收入也会越高。这些也是我认为 MoeGo 的商业模式能说服我的原因。
 
-![Mobile grooming](https://blog-1251750343.cos.ap-beijing.myqcloud.com/image%206.png)
+![Mobile grooming](https://pics.molunerfinn.com/blog/image%25206.png)
 
 从微信离职后没几天，我就入职了 MoeGo。根据一开始跟 HR 的协定，我需要去深圳驻场办公一个月，熟悉一下工作、同事等，然后才能回广州远程。公司那个时候人还不多，就几十个人，其中还有一部分同事是在美区的。因为人不多，所以深圳的办公点我们甚至一开始还是租用的类似共享办公室的场地。不过虽然硬件条件跟微信没法比，但是公司里每个人给我的感觉都是朝气蓬勃的，我想这个可能就是创业公司的氛围吧，我觉得我应该是来对地方了。
 
@@ -349,15 +349,15 @@ Grooming 其实只是宠物服务领域一个比较垂直，比较小的类别�
 
 最后，感谢在 MoeGo 认识的朋友们，感谢你们的支持与帮助，我自认为我做得还不错，就是遗憾无法跟你们一起走到最后了。离职前，很多同学送了我礼物，也让我非常感动，谢谢你们🙏
 
-![组员送的乐高](https://blog-1251750343.cos.ap-beijing.myqcloud.com/A66CAE9F-454F-41B6-A267-EC8B66DEA359_1_105_c.jpeg)
+![组员送的乐高](https://pics.molunerfinn.com/blog/A66CAE9F-454F-41B6-A267-EC8B66DEA359_1_105_c.jpeg)
 
-![组员们集资送我的 3D 打印机](https://blog-1251750343.cos.ap-beijing.myqcloud.com/64F02D3A-47CD-4F90-A3BC-83C6E2821F44_1_105_c.jpeg)
+![组员们集资送我的 3D 打印机](https://pics.molunerfinn.com/blog/64F02D3A-47CD-4F90-A3BC-83C6E2821F44_1_105_c.jpeg)
 
-![小伙伴送的盲盒](https://blog-1251750343.cos.ap-beijing.myqcloud.com/91cb0e22b8cd9d7c495a0da6926f1724.jpg)
+![小伙伴送的盲盒](https://pics.molunerfinn.com/blog/91cb0e22b8cd9d7c495a0da6926f1724.jpg)
 
-![小伙伴送的显示器挂灯](https://blog-1251750343.cos.ap-beijing.myqcloud.com/7cbddd730addb5c7ee9849a40ec759c8.jpg)
+![小伙伴送的显示器挂灯](https://pics.molunerfinn.com/blog/7cbddd730addb5c7ee9849a40ec759c8.jpg)
 
-![公司送的按摩枕](https://blog-1251750343.cos.ap-beijing.myqcloud.com/5c47b72934f2b17eff8b4dc42ec66273.jpg)
+![公司送的按摩枕](https://pics.molunerfinn.com/blog/5c47b72934f2b17eff8b4dc42ec66273.jpg)
 
 ### 开心的事
 
@@ -365,23 +365,23 @@ Grooming 其实只是宠物服务领域一个比较垂直，比较小的类别�
 
 23 年的五一假期，我们去了成都，看到了胖乎乎的熊猫，跟在电视里看到的感觉还是有很大不同，非常可爱，我们甚至还拍到了 5 只熊猫排排坐吃竹子哈哈。
 
-![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/257715F8-AFE6-465B-9B73-1329B284D779_4_5005_c.jpeg)
+![](https://pics.molunerfinn.com/blog/257715F8-AFE6-465B-9B73-1329B284D779_4_5005_c.jpeg)
 
 同月，跟老婆去拍了婚纱照
 
-![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/LZ2304080025-0078.jpg)
+![](https://pics.molunerfinn.com/blog/LZ2304080025-0078.jpg)
 
 7 月，老婆神级的手速抢到了蔡依林的演唱会。时隔多年去听演唱会，现场的感觉还是很棒的。
 
-![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/00E9121E-D1FF-4F11-9E9D-BAA82FAC0229_1_105_c.jpeg)
+![](https://pics.molunerfinn.com/blog/00E9121E-D1FF-4F11-9E9D-BAA82FAC0229_1_105_c.jpeg)
 
 9 月，我们还一起去听了西城男孩的演唱会，My love 一出口，就知道有没有啊。
 
-![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/EDF39FA2-5EFB-4DD7-A9F2-F15EF7E3AE17_1_102_o.jpeg)
+![](https://pics.molunerfinn.com/blog/EDF39FA2-5EFB-4DD7-A9F2-F15EF7E3AE17_1_102_o.jpeg)
 
 10 月去听了五月天的演唱会，第一次在内场听演唱会，其实体验很不好，因为全程只能被迫站着了 hhh。
 
-![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/FEAE74CE-542F-42E1-8A25-1356F94A917B_1_105_c.jpeg)
+![](https://pics.molunerfinn.com/blog/FEAE74CE-542F-42E1-8A25-1356F94A917B_1_105_c.jpeg)
 
 24 年 1 月初，在老家办了婚礼，去参加的同学都说是吃过的最好吃的婚宴，不过我们两个自己都没咋吃到，哈哈。
 
@@ -389,33 +389,33 @@ Grooming 其实只是宠物服务领域一个比较垂直，比较小的类别�
 
 6 月，跑去惠州听了杨千嬅的演唱会，现场还来了山鸡哥，值回票价！（这一年来真的听了好多演唱会呀）
 
-![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/DF91818F-1C86-4F36-8CAB-CE469CF61302_1_102_o.jpeg)
+![](https://pics.molunerfinn.com/blog/DF91818F-1C86-4F36-8CAB-CE469CF61302_1_102_o.jpeg)
 
 6 底月到 10 月，因为新房收楼啦，我们就不得不三天两头往新家跑，监督装修，选材料，选家具家电啥的，最终在 10 月份把装修都弄完了。装修的坑，如果之后我有时间，也可以再专门写写。
 
 9 月份的时候，趁着中秋假期，请了几天假，跟老婆去了趟新疆（南疆），我们先落地喀什玩了两天，然后自驾前往塔县，在喀什往返塔县的路上再顺路玩一些其他的景点。除了人文、美食，我觉得南疆的风景也很👍。
 
-![不知道是什么雪山，在路途中看到的，很壮观](https://blog-1251750343.cos.ap-beijing.myqcloud.com/IMG_2495.jpg)
+![不知道是什么雪山，在路途中看到的，很壮观](https://pics.molunerfinn.com/blog/IMG_2495.jpg)
 
 去盘龙古道的时候，有个标语感觉很赞。希望人生尽是坦途吧，哈哈。
 
-![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/CBE070A8-F214-4AFD-A7C9-BBE2029C4D59_1_105_c.jpeg)
+![](https://pics.molunerfinn.com/blog/CBE070A8-F214-4AFD-A7C9-BBE2029C4D59_1_105_c.jpeg)
 
 也是这次旅行，让我感觉我真的是很喜欢开车，我很享受开车给我带来的放松的感觉。
 
 25 年 3 月 8 日，我们正式搬入了新家啦。（不过我刚搬进新家，第二天我就被叫去深圳出差三周了。）
 
-![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/8197A1A7-9F9D-41CF-B4E5-23F707A091A9_1_102_o.jpeg)
+![](https://pics.molunerfinn.com/blog/8197A1A7-9F9D-41CF-B4E5-23F707A091A9_1_102_o.jpeg)
 
 6 月份的时候，终于瞅准一个空隙，请了一周的假去了趟西藏。除了有点高反以外，其他真的都很棒，西藏的风光也是独一档。我真的好喜欢开车啊！
 
-![羊卓雍错，原图直出](https://blog-1251750343.cos.ap-beijing.myqcloud.com/C5849684-BA81-4FCC-B947-C7E844FF5722_1_102_a.jpeg)
+![羊卓雍错，原图直出](https://pics.molunerfinn.com/blog/C5849684-BA81-4FCC-B947-C7E844FF5722_1_102_a.jpeg)
 
-![巴松措，原图直出](https://blog-1251750343.cos.ap-beijing.myqcloud.com/73A7FF7C-48FF-4391-B706-AC7A51C387BC_1_102_a.jpeg)
+![巴松措，原图直出](https://pics.molunerfinn.com/blog/73A7FF7C-48FF-4391-B706-AC7A51C387BC_1_102_a.jpeg)
 
 25 年 10 月，Warp （一个很好用的终端工具）发来一个要赞助 PicGo 的邮件，让我非常惊喜，我没想到 PicGo 这个其实还没怎么做海外推广的项目，居然能收到来自海外团队的赞助。
 
-![](https://blog-1251750343.cos.ap-beijing.myqcloud.com/image%207.png)
+![](https://pics.molunerfinn.com/blog/image%25207.png)
 
 后来我跟他们简单交流了一下，愉快地接受了他们的[赞助](https://github.com/sponsors/Molunerfinn)（不多，但是得到的肯定是无价），前三个月会是个试用期，先看看效果再决定继不继续。为此我还需要开通 Stripe 和 GitHub Sponsor 功能，这个我可以后续放到一个单独的文章里说。
 
