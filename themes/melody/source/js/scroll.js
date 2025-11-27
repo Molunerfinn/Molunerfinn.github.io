@@ -72,7 +72,7 @@ $(function () {
 
   // scroll to a head(anchor)
   function scrollToHead (anchor) {
-    $(anchor).velocity('stop').velocity('scroll', {
+    $(decodeURI(anchor)).velocity('stop').velocity('scroll', {
       duration: 500,
       easing: 'easeInOutQuart'
     })
@@ -142,7 +142,7 @@ $(function () {
       updateAnchor(currentId)
 
       $('.toc-link').removeClass('active')
-      var _this = $('.toc-link[href="' + currentId + '"]')
+      var _this = $('.toc-link[href="' + encodeURI(currentId) + '"]')
       _this.addClass('active')
 
       var parents = _this.parents('.toc-child')
