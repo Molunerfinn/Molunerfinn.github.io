@@ -180,7 +180,7 @@ follow:
   text: "Follow Me"
 
 google_adsense:
-  enable: true
+  enable: false
   js: //pagead2.googlesyndication.com/pagead/js/adsbygoogle.js
   client: ca-pub-2358465699478507
   enable_page_level_ads: true
