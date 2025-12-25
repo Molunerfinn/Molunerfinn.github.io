@@ -1,0 +1,159 @@
+<!doctype html><html lang=en><meta charset=UTF-8><meta content="IE=edge" http-equiv=X-UA-Compatible><meta content="width=device-width,initial-scale=1,maximum-scale=1" name=viewport><meta content="hexo-theme-melody v1.5 supports slides & iframe" name=description><meta content=hexo name=keywords><meta content=Molunerfinn,undefined name=author><meta content=Molunerfinn name=copyright><title>hexo-theme-melody v1.5 supports slides & iframe | MARKSZのBlog</title><link rel="shortcut icon" href=/favicon.ico><link href=https://cdn.jsdelivr.net/npm/reveal.js@3.6.0/css/reveal.min.css rel=stylesheet><link href=https://cdn.jsdelivr.net/npm/reveal.js@3.6.0/css/theme/night.css rel=stylesheet><link href=https://cdn.jsdelivr.net/npm/reveal.js@3.6.0/lib/css/zenburn.min.css rel=stylesheet><meta content="Hexo 8.1.1" name=generator><link href=/atom.xml rel=alternate title=MARKSZのBlog type=application/atom+xml><body><div class=reveal><div class=slides><section data-separator="===" data-separator-vertical="==" data-charset=utf-8 data-markdown><script type=text/template>
+## hexo-theme-melody <small>v1.5</small>
+<!-- .slide: data-background="#49B1F5" -->
+
+Supports iframe & slides. You can use a layout called `slides` to enabled the slides layout.
+
+Also you can add a `iframe` front-matter with the `slides` layout in your `md` file to enable the iframe page.
+
+===
+
+## Steps
+<!-- .slide: data-transition="concave" data-background="#C7916B" -->
+
+### 1. Add a slides page
+
+```bash
+hexo new page slides
+cd ./source/slides
+```
+
+===
+
+### 2. Add the layout type
+<!-- .slide: data-transition="fade" data-background="#00C4B6" -->
+
+```bash
+vim index.md
+```
+
+Add a type called `slides`：
+
+
+```yaml
+title: slides
+date: 2018-03-06 20:24:48
+type: slides
+```
+
+===
+
+### 3. Modified the melody.yml
+<!-- .slide: data-transition="convex" data-background="#1B9EF3" -->
+
+Add slides default config:
+
+
+```yaml
+slide:
+  separator: whatever you like
+  separator_vertical: whatever you like
+  charset: utf-8
+  theme: black
+  mouseWheel: false
+  transition: slide
+  transitionSpeed: default
+  parallaxBackgroundImage: ''
+  parallaxBackgroundSize: ''
+  parallaxBackgroundHorizontal: null
+  parallaxBackgroundVertical: null
+```
+
+> See reveal.js [config](https://github.com/hakimel/reveal.js#configuration)
+
+===
+
+### 4. Write a md file with slides layout
+<!-- .slide: data-transition="zoom" data-background="#F47466" -->
+
+In `_posts` folder, add a `md` file.
+
+For example:
+
+```
+title: hexo-theme-melody v1.5 supports iframe & slides
+date: 2018-03-06 19:57:52
+layout: slides
+---
+
+// balalala...
+```
+
+Then you will get a post of slides type.
+
+===
+
+## Slides layout with iframe
+
+If you want to add a website whatever you like within an iframe, try this:
+
+In `_posts` folder, add a `md` file.
+
+```
+title: hexo-theme-melody v1.5 supports iframe & slides
+date: 2018-03-06 19:57:52
+layout: slides
+iframe: https://the-url-whatever-you-like
+---
+```
+
+Then you will get a post of iframe.
+
+===
+
+## Configurate single slides in md
+<!-- .slide: data-transition="convex" data-background="#69C282" -->
+
+The slides config in `meldoy.yml` can change whole slides page.
+
+But if you set the config in the md file, it will effect the single page.
+
+==
+
+For example:
+
+```
+title: hexo-theme-melody v1.5 supports iframe & slides
+date: 2018-03-06 19:57:52
+layout: slides
+slide:
+  theme: white
+  transition: zoom
+---
+
+// balalala...
+```
+
+===
+
+# Enjoy!
+<!-- .slide: data-background="#49B1F5" -->
+</script></section></div></div><script src=https://cdn.jsdelivr.net/npm/reveal.js@3.6.0/lib/js/head.min.js></script><script src=https://cdn.jsdelivr.net/npm/reveal.js@3.6.0/js/reveal.min.js></script><script>Reveal.initialize({
+  mouseWheel: false,
+  transition: 'slide',
+  transitionSpeed: 'default',
+  parallaxBackgroundImage: '',
+  parallaxBackgroundSize: '',
+  parallaxBackgroundHorizontal: '',
+  parallaxBackgroundVertical: '',
+  markdown: {
+    smartypants: true
+  },
+  dependencies: [
+    { src: '/js/third-party/reveal/marked.min.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: '/js/third-party/reveal/markdown.min.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    // Syntax highlight for <code> elements
+    { src: '/js/third-party/reveal/highlight.min.js', async: true, callback: function() {
+      // issue #218
+      setTimeout(function () {
+        hljs.initHighlighting();
+      }, 0)
+    } },
+    // Zoom in and out with Alt+click
+    { src: '/js/third-party/reveal/zoom.min.js', async: true },
+    // Speaker notes
+    { src: '/js/third-party/reveal/notes.min.js', async: true },
+    // MathJax
+    { src: '/js/third-party/reveal/math.min.js', async: true }
+  ]
+});</script>
