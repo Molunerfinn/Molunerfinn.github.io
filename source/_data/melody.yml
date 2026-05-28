@@ -119,7 +119,7 @@ gitalk:
 
 adv:
   enable: true
-  info: <div align="center"><sup>Special thanks to:</sup><br><a href="https://go.warp.dev/picgo"><img alt="Warp sponsorship" width="400" src="https://raw.githubusercontent.com/warpdotdev/brand-assets/refs/heads/main/Github/Sponsor/Warp-Github-LG-03.png"></a><div><a href="https://go.warp.dev/picgo">Warp, the intelligent terminal for developers</a></div><a href="https://go.warp.dev/picgo">Available for MacOS, Linux, & Windows</a><br></div>
+  info: '<div align="center"><sup>Special thanks to:</sup><br><a href="https://go.warp.dev/picgo"><img alt="Warp sponsorship" width="400" src="https://raw.githubusercontent.com/warpdotdev/brand-assets/refs/heads/main/Github/Sponsor/Warp-Github-LG-03.png"></a><div><a href="https://go.warp.dev/picgo">Warp, the intelligent terminal for developers</a></div><a href="https://go.warp.dev/picgo">Available for MacOS, Linux, & Windows</a><br></div><div style="margin-top:15px"><style>.blog-footer-ad{width:100%;height:90px}@media(max-width:767px){.blog-footer-ad{height:50px}}</style><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2358465699478507" crossorigin="anonymous"></script><ins class="adsbygoogle blog-footer-ad" style="display:block" data-ad-client="ca-pub-2358465699478507" data-ad-slot="3122636755" data-ad-format="horizontal"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>'
 
 since: 2015
 
